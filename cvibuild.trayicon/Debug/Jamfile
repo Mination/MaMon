@@ -29,15 +29,15 @@ HDRS = 	"c:\\program files (x86)\\national instruments\\cvi2013\\toolslib\\activ
 	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
 	;
 include Jamfile_instr ;
-LOCATE on "trayicon.c" = "c:\\Users\\User\\Desktop\\MaMon" ;
-LOCATE on "trayicon.h" = "c:\\Users\\User\\Desktop\\MaMon" ;
-Object "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" : "c:\\Users\\User\\Desktop\\MaMon\\trayicon.c" ;
-FILENUM on "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = 1 ;
-DEFPROTS on "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj.cvidefprots" ;
-OUTFILE on "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj.out" ;
-PrjObjects += "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" ;
-Object "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\resources.res" : "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\resources.in.rc" ;
-MainFromObjects "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
-Depends "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\link_options.txt" ;
-Depends "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\resources.res" ;
-Depends all : "c:\\Users\\User\\Desktop\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" ;
+LOCATE on "trayicon.c" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon" ;
+LOCATE on "trayicon.h" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon" ;
+Object "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\trayicon.c" ;
+FILENUM on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = 1 ;
+DEFPROTS on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj.cvidefprots" ;
+OUTFILE on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj.out" ;
+PrjObjects += "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon.obj" ;
+Object "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\resources.res" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\resources.in.rc" ;
+MainFromObjects "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\link_options.txt" ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\resources.res" ;
+Depends all : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.trayicon\\Debug\\trayicon_dbg.exe" ;

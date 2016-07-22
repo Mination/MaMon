@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 1302
-Pathname = "/c/Users/User/Desktop/MaMon/trayicon.cws"
+Pathname = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2013"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2013"
@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "trayicon.prj"
-Drag Bar Left = 196
+Drag Bar Left = 160
 Window Top = 120
-Window Left = 727
-Window Bottom = 900
-Window Right = 1517
+Window Left = 666
+Window Bottom = 622
+Window Right = 1170
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -32,7 +32,7 @@ Break At First Statement = False
 Sort Type = "File Name"
 Number of Opened Files = 2
 Window Confinement Region Enabled = True
-MainColumnWidth = 179
+MainColumnWidth = 143
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -52,25 +52,18 @@ Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Users/User/Desktop/MaMon/trayicon.c"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.c"
 File Type = "CSource"
-Disk Date = 3552051884
+Disk Date = 3552059059
 In Projects = "1,"
 Window Top = 38
 Window Z-Order = 1
-Source Window State = "1,25,25,25,11,25,25,0,0,211,0,0,0,0,0,55,21,0,28,15,400,600,1,0,"
+Source Window State = "1,164,164,164,82,92,92,0,0,215,0,0,0,0,0,65,107,0,164,88,400,600,1,0,"
 
 [File 0003]
-Path = "/c/Users/User/Desktop/MaMon/trayicon.h"
-File Type = "Include"
-Disk Date = 3552051796
-In Projects = "1,"
-Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
-
-[File 0004]
-Path = "/c/Users/User/Desktop/MaMon/trayicon.uir"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.uir"
 File Type = "User Interface Resource"
-Disk Date = 3552051796
+Disk Date = 3552058841
 In Projects = "1,"
 Window Top = 40
 Window Left = 11
@@ -78,9 +71,16 @@ Window Height = 349
 Window Width = 755
 Window Z-Order = 2
 
+[File 0004]
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.h"
+File Type = "Include"
+Disk Date = 3552053167
+In Projects = "1,"
+Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
+
 [Tab Order]
-Tab 0001 = "/c/Users/User/Desktop/MaMon/trayicon.c"
-Tab 0002 = "/c/Users/User/Desktop/MaMon/trayicon.uir"
+Tab 0001 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.uir"
+Tab 0002 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.c"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
