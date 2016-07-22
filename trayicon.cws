@@ -58,7 +58,7 @@ Disk Date = 3552059059
 In Projects = "1,"
 Window Top = 38
 Window Z-Order = 1
-Source Window State = "1,164,164,164,82,92,92,0,0,215,0,0,0,0,0,65,107,0,164,88,400,600,1,0,"
+Source Window State = "1,164,164,164,82,92,92,0,0,215,0,0,0,0,0,65,107,0,140,108,400,600,1,0,"
 
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.uir"
