@@ -1,0 +1,1 @@
+-force-include-file "trayicon.c";"c:\Users\User\Desktop\MaMon\trayicon.c" -force-include-file "trayicon.h";"c:\Users\User\Desktop\MaMon\trayicon.h" 
