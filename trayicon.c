@@ -52,7 +52,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 
     /* Add an icon to the taskbar System Tray */
-    InstallSysTrayIcon ("cvi.ico", "whatamigay?",
+    InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
                         TaskbarIconCB, &trayIconHandle);
     
     /* Create a right-click menu for the icon and add some items to it */
@@ -161,9 +161,9 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 			
 			
 				if(trayIconHandle == 0){
-					if(control == PANEL_CMD_GREEN) InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...", TaskbarIconCB, &trayIconHandle);
+					if(control == PANEL_CMD_GREY) InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
 					if(control == PANEL_CMD_RED) InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
-					if(control == PANEL_CMD_GRAY) InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
+					if(control == PANEL_CMD_GREEN) InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
 				}
 			break;
 	}

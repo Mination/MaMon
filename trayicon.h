@@ -15,9 +15,9 @@
 
 #define  PANEL                            1       /* callback function: PanelCB */
 #define  PANEL_QUITBUTTON                 2       /* control type: command, callback function: QuitCallback */
-#define  PANEL_CMD_GRAY                   3       /* control type: command, callback function: CmdIcon */
-#define  PANEL_CMD_GREEN                  4       /* control type: command, callback function: CmdIcon */
-#define  PANEL_CMD_RED                    5       /* control type: command, callback function: CmdIcon */
+#define  PANEL_CMD_RED                    3       /* control type: command, callback function: CmdIcon */
+#define  PANEL_CMD_GREY                   4       /* control type: command, callback function: CmdIcon */
+#define  PANEL_CMD_GREEN                  5       /* control type: command, callback function: CmdIcon */
 
 
      /* Control Arrays: */
