@@ -16,7 +16,7 @@
 /*---------------------------------------------------------------------------*/
 #include <ansi_c.h>
 #include <cvirte.h>     
-#include "trayicon.h"
+#include "MaMon.h"
 #include "toolbox.h"
 
 /*---------------------------------------------------------------------------*/
@@ -44,12 +44,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         
     if (InitCVIRTE (hInstance, 0, 0) == 0)  
         return -1; 
-    if ((GUIPanelHandle = LoadPanel (0, "trayicon.uir", GUIPanel)) < 0)
+    if ((GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel)) < 0)
         {
         CloseCVIRTE ();
         return -1; 
         }
-	HelpPanelHandle=LoadPanel (0, "trayicon.uir", HelpPanel);	
+	HelpPanelHandle=LoadPanel (0, "MaMon.uir", HelpPanel);	
     SetPanelAttribute (GUIPanelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
     SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 

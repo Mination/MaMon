@@ -1,4 +1,4 @@
-trayicon.obj
+MaMon.obj
 cvi.lib
 cvistart.lib
 toolbox.obj
