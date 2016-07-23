@@ -49,8 +49,10 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         CloseCVIRTE ();
         return -1; 
         }
+	
 	HelpPanelHandle=LoadPanel (0, "MaMon.uir", HelpPanel);	
-    SetPanelAttribute (GUIPanelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
+    
+	SetPanelAttribute (GUIPanelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
     SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 
     /* Add an icon to the taskbar System Tray */
@@ -85,9 +87,11 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     RemoveSysTrayIcon (trayIconHandle);
 
     /* Clean up and return */
-    DiscardPanel(GUIPanelHandle);
-	DiscardPanel(HelpPanelHandle);
-    CloseCVIRTE ();
+    
+	//DiscardPanel(GUIPanelHandle);
+	//DiscardPanel(HelpPanelHandle);
+    
+	CloseCVIRTE ();
     return 0;
 }
 
