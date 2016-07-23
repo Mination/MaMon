@@ -56,11 +56,11 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                         TaskbarIconCB, &trayIconHandle);
     
     /* Create a right-click menu for the icon and add some items to it */
-    AttachTrayIconMenu (trayIconHandle);
-    InsertTrayIconMenuItem (trayIconHandle, "Default Item", &menuItemIndex);
-    InsertTrayIconMenuItem (trayIconHandle, "Dimmed Item", &menuItemIndex);
-    InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);
-    InsertTrayIconMenuItem (trayIconHandle, "Checked Item", &menuItemIndex);
+    //AttachTrayIconMenu (trayIconHandle);
+    //InsertTrayIconMenuItem (trayIconHandle, "Open GUI", &menuItemIndex);
+    //InsertTrayIconMenuItem (trayIconHandle, "Dimmed Item", &menuItemIndex);
+    //InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);
+    //InsertTrayIconMenuItem (trayIconHandle, "Checked Item", &menuItemIndex);
     
     /* Set some attributes of the menu */
     SetTrayIconMenuAttr (trayIconHandle, ATTR_POPUP_DEFAULT_ITEM, 1);
@@ -69,8 +69,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 
     /* Display the panel and run the GUI -- the app must process events in   */
     /* order to receive messages from the tray icon.                         */
-    DisplayPanel (g_panelHandle);
-    RunUserInterface ();
+    
+    RunUserInterface();
 
     /* Discard the tray icon's menu and then the icon itself */
     DetachTrayIconMenu (trayIconHandle);
@@ -101,6 +101,8 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             break;
         case EVENT_RIGHT_CLICK:
             strcpy (eventName, "Right button down\n");
+			DisplayPanel (g_panelHandle);
+			
             break;
         case EVENT_RIGHT_MOUSE_UP:
             strcpy (eventName, "Right button up\n");
