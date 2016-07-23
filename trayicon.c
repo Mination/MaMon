@@ -56,16 +56,22 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                         TaskbarIconCB, &trayIconHandle);
     
     /* Create a right-click menu for the icon and add some items to it */
-    //AttachTrayIconMenu (trayIconHandle);
-    //InsertTrayIconMenuItem (trayIconHandle, "Open GUI", &menuItemIndex);
-    //InsertTrayIconMenuItem (trayIconHandle, "Dimmed Item", &menuItemIndex);
-    //InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);
-    //InsertTrayIconMenuItem (trayIconHandle, "Checked Item", &menuItemIndex);
+    AttachTrayIconMenu (trayIconHandle);
+    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+	
+	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+	
+	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    
+	InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+    
     
     /* Set some attributes of the menu */
-    SetTrayIconMenuAttr (trayIconHandle, ATTR_POPUP_DEFAULT_ITEM, 1);
-    SetTrayIconMenuItemAttr (trayIconHandle, 2, ATTR_DIMMED, 1);
-    SetTrayIconMenuItemAttr (trayIconHandle, 4, ATTR_CHECKED, 1); 
+    SetTrayIconMenuAttr (trayIconHandle,ATTR_POPUP_DEFAULT_ITEM, 1);
+	
+    
+	//SetTrayIconMenuItemAttr (trayIconHandle, 2, ATTR_DIMMED, 1);
+    //SetTrayIconMenuItemAttr (trayIconHandle, 4, ATTR_CHECKED, 1); 
 
     /* Display the panel and run the GUI -- the app must process events in   */
     /* order to receive messages from the tray icon.                         */
@@ -101,9 +107,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             break;
         case EVENT_RIGHT_CLICK:
             strcpy (eventName, "Right button down\n");
-			DisplayPanel (g_panelHandle);
-			
-            break;
+			break;
         case EVENT_RIGHT_MOUSE_UP:
             strcpy (eventName, "Right button up\n");
             break;
@@ -114,14 +118,24 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             strcpy (eventName, "Right double-click\n");
             break;
         case EVENT_MENU_ITEM:
-            
+            /*===============================================================================================================================================================*/
             /* With menu events, eventData contains the selected item's ID */
-            sprintf (eventName, "Menu item %d selected\n", eventData);
-            break;
-        default:
+            if (eventData == 1){
+				QuitUserInterface(0);	
+				
+			}
+			if (eventData == 4){
+				DisplayPanel(g_panelHandle);	
+				
+			}
+			
+			break;
+        /*==========================================================================================================================================================*/
+		
+		default:
             eventName[0] = 0;
         }
-    
+    	
     /* Honor our popup menu -- return non-zero to prevent it from appearing */
     return 0;
 }

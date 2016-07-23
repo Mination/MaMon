@@ -54,11 +54,11 @@ In Projects = "1,"
 [File 0002]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.c"
 File Type = "CSource"
-Disk Date = 3552120398
+Disk Date = 3552133081
 In Projects = "1,"
 Window Top = 38
 Window Z-Order = 1
-Source Window State = "1,102,102,102,32,51,51,0,0,215,0,0,0,0,0,65,60,4,103,47,400,600,1,0,"
+Source Window State = "1,130,134,134,12,36,36,0,0,215,0,0,0,0,0,69,93,0,128,29,400,600,1,0,"
 
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/trayicon.uir"
