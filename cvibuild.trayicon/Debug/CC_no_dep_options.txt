@@ -1,1 +1,1 @@
--force-include-file "trayicon.c";"c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\trayicon.c" -force-include-file "trayicon.h";"c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\trayicon.h" 
+-force-include-file "trayicon.c";"c:\Users\User\Desktop\MaMon\MaMon\trayicon.c" -force-include-file "trayicon.h";"c:\Users\User\Desktop\MaMon\MaMon\trayicon.h" 

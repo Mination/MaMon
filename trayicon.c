@@ -22,7 +22,8 @@
 /*---------------------------------------------------------------------------*/
 /* Module-globals                                                            */
 /*---------------------------------------------------------------------------*/
-static int g_panelHandle;
+static int GUIPanelHandle;
+static int HelpPanelHandle;
 static int trayIconHandle;
 /*---------------------------------------------------------------------------*/
 /* Internal function prototypes                                              */
@@ -43,12 +44,13 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
         
     if (InitCVIRTE (hInstance, 0, 0) == 0)  
         return -1; 
-    if ((g_panelHandle = LoadPanel (0, "trayicon.uir", PANEL)) < 0)
+    if ((GUIPanelHandle = LoadPanel (0, "trayicon.uir", GUIPanel)) < 0)
         {
         CloseCVIRTE ();
         return -1; 
         }
-    SetPanelAttribute (g_panelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
+	HelpPanelHandle=LoadPanel (0, "trayicon.uir", HelpPanel);	
+    SetPanelAttribute (GUIPanelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
     SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 
     /* Add an icon to the taskbar System Tray */
@@ -83,7 +85,8 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     RemoveSysTrayIcon (trayIconHandle);
 
     /* Clean up and return */
-    DiscardPanel (g_panelHandle);
+    DiscardPanel (GUIPanelHandle);
+	DiscardPanel(HelpPanelHandle);
     CloseCVIRTE ();
     return 0;
 }
@@ -125,7 +128,11 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 			}
 			if (eventData == 4){
-				DisplayPanel(g_panelHandle);	
+				DisplayPanel(GUIPanelHandle);	
+				
+			}
+			if (eventData == 3){
+				DisplayPanel(HelpPanelHandle);	
 				
 			}
 			
@@ -144,7 +151,7 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
                          int eventData1, int eventData2)
 {
     if (event == EVENT_CLOSE)
-        QuitUserInterface (0);
+        DiscardPanel(GUIPanelHandle);  
     return 0;
 }
 
@@ -177,11 +184,21 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 			
 			
 				if(trayIconHandle == 0){
-					if(control == PANEL_CMD_GREY) InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
-					if(control == PANEL_CMD_RED) InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
-					if(control == PANEL_CMD_GREEN) InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
+					if(control == GUIPanel_CMD_GREY) InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
+					if(control == GUIPanel_CMD_RED) InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
+					if(control == GUIPanel_CMD_GREEN) InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
 				}
 			break;
 	}
 	return 0;
+}
+
+int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
+							 int eventData1, int eventData2)
+{
+	{
+    if (event == EVENT_CLOSE)
+        DiscardPanel(HelpPanelHandle);
+    return 0;
+	}
 }

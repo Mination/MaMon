@@ -13,11 +13,14 @@
 
      /* Panels and Controls: */
 
-#define  PANEL                            1       /* callback function: PanelCB */
-#define  PANEL_QUITBUTTON                 2       /* control type: command, callback function: QuitCallback */
-#define  PANEL_CMD_RED                    3       /* control type: command, callback function: CmdIcon */
-#define  PANEL_CMD_GREY                   4       /* control type: command, callback function: CmdIcon */
-#define  PANEL_CMD_GREEN                  5       /* control type: command, callback function: CmdIcon */
+#define  GUIPanel                         1       /* callback function: PanelCB */
+#define  GUIPanel_QUITBUTTON              2       /* control type: command, callback function: QuitCallback */
+#define  GUIPanel_CMD_RED                 3       /* control type: command, callback function: CmdIcon */
+#define  GUIPanel_CMD_GREY                4       /* control type: command, callback function: CmdIcon */
+#define  GUIPanel_CMD_GREEN               5       /* control type: command, callback function: CmdIcon */
+
+#define  HelpPanel                        2       /* callback function: HelpPanelCB */
+#define  HelpPanel_TEXTBOX                2       /* control type: textBox, callback function: (none) */
 
 
      /* Control Arrays: */
@@ -33,6 +36,7 @@
      /* Callback Prototypes: */
 
 int  CVICALLBACK CmdIcon(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
+int  CVICALLBACK HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK QuitCallback(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 
