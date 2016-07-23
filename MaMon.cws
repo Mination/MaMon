@@ -54,27 +54,14 @@ In Projects = "1,"
 [File 0002]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552151437
+Disk Date = 3552156487
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,165,165,165,12,32,32,0,0,215,0,0,0,0,0,65,48,0,72,77,349,771,1,0,"
+Source Window State = "1,4,4,4,12,20,20,0,0,215,0,0,0,0,0,65,9,0,22,15,349,771,1,0,"
 
 [File 0003]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
-File Type = "Include"
-Disk Date = 3552150085
-In Projects = "1,"
-Source Window State = "0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"
-
-[File 0004]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
-File Type = "Unknown"
-Disk Date = 3552048628
-In Projects = "1,"
-
-[File 0005]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
 Disk Date = 3552150085
@@ -84,6 +71,21 @@ Window Left = 26
 Window Height = 349
 Window Width = 771
 Window Z-Order = 2
+
+[File 0004]
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
+File Type = "Include"
+Disk Date = 3552150085
+In Projects = "1,"
+Window Top = 33
+Window Left = 10
+Source Window State = "1,0,0,0,0,0,0,0,0,91,0,0,0,0,0,25,0,0,0,0,349,771,1,0,"
+
+[File 0005]
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
+File Type = "Unknown"
+Disk Date = 3552048628
+In Projects = "1,"
 
 [File 0006]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"

@@ -2,7 +2,7 @@
 
 /*---------------------------------------------------------------------------*/
 /*                                                                           */
-/* FILE:    trayicon.c                                                       */
+/* FILE:    MaMon.c                                                       */
 /*                                                                           */
 /* PURPOSE: This example illustrates how to use the WinTools instrument      */
 /*          driver to install icons in the status area of the Windows shell  */
@@ -128,10 +128,12 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 			}
 			if (eventData == 4){
+				GUIPanelHandle = LoadPanel (0,"MaMon.uir",GUIPanel);
 				DisplayPanel(GUIPanelHandle);	
 				
 			}
 			if (eventData == 3){
+				GUIPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
 				DisplayPanel(HelpPanelHandle);	
 				
 			}
