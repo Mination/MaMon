@@ -54,12 +54,12 @@ In Projects = "1,"
 [File 0002]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552156487
+Disk Date = 3552157393
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,4,4,4,12,20,20,0,0,215,0,0,0,0,0,65,9,0,22,15,349,771,1,0,"
+Source Window State = "1,135,135,135,16,30,30,0,0,215,0,0,0,0,0,65,142,0,202,49,349,771,1,0,"
 
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"

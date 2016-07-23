@@ -85,7 +85,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     RemoveSysTrayIcon (trayIconHandle);
 
     /* Clean up and return */
-    DiscardPanel (GUIPanelHandle);
+    DiscardPanel(GUIPanelHandle);
 	DiscardPanel(HelpPanelHandle);
     CloseCVIRTE ();
     return 0;
@@ -128,13 +128,13 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 			}
 			if (eventData == 4){
-				GUIPanelHandle = LoadPanel (0,"MaMon.uir",GUIPanel);
+				GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 				DisplayPanel(GUIPanelHandle);	
 				
 			}
 			if (eventData == 3){
-				GUIPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
-				DisplayPanel(HelpPanelHandle);	
+				HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
+				DisplayPanel(HelpPanelHandle);
 				
 			}
 			
