@@ -37,7 +37,7 @@ DEFPROTS on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibui
 OUTFILE on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj.out" ;
 PrjObjects += "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" ;
 Object "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.in.rc" ;
-MainFromObjects "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\trayicon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
-Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\link_options.txt" ;
-Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\trayicon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" ;
-Depends all : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\trayicon_dbg.exe" ;
+MainFromObjects "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\link_options.txt" ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" ;
+Depends all : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" ;

@@ -1,5 +1,5 @@
 -nologo
--out:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\trayicon_dbg.exe
+-out:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\MaMon_dbg.exe
 -arch:x86
 -timestamp
 -debug:2

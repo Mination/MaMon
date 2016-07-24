@@ -4,7 +4,7 @@
 
 STRINGTABLE DISCARDABLE
 BEGIN
-  65535  "trayicon_dbg"
+  65535  "MaMon_dbg"
 END
 
 VS_VERSION_INFO VERSIONINFO
@@ -21,12 +21,12 @@ BEGIN
         BLOCK "040904b0"
         BEGIN
             VALUE "CompanyName", "\0"
-            VALUE "FileDescription", "trayicon_dbg (Debug x86)\0"
+            VALUE "FileDescription", "MaMon_dbg (Debug x86)\0"
             VALUE "FileVersion", "1.0\0"
-            VALUE "InternalName", "trayicon_dbg\0"
+            VALUE "InternalName", "MaMon_dbg\0"
             VALUE "LegalCopyright", "Copyright ©  2016\0"
-            VALUE "OriginalFilename", "trayicon_dbg.exe\0"
-            VALUE "ProductName", " trayicon_dbg\0"
+            VALUE "OriginalFilename", "MaMon_dbg.exe\0"
+            VALUE "ProductName", " MaMon_dbg\0"
             VALUE "ProductVersion", "1.0\0"
         END
     END
