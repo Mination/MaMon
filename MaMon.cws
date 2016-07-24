@@ -17,7 +17,7 @@ Window Top = 244
 Window Left = 359
 Window Bottom = 746
 Window Right = 1149
-Maximized = False
+Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
 Track Include File Dependencies = True
@@ -54,12 +54,12 @@ In Projects = "1,"
 [File 0002]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552162553
+Disk Date = 3552163785
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,44,44,44,4,11,11,0,0,74,0,0,0,0,0,26,181,0,221,56,349,771,1,0,"
+Source Window State = "1,44,44,44,4,11,11,0,0,215,0,0,0,0,0,69,61,0,86,68,349,771,1,0,"
 
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
@@ -79,7 +79,7 @@ Disk Date = 3552158286
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
-Source Window State = "1,0,0,0,0,0,0,0,0,91,0,0,0,0,0,25,0,0,0,0,349,771,1,0,"
+Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,349,771,1,0,"
 
 [File 0005]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
@@ -90,7 +90,7 @@ In Projects = "1,"
 [File 0006]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3552150218
+Disk Date = 0
 In Projects = "1,"
 
 [File 0007]

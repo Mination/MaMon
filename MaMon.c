@@ -89,7 +89,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     RemoveSysTrayIcon (trayIconHandle);
 
     /* Clean up and return */
-    
+    /*Mrdka blbá háže error když dáš quit v systrayi*/
 	//DiscardPanel(GUIPanelHandle);
 	//DiscardPanel(HelpPanelHandle);
     CloseCVIRTE ();
