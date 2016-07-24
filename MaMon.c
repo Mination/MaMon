@@ -9,36 +9,23 @@ static int HelpPanelHandle;
 static int trayIconHandle;
 
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
-
-//int __stdcall WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
-//                       LPSTR lpszCmdLine, int nCmdShow)
 int GUIPanelHlidac = 1;
 int HelpPanelHlidac = 1;
+
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
 {
     
     int menuItemIndex;
-        
-    if (InitCVIRTE (hInstance, 0, 0) == 0)  
-        return -1; 
-    if ((GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel)) < 0)
-        {
-        CloseCVIRTE ();
-        return -1; 
-        }
-	
+
+	GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
 	HelpPanelHandle=LoadPanel (0, "MaMon.uir", HelpPanel);	
     
-	SetPanelAttribute (GUIPanelHandle, ATTR_HAS_TASKBAR_BUTTON, 0);
-    SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 
-    /* Add an icon to the taskbar System Tray */
     InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
                         TaskbarIconCB, &trayIconHandle);
     
-    /* Create a right-click menu for the icon and add some items to it */
     AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
 	
@@ -48,37 +35,16 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     
 	InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
     
-    
-    /* Set some attributes of the menu */
-    SetTrayIconMenuAttr (trayIconHandle,ATTR_POPUP_DEFAULT_ITEM, 1);
-	
-    
-	//SetTrayIconMenuItemAttr (trayIconHandle, 2, ATTR_DIMMED, 1);
-    //SetTrayIconMenuItemAttr (trayIconHandle, 4, ATTR_CHECKED, 1); 
-
-    /* Display the panel and run the GUI -- the app must process events in   */
-    /* order to receive messages from the tray icon.                         */
-    
     RunUserInterface();
 
-    /* Discard the tray icon's menu and then the icon itself */
     DetachTrayIconMenu (trayIconHandle);
     RemoveSysTrayIcon (trayIconHandle);
 
-    /* Clean up and return */
-    /*Mrdka blbá háže error když dáš quit v systrayi*/
-	//DiscardPanel(GUIPanelHandle);
-	//DiscardPanel(HelpPanelHandle);
-    CloseCVIRTE ();
+
     return 0;
 }
 
 
-/*---------------------------------------------------------------------------*/
-/* This function responds to events from the system tray icon.  We will      */
-/* simply look at the incoming event and display it in the TextBox on our    */
-/* panel.                                                                    */ 
-/*---------------------------------------------------------------------------*/
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 {
     char eventName [70];
@@ -137,7 +103,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             eventName[0] = 0;
         }
     	
-    /* Honor our popup menu -- return non-zero to prevent it from appearing */
+
     return 0;
 }
 

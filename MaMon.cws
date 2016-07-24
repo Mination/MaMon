@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 1302
-Pathname = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.cws"
+Pathname = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2013"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2013"
@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "MaMon.prj"
-Drag Bar Left = 160
+Drag Bar Left = 196
 Window Top = 244
-Window Left = 359
+Window Left = 666
 Window Bottom = 746
-Window Right = 1149
+Window Right = 1456
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -32,7 +32,7 @@ Break At First Statement = False
 Sort Type = "File Name"
 Number of Opened Files = 2
 Window Confinement Region Enabled = True
-MainColumnWidth = 143
+MainColumnWidth = 179
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -52,19 +52,19 @@ Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552166455
+Disk Date = 3552204656
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,106,106,106,11,186,11,0,0,215,0,0,0,0,0,56,0,0,11,81,349,771,1,0,"
+Source Window State = "1,105,105,105,0,83,83,0,0,211,0,0,0,0,0,55,66,0,90,44,349,771,1,0,"
 
 [File 0003]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
-Disk Date = 3552164212
+Disk Date = 3552204408
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
@@ -73,35 +73,35 @@ Window Width = 771
 Window Z-Order = 2
 
 [File 0004]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.h"
 File Type = "Include"
-Disk Date = 3552164212
+Disk Date = 3552204408
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,349,771,1,0,"
 
 [File 0005]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.ini"
 File Type = "Unknown"
-Disk Date = 3552048628
+Disk Date = 3552204408
 In Projects = "1,"
 
 [File 0006]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 0
+Disk Date = 3552204408
 In Projects = "1,"
 
 [File 0007]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/README.md"
+Path = "/c/Users/User/Desktop/MaMon/MaMon/README.md"
 File Type = "Unknown"
-Disk Date = 3552053167
+Disk Date = 3552204408
 In Projects = "1,"
 
 [Tab Order]
-Tab 0001 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
-Tab 0002 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
+Tab 0001 = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.uir"
+Tab 0002 = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.c"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
