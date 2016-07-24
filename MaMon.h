@@ -20,7 +20,7 @@
 #define  GUIPanel_CMD_GREEN               5       /* control type: command, callback function: CmdIcon */
 
 #define  HelpPanel                        2       /* callback function: HelpPanelCB */
-#define  HelpPanel_TEXTBOX                2       /* control type: textBox, callback function: (none) */
+#define  HelpPanel_TEXTBOX                2       /* control type: textMsg, callback function: (none) */
 
 
      /* Control Arrays: */

@@ -60,7 +60,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 					HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 2;
-					SetCtrlAttribute (HelpPanelHandle, HelpPanel_TEXTBOX, ATTR_NO_EDIT_TEXT, 1); 
+					
 					
 					
 					
