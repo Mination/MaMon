@@ -1,38 +1,15 @@
 #include <userint.h>
-
-/*---------------------------------------------------------------------------*/
-/*                                                                           */
-/* FILE:    MaMon.c                                                       */
-/*                                                                           */
-/* PURPOSE: This example illustrates how to use the WinTools instrument      */
-/*          driver to install icons in the status area of the Windows shell  */
-/*          taskbar, called the System Tray.  Your app can respond to events */
-/*          on the icon via a simple callback mechanism.                     */
-/*                                                                           */
-/*---------------------------------------------------------------------------*/
-
-/*---------------------------------------------------------------------------*/
-/* Include files                                                             */
-/*---------------------------------------------------------------------------*/
 #include <ansi_c.h>
 #include <cvirte.h>     
 #include "MaMon.h"
 #include "toolbox.h"
 
-/*---------------------------------------------------------------------------*/
-/* Module-globals                                                            */
-/*---------------------------------------------------------------------------*/
 static int GUIPanelHandle;
 static int HelpPanelHandle;
 static int trayIconHandle;
-/*---------------------------------------------------------------------------*/
-/* Internal function prototypes                                              */
-/*---------------------------------------------------------------------------*/
+
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 
-/*---------------------------------------------------------------------------*/
-/* This is the application's entry-point.                                    */
-/*---------------------------------------------------------------------------*/
 //int __stdcall WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
 //                       LPSTR lpszCmdLine, int nCmdShow)
 int GUIPanelHlidac = 1;
@@ -127,9 +104,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             strcpy (eventName, "Right double-click\n");
             break;
         case EVENT_MENU_ITEM:
-            /*===============================================================================================================================================================*/
-            /* With menu events, eventData contains the selected item's ID */
-            if (eventData == 1){
+        	if (eventData == 1){
 				QuitUserInterface(0);	
 				
 			}
@@ -156,7 +131,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			}
 			
 			break;
-        /*==========================================================================================================================================================*/
+     
 		
 		default:
             eventName[0] = 0;
