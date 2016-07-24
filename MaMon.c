@@ -11,37 +11,24 @@ static int trayIconHandle;
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int GUIPanelHlidac = 1;
 int HelpPanelHlidac = 1;
-
+int trayIconFunkce();
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
 {
+    GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
+	HelpPanelHandle = LoadPanel (0, "MaMon.uir", HelpPanel);	
     
-    int menuItemIndex;
-
-	GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
-	HelpPanelHandle=LoadPanel (0, "MaMon.uir", HelpPanel);	
-    
-
-    InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
+	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
                         TaskbarIconCB, &trayIconHandle);
-    
-    AttachTrayIconMenu (trayIconHandle);
-    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+    trayIconFunkce();
 	
-	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
-	
-	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
-    
-	InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
-    
     RunUserInterface();
 
-    DetachTrayIconMenu (trayIconHandle);
-    RemoveSysTrayIcon (trayIconHandle);
-
-
-    return 0;
+    
+	//DetachTrayIconMenu (trayIconHandle);
+    //RemoveSysTrayIcon (trayIconHandle);
+	return 0;
 }
 
 
@@ -51,24 +38,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
     
     switch (event)
         {
-        case EVENT_LEFT_CLICK:
-            strcpy (eventName, "Left button down\n");
-            break;
-        case EVENT_LEFT_MOUSE_UP:
-            strcpy (eventName, "Left button up\n");
-            break;
-        case EVENT_RIGHT_CLICK:
-            strcpy (eventName, "Right button down\n");
-			break;
-        case EVENT_RIGHT_MOUSE_UP:
-            strcpy (eventName, "Right button up\n");
-            break;
-        case EVENT_LEFT_DOUBLE_CLICK:
-            strcpy (eventName, "Left double-click\n");
-            break;
-        case EVENT_RIGHT_DOUBLE_CLICK:        
-            strcpy (eventName, "Right double-click\n");
-            break;
         case EVENT_MENU_ITEM:
         	if (eventData == 1){
 				QuitUserInterface(0);	
@@ -153,29 +122,17 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 				if(trayIconHandle == 0){
 					if(control == GUIPanel_CMD_GREY){ 
 						InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
-						AttachTrayIconMenu (trayIconHandle);
-    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
-						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
-						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
-    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+						trayIconFunkce();
 					}
 					
 					if(control == GUIPanel_CMD_RED){
 						InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
-						AttachTrayIconMenu (trayIconHandle);
-    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
-						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
-						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
-    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+						trayIconFunkce();
 					}
 					
 					if(control == GUIPanel_CMD_GREEN){
 						InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
-						AttachTrayIconMenu (trayIconHandle);
-    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
-						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
-						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
-    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+						trayIconFunkce();
 				
 					}
 					}
@@ -194,4 +151,17 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 	}
     return 0;
 	}
+}
+int CVICALLBACK trayIconFunkce(){
+	int menuItemIndex;	
+	AttachTrayIconMenu (trayIconHandle);
+    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+	return 0;
+	
+	
+	
+	
 }
