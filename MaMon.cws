@@ -59,7 +59,7 @@ In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,20,20,20,4,82,82,0,0,211,0,0,0,0,0,56,26,0,148,62,349,771,1,11,"
+Source Window State = "1,20,20,20,4,82,82,0,0,211,0,0,0,0,0,56,20,0,41,32,349,771,1,11,"
 
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
