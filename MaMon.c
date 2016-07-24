@@ -16,15 +16,17 @@ int trayIconFunkce();
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
 {
-    GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
-	HelpPanelHandle = LoadPanel (0, "MaMon.uir", HelpPanel);	
-    
+    /*Tohle asi mùžeme smazat protože se ty panely loadnou ve funkci TaskbarIconCB*/
+	//GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
+	//HelpPanelHandle = LoadPanel (0, "MaMon.uir", HelpPanel);	
+	
+	
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
                         TaskbarIconCB, &trayIconHandle);
     trayIconFunkce();
 	
     RunUserInterface();
-
+	
     
 	//DetachTrayIconMenu (trayIconHandle);
     //RemoveSysTrayIcon (trayIconHandle);
@@ -58,6 +60,8 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 					HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 2;
+					SetCtrlAttribute (HelpPanelHandle, HelpPanel_TEXTBOX, ATTR_NO_EDIT_TEXT, 1); 
+					
 					
 					
 				}
@@ -107,7 +111,7 @@ int CVICALLBACK QuitCallback (int panel, int control, int event,
 int CVICALLBACK CmdIcon (int panel, int control, int event,
 						 void *callbackData, int eventData1, int eventData2)
 {
-	int menuItemIndex;
+	
 	switch (event)
 	{
 		case EVENT_COMMIT:
