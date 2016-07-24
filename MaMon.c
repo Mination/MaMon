@@ -35,6 +35,8 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 /*---------------------------------------------------------------------------*/
 //int __stdcall WinMain (HINSTANCE hInstance, HINSTANCE hPrevInstance,
 //                       LPSTR lpszCmdLine, int nCmdShow)
+int GUIPanelHlidac = 1;
+int HelpPanelHlidac = 1;
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
@@ -90,10 +92,10 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
     
 	//DiscardPanel(GUIPanelHandle);
 	//DiscardPanel(HelpPanelHandle);
-    
-	CloseCVIRTE ();
+    CloseCVIRTE ();
     return 0;
 }
+
 
 /*---------------------------------------------------------------------------*/
 /* This function responds to events from the system tray icon.  We will      */
@@ -132,13 +134,24 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 			}
 			if (eventData == 4){
-				GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
-				DisplayPanel(GUIPanelHandle);	
 				
-			}
+				if (GUIPanelHlidac == 1){
+					GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
+					DisplayPanel(GUIPanelHandle);
+					GUIPanelHlidac = 2;
+					
+				}
+			}	
+					
 			if (eventData == 3){
-				HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
-				DisplayPanel(HelpPanelHandle);
+				if (HelpPanelHlidac == 1){
+					HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
+					DisplayPanel(HelpPanelHandle);
+					HelpPanelHlidac = 2;
+					
+					
+				}
+				
 				
 			}
 			
@@ -156,8 +169,14 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
                          int eventData1, int eventData2)
 {
-    if (event == EVENT_CLOSE)
-        DiscardPanel(GUIPanelHandle);  
+    
+	if (event == EVENT_CLOSE){
+		DiscardPanel(GUIPanelHandle);
+		GUIPanelHlidac = 1;
+		
+	}
+        
+	
     return 0;
 }
 
@@ -178,6 +197,7 @@ int CVICALLBACK QuitCallback (int panel, int control, int event,
 int CVICALLBACK CmdIcon (int panel, int control, int event,
 						 void *callbackData, int eventData1, int eventData2)
 {
+	int menuItemIndex;
 	switch (event)
 	{
 		case EVENT_COMMIT:
@@ -190,10 +210,34 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 			
 			
 				if(trayIconHandle == 0){
-					if(control == GUIPanel_CMD_GREY) InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
-					if(control == GUIPanel_CMD_RED) InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
-					if(control == GUIPanel_CMD_GREEN) InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
-				}
+					if(control == GUIPanel_CMD_GREY){ 
+						InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
+						AttachTrayIconMenu (trayIconHandle);
+    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+					}
+					
+					if(control == GUIPanel_CMD_RED){
+						InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
+						AttachTrayIconMenu (trayIconHandle);
+    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+					}
+					
+					if(control == GUIPanel_CMD_GREEN){
+						InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
+						AttachTrayIconMenu (trayIconHandle);
+    					InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+						InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+						InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    					InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+				
+					}
+					}
 			break;
 	}
 	return 0;
@@ -203,8 +247,10 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 							 int eventData1, int eventData2)
 {
 	{
-    if (event == EVENT_CLOSE)
+    if (event == EVENT_CLOSE){
         DiscardPanel(HelpPanelHandle);
+		HelpPanelHlidac = 1;
+	}
     return 0;
 	}
 }
