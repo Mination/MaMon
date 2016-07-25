@@ -1,17 +1,33 @@
+#include "inifile.h"
 #include <userint.h>
 #include <ansi_c.h>
 #include <cvirte.h>     
 #include "MaMon.h"
 #include "toolbox.h"
+#include <string.h>
+#include <stdio.h>
 
 static int GUIPanelHandle;
 static int HelpPanelHandle;
 static int trayIconHandle;
 
-int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
+
+
+/* GLOBÁLNÍ PROMÌNNÉ  */
+
 int GUIPanelHlidac = 1;
 int HelpPanelHlidac = 1;
+char *DSN, *typ,*adresa,*casStart;
+int *intervalSec,*PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
+
+
+/*  PROTOTYPY FUNKCÍ  */
+
+int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
+int iniFileReader();
+
+/*               MAIN FUNKCE             */
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
@@ -20,18 +36,21 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	//GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
 	//HelpPanelHandle = LoadPanel (0, "MaMon.uir", HelpPanel);	
 	
-	
+	iniFileReader();
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
                         TaskbarIconCB, &trayIconHandle);
     trayIconFunkce();
 	
     RunUserInterface();
 	
+	
     
 	//DetachTrayIconMenu (trayIconHandle);
     //RemoveSysTrayIcon (trayIconHandle);
 	return 0;
 }
+
+/*         SysTray Menu Otevíraè      */
 
 
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
@@ -80,6 +99,9 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
     return 0;
 }
 
+
+/*          GUI VYPÍNAÈ      */
+
 int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
                          int eventData1, int eventData2)
 {
@@ -94,7 +116,7 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
     return 0;
 }
 
-    
+/*            VYPÍNAÈ      */    
 
 int CVICALLBACK QuitCallback (int panel, int control, int event,
 		void *callbackData, int eventData1, int eventData2)
@@ -107,6 +129,9 @@ int CVICALLBACK QuitCallback (int panel, int control, int event,
 		}
 	return 0;
 }
+
+
+/*          STATUS IKONY        */ 
 
 int CVICALLBACK CmdIcon (int panel, int control, int event,
 						 void *callbackData, int eventData1, int eventData2)
@@ -145,6 +170,10 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 	return 0;
 }
 
+
+
+/*           HELP PANEL VYPÍNAÈ       */
+
 int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 							 int eventData1, int eventData2)
 {
@@ -156,7 +185,11 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
     return 0;
 	}
 }
-int CVICALLBACK trayIconFunkce(){
+
+
+/*            VYTVÁØEÈ SYSTRAY MENU          */
+
+int trayIconFunkce(){
 	int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
@@ -169,3 +202,58 @@ int CVICALLBACK trayIconFunkce(){
 	
 	
 }
+
+/*       INI FILE OTEVÍRAÈ   */
+
+int iniFileReader(){
+	
+	IniText iniLoadUp = Ini_New(0);
+	
+	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
+	
+	/* STRINGY  */
+	
+	Ini_GetStringCopy (iniLoadUp, "SQL", "DSN", &DSN);
+	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Typ", &typ);
+	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Adresa", &adresa);
+	Ini_GetStringCopy(iniLoadUp,"SberDat","CasStart",&casStart);
+	
+	/*    INTY   */
+	
+	Ini_GetInt(iniLoadUp,"Stroj","PT",&PT);
+	Ini_GetInt(iniLoadUp,"Stroj","AlarmLimitProc",&alarmLimitProc);
+	Ini_GetInt(iniLoadUp,"SberDat","IntervalSec",&intervalSec);
+	Ini_GetInt(iniLoadUp,"SberDat","PocetVzorku",&pocetVzorku);
+	
+	/*    BOOLEANY   */
+	
+	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
+	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
+	
+	
+	
+	
+	
+	
+	return 0;
+	
+	
+	
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

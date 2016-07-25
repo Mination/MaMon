@@ -1,6 +1,7 @@
 MaMon.obj
 cvi.lib
 cvistart.lib
+inifile.obj
 toolbox.obj
 advapi32.lib
 cviauto.lib

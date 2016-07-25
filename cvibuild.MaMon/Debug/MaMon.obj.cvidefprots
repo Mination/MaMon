@@ -26,3 +26,7 @@ Prototype="int HelpPanelCB(int panel, int event, void *callbackData, int eventDa
 Class="Function"
 Prototype="int trayIconFunkce();"
 
+[iniFileReader]
+Class="Function"
+Prototype="int iniFileReader();"
+
