@@ -15,8 +15,7 @@ static int trayIconHandle;
 
 /* GLOBÁLNÍ PROMÌNNÉ  */
 
-int GUIPanelHlidac = 1;
-int HelpPanelHlidac = 1;
+int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
 int *intervalSec,*PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
 
@@ -66,19 +65,19 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			}
 			if (eventData == 4){
 				
-				if (GUIPanelHlidac == 1){
+				if (GUIPanelHlidac == 0){
 					GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 					DisplayPanel(GUIPanelHandle);
-					GUIPanelHlidac = 2;
+					GUIPanelHlidac = 1;
 					
 				}
 			}	
 					
 			if (eventData == 3){
-				if (HelpPanelHlidac == 1){
+				if (HelpPanelHlidac == 0){
 					HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
 					DisplayPanel(HelpPanelHandle);
-					HelpPanelHlidac = 2;
+					HelpPanelHlidac = 1;
 					
 					
 					
@@ -108,7 +107,7 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
     
 	if (event == EVENT_CLOSE){
 		DiscardPanel(GUIPanelHandle);
-		GUIPanelHlidac = 1;
+		GUIPanelHlidac = 0;
 		
 	}
         
@@ -180,7 +179,7 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 	{
     if (event == EVENT_CLOSE){
         DiscardPanel(HelpPanelHandle);
-		HelpPanelHlidac = 1;
+		HelpPanelHlidac = 0;
 	}
     return 0;
 	}

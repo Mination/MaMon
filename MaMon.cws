@@ -52,7 +52,7 @@ Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.fp"
+Path = "/c/program files (x86)/national instruments/cvi2013/toolslib/toolbox/inifile.fp"
 File Type = "Function Panel"
 Disk Date = 3486495600
 In Projects = "1,"
@@ -64,12 +64,12 @@ Window Width = 400
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552310577
+Disk Date = 3552323124
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,234,242,242,4,36,36,0,0,211,0,1,0,1,0,56,201,0,232,150,349,771,1,11,"
+Source Window State = "1,18,18,18,0,3,3,0,0,211,0,1,0,1,0,56,42,0,51,35,349,771,1,11,"
 
 [File 0004]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
@@ -94,13 +94,13 @@ Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,349,771,1,0,"
 [File 0006]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
 File Type = "Unknown"
-Disk Date = 3552048628
+Disk Date = 3552308501
 In Projects = "1,"
 
 [File 0007]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3552240102
+Disk Date = 3552310580
 In Projects = "1,"
 
 [File 0008]
