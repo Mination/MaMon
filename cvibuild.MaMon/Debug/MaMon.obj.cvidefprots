@@ -30,3 +30,7 @@ Prototype="int trayIconFunkce();"
 Class="Function"
 Prototype="int iniFileReader();"
 
+[Cekac]
+Class="Function"
+Prototype="int Cekac();"
+

@@ -17,7 +17,8 @@ static int trayIconHandle;
 
 int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
-int *intervalSec,*PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
+int *PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
+double intervalSecDouble;
 //int tab1,tab2,tabCtrl,tabPanel1;
 //int tabCtrl, tab1, tab2, tabPanel1, tabPanel2, testButton,panelHeight = 0, panelWidth = 0;
 
@@ -26,23 +27,15 @@ int *intervalSec,*PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int iniFileReader();
-
+int Cekac();
 
 /*               MAIN FUNKCE             */
 
-int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
-                       LPSTR lpszCmdLine, int nCmdShow)
-{
-    	
+int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
 	iniFileReader();
-	
-	DetachTrayIconMenu (trayIconHandle);
-	RemoveSysTrayIcon (trayIconHandle);	
-	
-	InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
+	Cekac();
+	InstallSysTrayIcon ("StatusIcons/dobry.ico", "G O D L I K E", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-    
-	
 	RunUserInterface();
 	
 	
@@ -76,8 +69,8 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 0, &tabPanel1);
 					GetPanelAttribute (tabPanel1, ATTR_HEIGHT, &panelHeight);
 					GetPanelAttribute (tabPanel1, ATTR_WIDTH, &panelWidth);
-					testButton = NewCtrl (tabPanel1, CTRL_GRAPH, "Test Button", panelHeight - 50, panelWidth - 100);
-					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 1, &tabPanel2);
+					//testButton = NewCtrl (tabPanel1, CTRL_GRAPH, "Test Button", panelHeight - 50, panelWidth - 100);
+					//GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 1, &tabPanel2);
 					
 					
 					tabCtrl = NewCtrl(GUIPanelHandle, CTRL_TABS, "", 0, 0);
@@ -227,8 +220,8 @@ int trayIconFunkce(){
 int iniFileReader(){
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	IniText iniLoadUp = Ini_New(0);
 	
+	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
 	
 	/* STRINGY  */
@@ -242,7 +235,7 @@ int iniFileReader(){
 	
 	Ini_GetInt(iniLoadUp,"Stroj","PT",&PT);
 	Ini_GetInt(iniLoadUp,"Stroj","AlarmLimitProc",&alarmLimitProc);
-	Ini_GetInt(iniLoadUp,"SberDat","IntervalSec",&intervalSec);
+	Ini_GetDouble(iniLoadUp,"SberDat","IntervalSec",&intervalSecDouble);
 	Ini_GetInt(iniLoadUp,"SberDat","PocetVzorku",&pocetVzorku);
 	
 	/*    BOOLEANY   */
@@ -250,8 +243,11 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
+	//TOHLE POZDÌJI SMAZAT
+	DelayWithEventProcessing(3);
 	
-	
+	DetachTrayIconMenu (trayIconHandle);
+	RemoveSysTrayIcon (trayIconHandle);
 	
 	
 	
@@ -263,7 +259,17 @@ int iniFileReader(){
 	
 }
 
-
+int Cekac(){
+	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probíhá sbìr dat", TaskbarIconCB, &trayIconHandle);
+	trayIconFunkce();
+	
+	DelayWithEventProcessing(intervalSecDouble);
+	
+	DetachTrayIconMenu (trayIconHandle);
+	RemoveSysTrayIcon (trayIconHandle);
+	
+	return 0;
+}
 
 
 
