@@ -18,7 +18,8 @@ static int trayIconHandle;
 int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
 int *intervalSec,*PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
-
+//int tab1,tab2,tabCtrl,tabPanel1;
+//int tabCtrl, tab1, tab2, tabPanel1, tabPanel2, testButton,panelHeight = 0, panelWidth = 0;
 
 /*  PROTOTYPY FUNKCÍ  */
 
@@ -26,26 +27,27 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int iniFileReader();
 
+
 /*               MAIN FUNKCE             */
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
                        LPSTR lpszCmdLine, int nCmdShow)
 {
-    /*Tohle asi mùžeme smazat protože se ty panely loadnou ve funkci TaskbarIconCB*/
-	//GUIPanelHandle = LoadPanel (0, "MaMon.uir", GUIPanel);
-	//HelpPanelHandle = LoadPanel (0, "MaMon.uir", HelpPanel);	
-	
+    	
 	iniFileReader();
-	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",
-                        TaskbarIconCB, &trayIconHandle);
-    trayIconFunkce();
 	
-    RunUserInterface();
+	DetachTrayIconMenu (trayIconHandle);
+	RemoveSysTrayIcon (trayIconHandle);	
+	
+	InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
+	trayIconFunkce();
+    
+	
+	RunUserInterface();
 	
 	
     
-	//DetachTrayIconMenu (trayIconHandle);
-    //RemoveSysTrayIcon (trayIconHandle);
+	
 	return 0;
 }
 
@@ -67,6 +69,24 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 				if (GUIPanelHlidac == 0){
 					GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
+					/*
+					tabCtrl = NewCtrl (GUIPanelHandle, CTRL_TABS, "Test Control", 100, 100);
+					tab1 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "Test Tab One");
+					tab2 = InsertTabPage (GUIPanelHandle, tabCtrl, 1, "Test Tab Two");
+					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 0, &tabPanel1);
+					GetPanelAttribute (tabPanel1, ATTR_HEIGHT, &panelHeight);
+					GetPanelAttribute (tabPanel1, ATTR_WIDTH, &panelWidth);
+					testButton = NewCtrl (tabPanel1, CTRL_GRAPH, "Test Button", panelHeight - 50, panelWidth - 100);
+					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 1, &tabPanel2);
+					
+					
+					tabCtrl = NewCtrl(GUIPanelHandle, CTRL_TABS, "", 0, 0);
+					tab1 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "dude");
+					tab2 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "weed");
+					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 0, &tabPanel1);
+					SetActiveTabPage (GUIPanelHandle, tabCtrl, 1);
+					*/
+					
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
 					
@@ -205,7 +225,8 @@ int trayIconFunkce(){
 /*       INI FILE OTEVÍRAÈ   */
 
 int iniFileReader(){
-	
+	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
+	trayIconFunkce();
 	IniText iniLoadUp = Ini_New(0);
 	
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
@@ -234,12 +255,14 @@ int iniFileReader(){
 	
 	
 	
+	
 	return 0;
 	
 	
 	
 	
 }
+
 
 
 
