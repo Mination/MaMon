@@ -6,6 +6,10 @@
 #include "toolbox.h"
 #include <string.h>
 #include <stdio.h>
+#include <time.h>
+#include <stdlib.h>
+
+const char COLON = ':';
 
 static int GUIPanelHandle;
 static int HelpPanelHandle;
@@ -17,10 +21,8 @@ static int trayIconHandle;
 
 int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
-int *PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK;
+int *PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK,hodina,minuta;
 double intervalSecDouble;
-//int tab1,tab2,tabCtrl,tabPanel1;
-//int tabCtrl, tab1, tab2, tabPanel1, tabPanel2, testButton,panelHeight = 0, panelWidth = 0;
 
 /*  PROTOTYPY FUNKCÍ  */
 
@@ -28,11 +30,13 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int iniFileReader();
 int Cekac();
+int SystemCas();
 
 /*               MAIN FUNKCE             */
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
 	iniFileReader();
+	SystemCas();
 	Cekac();
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "G O D L I K E", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
@@ -62,24 +66,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 				if (GUIPanelHlidac == 0){
 					GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
-					/*
-					tabCtrl = NewCtrl (GUIPanelHandle, CTRL_TABS, "Test Control", 100, 100);
-					tab1 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "Test Tab One");
-					tab2 = InsertTabPage (GUIPanelHandle, tabCtrl, 1, "Test Tab Two");
-					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 0, &tabPanel1);
-					GetPanelAttribute (tabPanel1, ATTR_HEIGHT, &panelHeight);
-					GetPanelAttribute (tabPanel1, ATTR_WIDTH, &panelWidth);
-					//testButton = NewCtrl (tabPanel1, CTRL_GRAPH, "Test Button", panelHeight - 50, panelWidth - 100);
-					//GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 1, &tabPanel2);
-					
-					
-					tabCtrl = NewCtrl(GUIPanelHandle, CTRL_TABS, "", 0, 0);
-					tab1 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "dude");
-					tab2 = InsertTabPage (GUIPanelHandle, tabCtrl, 0, "weed");
-					GetPanelHandleFromTabPage (GUIPanelHandle, tabCtrl, 0, &tabPanel1);
-					SetActiveTabPage (GUIPanelHandle, tabCtrl, 1);
-					*/
-					
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
 					
@@ -229,7 +215,7 @@ int iniFileReader(){
 	Ini_GetStringCopy (iniLoadUp, "SQL", "DSN", &DSN);
 	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Typ", &typ);
 	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Adresa", &adresa);
-	Ini_GetStringCopy(iniLoadUp,"SberDat","CasStart",&casStart);
+	Ini_GetStringCopy (iniLoadUp, "SberDat", "CasStart", &casStart);
 	
 	/*    INTY   */
 	
@@ -243,8 +229,69 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
+	/*
+	
+	int casStartLen;
+	int rotor = 0;
+	while(rotor <  strlen(casStart)){
+		rotor += 1;
+		casStartLen = rotor;
+		
+	}
+	
+	//printf("%d\n",casStartLen);
+	
+	char cas[casStartLen];
+	int tocak = 0;
+	for(int i = 0; casStart[i] != '\0'; i++){
+		
+		if(casStart[i] == COLON){
+			
+			
+		}else{
+			cas[tocak] = casStart[i];
+			tocak = tocak + 1;	
+			
+		}	
+		
+	}
+	//printf("%s",cas);
+	
+	
+	char fug,kuk;
+	int casStartLenDoIfu = casStartLen - 1;
+	if (casStartLenDoIfu == 3){
+		
+		hodina = cas[0];
+		minuta = cas[1];
+		//printf("%c\n",hodina);
+		//printf("%c",minuta);
+		
+	}
+	if(casStartLenDoIfu == 4){
+		fug = cas[0];
+		//hodina = (int)fug;
+		//printf("%c",fug);
+		
+	}
+	*/
+
+		
+		
+			
+		
+    	
+
+	
+        
+
+	
+	
+	
 	//TOHLE POZDÌJI SMAZAT
-	DelayWithEventProcessing(3);
+	
+	
+	DelayWithEventProcessing(2);
 	
 	DetachTrayIconMenu (trayIconHandle);
 	RemoveSysTrayIcon (trayIconHandle);
@@ -273,15 +320,31 @@ int Cekac(){
 
 
 
+int SystemCas(){
+	time_t t = time(NULL);
+	struct tm tm = *localtime(&t);
+	char sysTime[256];
+	snprintf(fug, sizeof sysTime, "%d:%d", tm.tm_hour, tm.tm_min);
+	if(sysTime == casStart){
+		printf("dsadas");	
+		
+	}
+	
+	
+	
+	
+	
+	
+   
+    
+    
 
-
-
-
-
-
-
-
-
-
+ 
+  	return 0;
+  		
+	
+	
+	
+}
 
 
