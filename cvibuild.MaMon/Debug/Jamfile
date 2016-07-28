@@ -29,15 +29,15 @@ HDRS = 	"c:\\program files (x86)\\national instruments\\cvi2013\\toolslib\\activ
 	"c:\\Program Files (x86)\\National Instruments\\Shared\\CVI\\Bin"
 	;
 include Jamfile_instr ;
-LOCATE on "MaMon.c" = "c:\\Users\\User\\Desktop\\MaMon\\MaMon" ;
-LOCATE on "MaMon.h" = "c:\\Users\\User\\Desktop\\MaMon\\MaMon" ;
-Object "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" : "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\MaMon.c" ;
-FILENUM on "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = 1 ;
-DEFPROTS on "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj.cvidefprots" ;
-OUTFILE on "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj.out" ;
-PrjObjects += "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" ;
-Object "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" : "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\resources.in.rc" ;
-MainFromObjects "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
-Depends "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\link_options.txt" ;
-Depends "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" ;
-Depends all : "c:\\Users\\User\\Desktop\\MaMon\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" ;
+LOCATE on "MaMon.c" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon" ;
+LOCATE on "MaMon.h" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon" ;
+Object "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\MaMon.c" ;
+FILENUM on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = 1 ;
+DEFPROTS on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj.cvidefprots" ;
+OUTFILE on "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" = "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj.out" ;
+PrjObjects += "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" ;
+Object "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.in.rc" ;
+MainFromObjects "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : $(PrjObjects) $(InstrObjects) ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\link_options.txt" ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\resources.res" ;
+Depends all : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" ;

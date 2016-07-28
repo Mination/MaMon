@@ -1,1 +1,1 @@
--force-include-file "MaMon.c";"c:\Users\User\Desktop\MaMon\MaMon\MaMon.c" -force-include-file "MaMon.h";"c:\Users\User\Desktop\MaMon\MaMon\MaMon.h" 
+-force-include-file "MaMon.c";"c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\MaMon.c" -force-include-file "MaMon.h";"c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\MaMon.h" 

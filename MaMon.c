@@ -21,7 +21,7 @@ static int trayIconHandle;
 
 int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
-int *PT,*alarmLimitProc,*pocetVzorku,*OK,*NOK,hodina,minuta;
+int PT,alarmLimitProc,pocetVzorku,OK,NOK,hodina,minuta;
 double intervalSecDouble;
 
 /*  PROTOTYPY FUNKCÍ  */
@@ -38,9 +38,9 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	iniFileReader();
 	//SystemCas();
 	Cekac();
-	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probíhá ètení dat", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probíhá ètení dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	//RunUserInterface();
+	RunUserInterface();
 	
     
 	
@@ -216,7 +216,7 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
-	
+	 
 	/*
 	int casStartLen;
 	int rotor = 0;
@@ -292,9 +292,8 @@ int iniFileReader(){
 }
 
 int Cekac(){
-	InstallSysTrayIcon ("StatusIcons/init.ico", "Probíhá sbìr dat", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probíhá sbìr dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	
 	DelayWithEventProcessing(intervalSecDouble);
 	
 	DetachTrayIconMenu (trayIconHandle);

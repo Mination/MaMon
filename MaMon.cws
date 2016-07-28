@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 1302
-Pathname = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.cws"
+Pathname = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2013"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2013"
@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "MaMon.prj"
-Drag Bar Left = 196
+Drag Bar Left = 160
 Window Top = 244
-Window Left = 680
+Window Left = 359
 Window Bottom = 746
-Window Right = 1470
+Window Right = 1149
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -30,9 +30,9 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 3
+Number of Opened Files = 2
 Window Confinement Region Enabled = True
-MainColumnWidth = 179
+MainColumnWidth = 143
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -52,7 +52,7 @@ Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.fp"
+Path = "/c/program files (x86)/national instruments/cvi2013/toolslib/toolbox/inifile.fp"
 File Type = "Function Panel"
 Disk Date = 3486495600
 In Projects = "1,"
@@ -62,19 +62,19 @@ Window Height = 400
 Window Width = 400
 
 [File 0003]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.c"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552551992
+Disk Date = 3552554447
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,40,40,40,37,41,37,0,0,207,0,62,0,1,0,55,0,0,42,28,349,771,1,11,"
+Source Window State = "1,296,296,296,29,30,30,0,0,211,0,62,0,1,0,56,264,0,39,4,349,771,1,11,"
 
 [File 0004]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.uir"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
-Disk Date = 3552542424
+Disk Date = 3552552502
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
@@ -83,46 +83,35 @@ Window Width = 771
 Window Z-Order = 2
 
 [File 0005]
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
 File Type = "Include"
-Disk Date = 3486495600
-In Projects = ""
-Window Top = 40
-Window Left = 11
-Window Z-Order = 3
-Source Window State = "1,0,0,0,0,0,0,0,0,85,0,0,0,0,0,25,65,0,104,89,349,755,1,0,"
-
-[File 0006]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.h"
-File Type = "Include"
-Disk Date = 3552541801
+Disk Date = 3552552502
 In Projects = "1,"
 Window Top = 33
 Window Left = 10
 Source Window State = "1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,349,771,1,0,"
 
-[File 0007]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.ini"
+[File 0006]
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
 File Type = "Unknown"
-Disk Date = 3552538743
+Disk Date = 3552487005
+In Projects = "1,"
+
+[File 0007]
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
+File Type = "Unknown"
+Disk Date = 3552552502
 In Projects = "1,"
 
 [File 0008]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/MaMon_dbg.exe"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/README.md"
 File Type = "Unknown"
-Disk Date = 3552542301
-In Projects = "1,"
-
-[File 0009]
-Path = "/c/Users/User/Desktop/MaMon/MaMon/README.md"
-File Type = "Unknown"
-Disk Date = 3552538743
+Disk Date = 3552053167
 In Projects = "1,"
 
 [Tab Order]
-Tab 0001 = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.uir"
-Tab 0002 = "/c/Users/User/Desktop/MaMon/MaMon/MaMon.c"
-Tab 0003 = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.h"
+Tab 0001 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
+Tab 0002 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True
