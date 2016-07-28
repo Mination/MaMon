@@ -35,15 +35,21 @@ int Cekac();
 /*               MAIN FUNKCE             */
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
+	
+	/*   DÙLEŽITÉ  */
+	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
+	/*  NEMAZAT	   */
+	
 	iniFileReader();
 	//SystemCas();
 	Cekac();
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probíhá ètení dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
+	
+
 	RunUserInterface();
 	
-    
-	
+    CloseCVIRTE (); 
 	return 0;
 }
 
