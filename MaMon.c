@@ -9,7 +9,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-const char COLON = ':';
+//const char COLON = ':';
 
 static int GUIPanelHandle;
 static int HelpPanelHandle;
@@ -30,18 +30,17 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int iniFileReader();
 int Cekac();
-int SystemCas();
+//int SystemCas();
 
 /*               MAIN FUNKCE             */
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
 	iniFileReader();
-	SystemCas();
+	//SystemCas();
 	Cekac();
-	InstallSysTrayIcon ("StatusIcons/dobry.ico", "G O D L I K E", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probíhá ètení dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	RunUserInterface();
-	
+	//RunUserInterface();
 	
     
 	
@@ -114,19 +113,7 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
     return 0;
 }
 
-/*            VYPÍNAÈ      */    
 
-int CVICALLBACK QuitCallback (int panel, int control, int event,
-		void *callbackData, int eventData1, int eventData2)
-{
-	switch (event)
-		{
-		case EVENT_COMMIT:
-			QuitUserInterface (0);
-			break;
-		}
-	return 0;
-}
 
 
 /*          STATUS IKONY        */ 
@@ -148,17 +135,17 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 			
 				if(trayIconHandle == 0){
 					if(control == GUIPanel_CMD_GREY){ 
-						InstallSysTrayIcon ("StatusIcons/klid.ico", "Chill", TaskbarIconCB, &trayIconHandle);
+						InstallSysTrayIcon ("StatusIcons/klid.ico", "Nic se nedìje", TaskbarIconCB, &trayIconHandle);
 						trayIconFunkce();
 					}
 					
 					if(control == GUIPanel_CMD_RED){
-						InstallSysTrayIcon ("StatusIcons/spatny.ico", "Bacha kámo", TaskbarIconCB, &trayIconHandle);
+						InstallSysTrayIcon ("StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
 						trayIconFunkce();
 					}
 					
 					if(control == GUIPanel_CMD_GREEN){
-						InstallSysTrayIcon ("StatusIcons/dobry.ico", "Dobrý to je kámo", TaskbarIconCB, &trayIconHandle);
+						InstallSysTrayIcon ("StatusIcons/dobry.ico", "Vše bìži v poøádku", TaskbarIconCB, &trayIconHandle);
 						trayIconFunkce();
 				
 					}
@@ -229,8 +216,8 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
-	/*
 	
+	/*
 	int casStartLen;
 	int rotor = 0;
 	while(rotor <  strlen(casStart)){
@@ -274,9 +261,9 @@ int iniFileReader(){
 		//printf("%c",fug);
 		
 	}
-	*/
 
-		
+
+*/		
 		
 			
 		
@@ -289,8 +276,6 @@ int iniFileReader(){
 	
 	
 	//TOHLE POZDÌJI SMAZAT
-	
-	
 	DelayWithEventProcessing(2);
 	
 	DetachTrayIconMenu (trayIconHandle);
@@ -307,7 +292,7 @@ int iniFileReader(){
 }
 
 int Cekac(){
-	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probíhá sbìr dat", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("StatusIcons/init.ico", "Probíhá sbìr dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 	
 	DelayWithEventProcessing(intervalSecDouble);
@@ -319,7 +304,7 @@ int Cekac(){
 }
 
 
-
+ /*
 int SystemCas(){
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
@@ -347,4 +332,4 @@ int SystemCas(){
 	
 }
 
-
+		*/
