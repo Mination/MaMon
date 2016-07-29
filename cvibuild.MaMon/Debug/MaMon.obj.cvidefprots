@@ -30,3 +30,11 @@ Prototype="int iniFileReader();"
 Class="Function"
 Prototype="int Cekac();"
 
+[SystemCas]
+Class="Function"
+Prototype="int SystemCas();"
+
+[GodEnder]
+Class="Function"
+Prototype="int GodEnder();"
+

@@ -14,9 +14,9 @@ Active Project = 1
 Project 0001 = "MaMon.prj"
 Drag Bar Left = 160
 Window Top = 244
-Window Left = 359
-Window Bottom = 746
-Window Right = 1149
+Window Left = 434
+Window Bottom = 1227
+Window Right = 1421
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -64,12 +64,12 @@ Window Width = 400
 [File 0003]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3552579557
+Disk Date = 3552679075
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
 Window Z-Order = 1
-Source Window State = "1,37,37,37,4,56,4,0,0,211,0,62,0,1,0,56,274,0,291,53,349,771,1,11,"
+Source Window State = "1,340,341,341,0,27,27,0,0,211,0,62,0,1,0,56,300,0,339,42,349,771,1,11,"
 
 [File 0004]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
@@ -100,7 +100,7 @@ In Projects = "1,"
 [File 0007]
 Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3552567070
+Disk Date = 3552579563
 In Projects = "1,"
 
 [File 0008]

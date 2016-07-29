@@ -30,7 +30,8 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int iniFileReader();
 int Cekac();
-//int SystemCas();
+int SystemCas();
+int GodEnder();
 
 /*               MAIN FUNKCE             */
 
@@ -41,7 +42,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	/*  NEMAZAT	   */
 	
 	iniFileReader();
-	//SystemCas();
+	SystemCas();
 	Cekac();
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probíhá ètení dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
@@ -49,7 +50,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 
 	RunUserInterface();
 	
-    CloseCVIRTE (); 
+    
 	return 0;
 }
 
@@ -64,7 +65,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
         {
         case EVENT_MENU_ITEM:
         	if (eventData == 1){
-				QuitUserInterface(0);	
+				GodEnder();
 				
 			}
 			if (eventData == 4){
@@ -309,12 +310,12 @@ int Cekac(){
 }
 
 
- /*
+ 
 int SystemCas(){
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
 	char sysTime[256];
-	snprintf(fug, sizeof sysTime, "%d:%d", tm.tm_hour, tm.tm_min);
+	snprintf(sysTime, sizeof sysTime, "%d:%d", tm.tm_hour, tm.tm_min);
 	if(sysTime == casStart){
 		printf("dsadas");	
 		
@@ -336,5 +337,19 @@ int SystemCas(){
 	
 	
 }
-
-		*/
+int GodEnder(){
+	exit(0);
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
