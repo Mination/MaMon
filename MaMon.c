@@ -1,3 +1,4 @@
+#include <formatio.h>
 #include "inifile.h"
 #include <userint.h>
 #include <ansi_c.h>
@@ -9,7 +10,7 @@
 #include <time.h>
 #include <stdlib.h>
 
-//const char COLON = ':';
+const char COLON = ':';
 
 static int GUIPanelHandle;
 static int HelpPanelHandle;
@@ -21,7 +22,7 @@ static int trayIconHandle;
 
 int GUIPanelHlidac,HelpPanelHlidac;
 char *DSN, *typ,*adresa,*casStart;
-int PT,alarmLimitProc,pocetVzorku,OK,NOK,hodina,minuta;
+int PT,alarmLimitProc,pocetVzorku,OK,NOK,hodinaStart,minutaStart;
 double intervalSecDouble;
 
 /*  PROTOTYPY FUNKCÍ  */
@@ -223,70 +224,32 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
-	 
-	/*
-	int casStartLen;
-	int rotor = 0;
-	while(rotor <  strlen(casStart)){
-		rotor += 1;
-		casStartLen = rotor;
-		
+	
+	/*============ ÈISTÁ MAGIE, NESAHAT =============================*/
+	int rozdelovac = 0;
+	char *p = casStart;
+	while (*p){
+    	if (isdigit(*p)){ 
+        	long val = strtol(p, &p, 10); 
+        	if (rozdelovac == 0){
+				hodinaStart = val;
+				rozdelovac = rozdelovac + 1;
+			}else if (rozdelovac == 1){
+				minutaStart = val;	
+			}
+		} 
+	
+     	else{ 
+        	p++;
+    	}
 	}
-	
-	//printf("%d\n",casStartLen);
-	
-	char cas[casStartLen];
-	int tocak = 0;
-	for(int i = 0; casStart[i] != '\0'; i++){
-		
-		if(casStart[i] == COLON){
-			
-			
-		}else{
-			cas[tocak] = casStart[i];
-			tocak = tocak + 1;	
-			
-		}	
-		
-	}
-	//printf("%s",cas);
-	
-	
-	char fug,kuk;
-	int casStartLenDoIfu = casStartLen - 1;
-	if (casStartLenDoIfu == 3){
-		
-		hodina = cas[0];
-		minuta = cas[1];
-		//printf("%c\n",hodina);
-		//printf("%c",minuta);
-		
-	}
-	if(casStartLenDoIfu == 4){
-		fug = cas[0];
-		//hodina = (int)fug;
-		//printf("%c",fug);
-		
-	}
-
-
-*/		
-		
-			
-		
-    	
-
-	
-        
-
-	
-	
+	/*============ ÈISTÁ MAGIE, NESAHAT =============================*/ 
 	
 	//TOHLE POZDÌJI SMAZAT
 	DelayWithEventProcessing(2);
 	
-	DetachTrayIconMenu (trayIconHandle);
-	RemoveSysTrayIcon (trayIconHandle);
+	//DetachTrayIconMenu (trayIconHandle);
+	//RemoveSysTrayIcon (trayIconHandle);
 	
 	
 	
@@ -314,29 +277,22 @@ int Cekac(){
 int SystemCas(){
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
-	char sysTime[256];
-	snprintf(sysTime, sizeof sysTime, "%d:%d", tm.tm_hour, tm.tm_min);
-	if(sysTime == casStart){
-		printf("dsadas");	
+	
+	if(hodinaStart == tm.tm_hour && minutaStart == tm.tm_min){
+		printf("Asi jsem vážnì bùh.");	
+		
+	}else{
+		DelayWithEventProcessing(5); 
+		SystemCas();	
 		
 	}
 	
-	
-	
-	
-	
-	
-   
-    
-    
-
- 
-  	return 0;
+	DetachTrayIconMenu (trayIconHandle);
+	RemoveSysTrayIcon (trayIconHandle);
+	return 0;
   		
-	
-	
-	
 }
+
 int GodEnder(){
 	exit(0);
 	
