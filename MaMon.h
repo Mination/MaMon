@@ -39,10 +39,9 @@
 
 
      /* Callback Prototypes: */
-
-int  CVICALLBACK CmdIcon(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
+int GUIPanelHandle;
+int HelpPanelHandle;
+int trayIconHandle;
 
 
 #ifdef __cplusplus

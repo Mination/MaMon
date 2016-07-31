@@ -1,0 +1,24 @@
+[TaskbarIconCB]
+Class="Function"
+Prototype="int TaskbarIconCB(int iconHandle, int event, int eventData);"
+
+[PanelCB]
+Class="Function"
+Prototype="int PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[CmdIcon]
+Class="Function"
+Prototype="int CmdIcon(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[HelpPanelCB]
+Class="Function"
+Prototype="int HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[trayIconFunkce]
+Class="Function"
+Prototype="int trayIconFunkce();"
+
+[GodEnder]
+Class="Function"
+Prototype="int GodEnder();"
+

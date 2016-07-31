@@ -1,4 +1,7 @@
+GUI.obj
+iniReader.obj
 MaMon.obj
+timeFunkce.obj
 cvi.lib
 cvistart.lib
 inifile.obj
