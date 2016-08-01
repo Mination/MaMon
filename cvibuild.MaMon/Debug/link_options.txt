@@ -1,22 +1,23 @@
 -nologo
--out:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\MaMon_dbg.exe
+-out:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\MaMon_dbg.exe
 -arch:x86
 -timestamp
 -debug:2
 -loadextmod
--res:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\resources.res
+-res:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\resources.res
 -entry:_CVIWinMainStartupCodeForDebugging@0
 -base:0x400000
--linked:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\linkersummary.txt
--dlldeps:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\dlldependencies.txt
--licensing:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\linkerlicensing.txt
--browsedeps:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\moduledependencies.txt
+-linked:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\linkersummary.txt
+-dlldeps:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\dlldependencies.txt
+-licensing:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\linkerlicensing.txt
+-browsedeps:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\moduledependencies.txt
 -stackreserve:1048576
 -stackcommit:4096
--in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\GUI.obj
--in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\iniReader.obj
--in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\MaMon.obj
--in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\timeFunkce.obj
+-in:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\GUI.obj
+-in:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\iniReader.obj
+-in:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\MaMon.obj
+-in:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\SQL.obj
+-in:c:\Users\User\Desktop\MaMon\MaMon\cvibuild.MaMon\Debug\timeFunkce.obj
 -more:c:\program files (x86)\national instruments\cvi2013\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2013\bin\msvc\cvi.lib
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\advapi32.lib
@@ -34,6 +35,8 @@
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\gpib.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\toolslib\toolbox\msvc\inifile.obj
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\kernel32.lib
+-more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\NIDAQmx.lib
+-more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\nisyscfg.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\nivxi.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\omp.lib
 -more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\pid.lib

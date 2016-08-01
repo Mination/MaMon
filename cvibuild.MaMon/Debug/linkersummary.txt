@@ -1,8 +1,10 @@
 GUI.obj
 iniReader.obj
 MaMon.obj
+SQL.obj
 timeFunkce.obj
 cvi.lib
+cvi_db.lib
 cvistart.lib
 inifile.obj
 toolbox.obj

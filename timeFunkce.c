@@ -24,7 +24,7 @@ int SystemCas(){
 	struct tm tm = *localtime(&t);
 	
 	if(hodinaStart == tm.tm_hour && minutaStart == tm.tm_min){
-		printf("AYYLEJMOU");	
+		printf("Data se sbírají");	
 		
 	}else{
 		DelayWithEventProcessing(5); 

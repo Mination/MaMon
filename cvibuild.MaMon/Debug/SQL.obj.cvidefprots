@@ -1,0 +1,8 @@
+[SeznamParametru]
+Class="Function"
+Prototype="int SeznamParametru();"
+
+[GetParametry]
+Class="Function"
+Prototype="int GetParametry(PARAMETRY **p_data, int *p_pocet);"
+

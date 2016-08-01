@@ -18,6 +18,7 @@
 #include "MaMon.h"
 #include "GUI.h"
 #include "timeFunkce.h"
+#include "SQL.h"
 
 
 
@@ -26,12 +27,32 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 	/*  NEMAZAT	   */
 	
+	
+	PARAMETRY *p_data = NULL; 
+	int pocet;
+	
+	// 
+	SeznamParametru();
+	
+	GetParametry(&p_data, &pocet);
+	
+	pocet = (p_data+0)->cislo_parametru;
+	pocet = (p_data+3)->cislo_parametru;
+	pocet = (p_data+4)->cislo_parametru;
+	
+	
+	
 	iniFileReader();
-	printf("%d",pocetVzorku);
 	SystemCas();
 	Cekac();
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probiha cteni dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
+	
+	
+	
+	
+	
+	
 	
 
 	RunUserInterface();
