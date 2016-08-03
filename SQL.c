@@ -17,13 +17,13 @@ int			parametry_pocet;
 int SeznamParametru()
 {
     int hdbc = 0;   
-	int hmap, hstmt, j;
+	int hstmt, j;
 	int resCode;  
 	char sql_txt[1024] = {'\0'};
-	
+	double min,max;
 	int pn;
 	char jednotky[512] = {'\0'};
-	
+	char nazev[512] = {'\0'}; 
 
 #ifdef WIN64
 	DisableBreakOnLibraryErrors();
@@ -61,8 +61,16 @@ int SeznamParametru()
 		(p_parametry+j)->p_jednotky = StrDup(jednotky);
 		
 		
-		DBGetColCharBuffer (hstmt, 4, jednotky, 500, "");
-		(p_parametry+j)->p_nazev = StrDup(jednotky);
+		DBGetColCharBuffer (hstmt, 4, nazev, 500, "");
+		(p_parametry+j)->p_nazev = StrDup(nazev);
+		
+		DBGetColDouble (hstmt, 9, &min);
+		(p_parametry+j)->p_min = min; 
+		
+		DBGetColDouble (hstmt, 10, &max);
+		(p_parametry+j)->p_max = max; 
+		
+		
 		
 		j++;
 	}

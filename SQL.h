@@ -3,8 +3,8 @@ typedef struct {
 	int cislo_parametru;
 	char *p_jednotky;
 	char *p_nazev;
-	double min;
-	double max;
+	double p_min;
+	double p_max;
 } PARAMETRY;
 
 
