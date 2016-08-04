@@ -8,7 +8,9 @@
 
 int GUIPanelHlidac,HelpPanelHlidac;
 
-
+int trayIconHandle;
+int GUIPanelHandle;
+int HelpPanelHandle;
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData);
 int trayIconFunkce();
 int GodEnder();
