@@ -30,7 +30,7 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 4
+Number of Opened Files = 10
 Window Confinement Region Enabled = True
 MainColumnWidth = 362
 FileDateColumnWidth = 70
@@ -64,38 +64,45 @@ Window Width = 400
 [File 0003]
 Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3553072723
+Disk Date = 3553148042
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
 Window Z-Order = 4
-Source Window State = "1,34,35,34,0,0,0,0,0,87,0,0,0,2,0,25,5,0,34,11,349,771,1,11,"
+Source Window State = "1,30,30,30,0,22,22,0,0,87,0,0,0,2,0,25,0,0,29,7,349,771,1,11,"
 
 [File 0004]
 Path = "/c/Users/User/Desktop/Škola/MaMon/SQL.c"
 File Type = "CSource"
-Disk Date = 3553073127
+Disk Date = 3553148098
 In Projects = "1,"
 Window Top = 40
 Window Left = 11
 Window Z-Order = 1
-Source Window State = "1,63,63,63,38,46,38,0,0,184,0,0,0,0,0,56,37,0,65,56,349,715,1,0,"
-Breakpoint 0001 = "75,0,enabled,"
-Breakpoint 0002 = "75,0,enabled,"
-Breakpoint 0003 = "75,0,enabled,"
-Breakpoint 0004 = "75,0,enabled,"
+Source Window State = "1,40,41,41,43,26,26,0,0,184,0,0,0,0,0,56,88,0,102,4,349,715,1,13,"
+Breakpoint 0001 = "103,0,enabled,"
 
 [File 0005]
 Path = "/c/Users/User/Desktop/Škola/MaMon/SQL.h"
 File Type = "Include"
-Disk Date = 3553073029
+Disk Date = 3553147556
 In Projects = "1,"
 Window Top = 78
 Window Left = 31
 Window Z-Order = 3
-Source Window State = "1,2,2,2,8,23,23,0,0,80,0,0,0,0,0,25,0,0,6,21,349,715,1,0,"
+Source Window State = "1,2,2,2,8,23,23,0,0,80,0,0,0,0,0,25,0,0,10,11,349,715,1,0,"
 
 [File 0006]
+Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/toolbox.h"
+File Type = "Include"
+Disk Date = 3486495600
+In Projects = ""
+Window Top = 40
+Window Left = 11
+Window Z-Order = 6
+Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,454,0,592,45,349,715,1,0,"
+
+[File 0007]
 Path = "/c/Users/User/Desktop/Škola/MaMon/GUI.c"
 File Type = "CSource"
 Disk Date = 3553072723
@@ -104,61 +111,67 @@ Window Top = 38
 Window Left = 10
 Source Window State = "1,84,84,84,73,82,82,0,0,0,0,2,0,2,0,0,0,0,119,33,427,686,1,0,"
 
-[File 0007]
+[File 0008]
 Path = "/c/Users/User/Desktop/Škola/MaMon/iniReader.c"
 File Type = "CSource"
-Disk Date = 3553072723
+Disk Date = 3553144585
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Source Window State = "1,26,26,26,50,61,61,0,3,0,0,3,0,3,0,0,0,0,26,50,427,718,1,0,"
+Window Z-Order = 5
+Source Window State = "1,52,52,52,0,73,73,0,0,81,0,3,0,3,0,31,0,0,52,0,427,718,1,0,"
 
-[File 0008]
+[File 0009]
 Path = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.c"
 File Type = "CSource"
 Disk Date = 3553072723
 In Projects = "1,"
 Window Top = 157
 Window Left = 74
-Source Window State = "1,26,26,26,16,25,25,0,0,0,0,0,0,7,0,0,0,0,29,8,427,718,1,13,"
+Window Z-Order = 2
+Source Window State = "1,26,26,26,16,25,25,0,0,81,0,0,0,7,0,31,0,0,29,8,427,718,1,13,"
 
-[File 0009]
+[File 0010]
 Path = "/c/Users/User/Desktop/Škola/MaMon/GUI.h"
 File Type = "Include"
-Disk Date = 3553072723
+Disk Date = 3553144585
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
-Source Window State = "1,34,34,34,0,44,44,0,0,0,0,0,0,0,0,0,0,0,28,42,427,686,1,0,"
+Window Z-Order = 10
+Source Window State = "1,21,21,21,8,32,32,0,0,77,0,0,0,0,0,31,0,0,21,8,427,686,1,0,"
 
-[File 0010]
+[File 0011]
 Path = "/c/Users/User/Desktop/Škola/MaMon/iniReader.h"
 File Type = "Include"
-Disk Date = 3553072723
+Disk Date = 3553144585
 In Projects = "1,"
 Window Top = 126
 Window Left = 58
-Source Window State = "1,34,34,34,0,45,45,0,0,0,0,0,0,0,0,0,0,0,32,25,427,718,1,0,"
+Window Z-Order = 9
+Source Window State = "1,22,22,22,8,35,35,0,0,81,0,0,0,0,0,31,0,0,22,8,427,718,1,0,"
 
-[File 0011]
+[File 0012]
 Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.h"
 File Type = "Include"
-Disk Date = 3553072723
+Disk Date = 3553144585
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
-Source Window State = "1,41,41,41,0,8,8,0,0,0,0,0,0,0,0,0,0,0,30,32,349,771,1,0,"
+Window Z-Order = 8
+Source Window State = "1,22,33,33,0,34,34,0,0,87,0,0,0,0,0,25,0,0,22,0,349,771,1,0,"
 
-[File 0012]
+[File 0013]
 Path = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.h"
 File Type = "Include"
-Disk Date = 3553072723
+Disk Date = 3553144585
 In Projects = "1,"
 Window Top = 188
 Window Left = 90
-Source Window State = "1,34,34,34,0,44,44,0,0,0,0,0,0,0,0,0,0,0,35,12,427,718,1,11,"
+Window Z-Order = 7
+Source Window State = "1,17,18,18,8,0,43,0,0,81,0,0,0,0,0,31,0,0,17,8,427,718,1,11,"
 
-[File 0013]
+[File 0014]
 Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
 Disk Date = 3553072723
@@ -168,39 +181,35 @@ Window Left = 26
 Window Height = 349
 Window Width = 771
 
-[File 0014]
+[File 0015]
 Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.ini"
 File Type = "Unknown"
 Disk Date = 3553072723
 In Projects = "1,"
 
-[File 0015]
+[File 0016]
 Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3553072723
+Disk Date = 3553073130
 In Projects = "1,"
 
-[File 0016]
+[File 0017]
 Path = "/c/Users/User/Desktop/Škola/MaMon/README.md"
 File Type = "Unknown"
 Disk Date = 3553072723
 In Projects = "1,"
-
-[File 0017]
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/toolbox.h"
-File Type = "Include"
-Disk Date = 3486495600
-In Projects = ""
-Window Top = 40
-Window Left = 11
-Window Z-Order = 2
-Source Window State = "1,0,0,0,0,0,0,0,0,80,0,0,0,0,0,25,583,0,592,45,349,715,1,0,"
 
 [Tab Order]
 Tab 0001 = "/c/Users/User/Desktop/Škola/MaMon/SQL.c"
 Tab 0002 = "/c/Users/User/Desktop/Škola/MaMon/MaMon.c"
 Tab 0003 = "/c/Users/User/Desktop/Škola/MaMon/SQL.h"
 Tab 0004 = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/toolbox.h"
+Tab 0005 = "/c/Users/User/Desktop/Škola/MaMon/iniReader.c"
+Tab 0006 = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.c"
+Tab 0007 = "/c/Users/User/Desktop/Škola/MaMon/GUI.h"
+Tab 0008 = "/c/Users/User/Desktop/Škola/MaMon/iniReader.h"
+Tab 0009 = "/c/Users/User/Desktop/Škola/MaMon/MaMon.h"
+Tab 0010 = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

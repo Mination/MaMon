@@ -1,5 +1,3 @@
-/* This sample program simply connects to a database and then   */
-/* disconnects from the database.                               */
 #include "cvi_db.h"
 #include "toolbox.h"
 #include <utility.h>
@@ -14,20 +12,23 @@ int			parametry_pocet;
 // vytvorit a volat fci pro uvolneni pameti p_parametry
 
 
+	
+	
+
 int SeznamParametru()
 {
     int hdbc = 0;   
-	int hstmt, j;
-	int resCode;  
+	int hstmt;    
 	char sql_txt[1024] = {'\0'};
+	int resCode;
 	double min,max;
 	int pn;
 	char jednotky[512] = {'\0'};
 	char nazev[512] = {'\0'}; 
-
-#ifdef WIN64
+	
+	#ifdef WIN64
 	DisableBreakOnLibraryErrors();
-#endif 
+	#endif 
 	 
 	hdbc = DBConnect ("DSN=MaMon_DB"); 
 	DBAllowFetchAnyDirection (hdbc, TRUE);
@@ -36,22 +37,17 @@ int SeznamParametru()
 						"inner join ( SELECT [Pn] as PnPn, max([TS_P]) as posledni FROM [dbo].[T_Parameter] where [PT_P]=%s group by [Pn] ) "
 						"as j on ([T_Parameter].[Pn] = j.[PnPn] and [T_Parameter].[TS_P] = j.posledni) "
 						"where [Min] is not null or [Max] is not null", "16084");
-	
-	
-	//sprintf(sql_txt, "SELECT [PT_P],[Pn],[Jednotka],[Nazev],[Name],[Popis],[TypSpojeni],[Spojeni], [Min],[Max],[Ukladat] FROM [dbo].[T_Parameter]");
-	
-	
+																																						  
 	hstmt = DBActivateSQL (hdbc, sql_txt);
-	
 	parametry_pocet = DBNumberOfRecords (hstmt);
 	
 	// testovat jestli jsou
 	
 	p_parametry = (PARAMETRY*)malloc(parametry_pocet*sizeof(PARAMETRY)); 
 	
-	j=0;
+	int j=0;
 	
-	
+	//tenhle while cyklus naète data z SQL do pointeru p_parametry, kterej je vlastnì matice(dvojrozmìrné pole) tìch dat, možná by se dalo použít pro nahrání do tabulky
 	while ((resCode = DBFetchNext (hstmt)) == DB_SUCCESS) {	
 		
 		DBGetColInt (hstmt, 2, &pn);
@@ -74,21 +70,8 @@ int SeznamParametru()
 		
 		j++;
 	}
-	
-	
-	
-	
-	
-	
 	//resCode = DBDeactivate (hstmt);
 	//resCode = DBDisconnect (hdbc);
-
-
-	
-	
-
-	 
-
 	return 0;
 	
 }
@@ -96,11 +79,34 @@ int SeznamParametru()
 
 
 int GetParametry(PARAMETRY **p_data, int *p_pocet){
-
-	
-	
+	 //tahle funkce umožòuje pøenos hodnot mezi .c soubory. Pošle nahrané parametry a poèet vstupù
 	 *p_data = p_parametry;
 	 *p_pocet = parametry_pocet;
 	
 	return 0;
 }
+
+
+
+
+ int LookThroughParameters(){
+	 int LookAt=0;
+	 PARAMETRY *p_data = NULL; 
+	 int pocet;
+	 
+	 GetParametry(&p_data, &pocet);
+	 // tímhle for cyklem se pohybujeme v pointeru a dostáváme hodnoty, které chceme (hodnota za šipkou urèuje sloupec(název do kterého ukládáme je ve while cyklu v horní funkci
+	 // dají se takhle ukládat inty, pro stringy je to tøeba trochu pozmìnit. Až se zjistí práce s tabulkou, tak se jen do for cyklu pøidá funkce pro nahrání do tabulky
+	 int i=0;
+	 for(i=0;i<pocet;i++){
+	LookAt=(p_data+i)->p_max;
+	LookAt;
+	}
+
+	return 0;
+ }
+
+
+
+
+

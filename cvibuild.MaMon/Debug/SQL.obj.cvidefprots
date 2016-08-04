@@ -6,3 +6,7 @@ Prototype="int SeznamParametru();"
 Class="Function"
 Prototype="int GetParametry(PARAMETRY **p_data, int *p_pocet);"
 
+[LookThroughParameters]
+Class="Function"
+Prototype="int LookThroughParameters();"
+

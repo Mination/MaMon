@@ -8,10 +8,7 @@ typedef struct {
 } PARAMETRY;
 
 
-
-
-
-
-
+int InitDB;
 int SeznamParametru();
 int GetParametry(PARAMETRY **p_data, int *p_pocet);
+int LookThroughParameters();

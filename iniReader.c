@@ -32,7 +32,7 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
 	
-	/*============ CISTA MAGIE, NESAHAT =============================*/
+
 	int rozdelovac = 0;
 	char *p = casStart;
 	while (*p){
@@ -50,7 +50,7 @@ int iniFileReader(){
         	p++;
     	}
 	}
-	/*============ CISTA MAGIE, NESAHAT =============================*/ 
+
 	
 	//TOHLE POZDÌJI SMAZAT
 	DelayWithEventProcessing(2);
