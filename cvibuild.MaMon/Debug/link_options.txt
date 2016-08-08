@@ -16,6 +16,7 @@
 -in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\GUI.obj
 -in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\iniReader.obj
 -in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\MaMon.obj
+-in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\OPC.obj
 -in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\SQL.obj
 -in:c:\Users\Mination\Desktop\ParentFolder\Codes\C\MaMon\cvibuild.MaMon\Debug\timeFunkce.obj
 -more:c:\program files (x86)\national instruments\cvi2013\bin\msvc\cvistart.lib
@@ -31,6 +32,7 @@
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\cvinetv.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\cvintwrk.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\cvitdms.lib
+-more:c:\Program Files (x86)\National Instruments\CVI2013\toolslib\datasock\msvc\dataskt.lib
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\gdi32.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\gpib.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\toolslib\toolbox\msvc\inifile.obj

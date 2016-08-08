@@ -9,6 +9,7 @@ int iniFileReader(){
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 	
+	
 	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
 	
@@ -53,10 +54,12 @@ int iniFileReader(){
 
 	
 	//TOHLE POZDÌJI SMAZAT
+	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
+	
 	DelayWithEventProcessing(2);
 	
-	//DetachTrayIconMenu (trayIconHandle);
-	//RemoveSysTrayIcon (trayIconHandle);
+	DetachTrayIconMenu (trayIconHandle);
+	RemoveSysTrayIcon (trayIconHandle);
 	
 	
 	

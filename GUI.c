@@ -2,7 +2,8 @@
 #include "toolbox.h"
 #include "GUI.h"
 #include "MaMon.h"
-
+#include "iniReader.h"
+#include "SQL.h"
 
 
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
@@ -19,7 +20,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			if (eventData == 4){
 				
 				if (GUIPanelHlidac == 0){
-					GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
 					
@@ -28,7 +28,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 					
 			if (eventData == 3){
 				if (HelpPanelHlidac == 0){
-					HelpPanelHandle = LoadPanel (0, "MaMon.uir",HelpPanel);
+					HelpPanelHandle = LoadPanel (0,"MaMon.uir", HelpPanel);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 1;
 					
@@ -38,6 +38,10 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 			}
 			
+			break;
+		case EVENT_LEFT_DOUBLE_CLICK:
+            DisplayPanel(GUIPanelHandle);
+			GUIPanelHlidac = 1;
 			break;
      
 		
@@ -55,7 +59,7 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
 {
     
 	if (event == EVENT_CLOSE){
-		DiscardPanel(GUIPanelHandle);
+		HidePanel(GUIPanelHandle);
 		GUIPanelHlidac = 0;
 		
 	}
@@ -146,4 +150,77 @@ int GodEnder(){
 	
 	
 	
+}
+
+int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, int eventData1, int eventData2){
+	
+	switch (event)
+	{
+		case EVENT_COMMIT:
+
+			break;
+	}
+	return 0;
+}
+
+int TableFiller(){
+	int ParHolder=0;
+	double DblHolder=0;
+	PARAMETRY *p_data = NULL; 
+	int pocet;
+	char StrHolder[512];
+	
+	GetParametry(&p_data, &pocet);
+	
+	InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, pocet, VAL_CELL_STRING);
+	InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 5, VAL_CELL_STRING);
+	
+	int i=0;
+	for(i=1;i<pocet+1;i++){
+
+	ParHolder = (p_data+(i-1))->cislo_parametru;
+	
+	sprintf(StrHolder, "%d", ParHolder);
+	
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CTRL_VAL, StrHolder);
+	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_NO_EDIT_TEXT, 1);
+	}
+	 /*
+	for(i=1;i<pocet+1;i++){
+
+	
+	(p_data+i)->p_jednotky=StrDup(StrHolder);
+	
+	
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CTRL_VAL, StrHolder);
+	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_NO_EDIT_TEXT, 1);
+	}
+	*/
+	
+	for(i=1;i<pocet+1;i++){
+
+	DblHolder = (p_data+(i-1))->p_min;
+	
+	sprintf(StrHolder, "%.2f", DblHolder);
+	
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CTRL_VAL, StrHolder);
+	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_NO_EDIT_TEXT, 1);
+	}
+	
+	for(i=1;i<pocet+1;i++){
+
+	DblHolder = (p_data+(i-1))->p_max;
+	
+	sprintf(StrHolder, "%.2f", DblHolder);
+	
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
+	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CTRL_VAL, StrHolder);
+	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_NO_EDIT_TEXT, 1);
+	}
+	
+	return 0;
+
 }

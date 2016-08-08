@@ -19,22 +19,28 @@
 #include "GUI.h"
 #include "timeFunkce.h"
 #include "SQL.h"
+#include "OPC.h"
 
+																   
 
 
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
 	/*   DULEZITE  */
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 	/*  NEMAZAT	   */
-	
-	// 
+	iniFileReader();
 	SeznamParametru();
+	TableFiller();
 	LookThroughParameters();
 	
 	
-	iniFileReader();
-	SystemCas();
-	Cekac();
+	
+	
+	//SystemCas();
+	
+	//Cekac();
+	
+	
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probiha cteni dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 	
@@ -48,3 +54,4 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	RunUserInterface();
 	return 0;
 }
+

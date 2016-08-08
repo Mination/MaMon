@@ -1,6 +1,7 @@
 GUI.obj
 iniReader.obj
 MaMon.obj
+OPC.obj
 SQL.obj
 timeFunkce.obj
 cvi.lib

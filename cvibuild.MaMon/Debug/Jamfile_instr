@@ -1,6 +1,7 @@
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\GUI.obj" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\iniReader.obj" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon.obj" ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\OPC.obj" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\SQL.obj" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\timeFunkce.obj" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\program files (x86)\\national instruments\\cvi2013\\sdk\\lib\\msvc\\advapi32.lib" ;
@@ -25,6 +26,8 @@ Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.M
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2013\\bin\\msvc\\cvintwrk.lib" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2013\\bin\\msvc\\cvitdms.lib" ;
 NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2013\\bin\\msvc\\cvitdms.lib" ;
+Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2013\\toolslib\\datasock\\msvc\\dataskt.lib" ;
+NoCare "c:\\Program Files (x86)\\National Instruments\\CVI2013\\toolslib\\datasock\\msvc\\dataskt.lib" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\program files (x86)\\national instruments\\cvi2013\\sdk\\lib\\msvc\\gdi32.lib" ;
 NoCare "c:\\program files (x86)\\national instruments\\cvi2013\\sdk\\lib\\msvc\\gdi32.lib" ;
 Depends "c:\\Users\\Mination\\Desktop\\ParentFolder\\Codes\\C\\MaMon\\cvibuild.MaMon\\Debug\\MaMon_dbg.exe" : "c:\\Program Files (x86)\\National Instruments\\CVI2013\\bin\\msvc\\gpib.lib" ;

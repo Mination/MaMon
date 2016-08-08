@@ -4,6 +4,8 @@
 #include <ansi_c.h>
 #include <userint.h>
 #include "SQL.h"
+#include "GUI.h"
+#include "MaMon.h"
 
 
 PARAMETRY	*p_parametry; 
@@ -67,7 +69,6 @@ int SeznamParametru()
 		(p_parametry+j)->p_max = max; 
 		
 		
-		
 		j++;
 	}
 	//resCode = DBDeactivate (hstmt);
@@ -90,22 +91,42 @@ int GetParametry(PARAMETRY **p_data, int *p_pocet){
 
 
  int LookThroughParameters(){
-	 int LookAt=0;
-	 PARAMETRY *p_data = NULL; 
-	 int pocet;
+	int LookAt=0;
+	PARAMETRY *p_data = NULL; 
+	int pocet;
 	 
-	 GetParametry(&p_data, &pocet);
+	GetParametry(&p_data, &pocet);
 	 // tímhle for cyklem se pohybujeme v pointeru a dostáváme hodnoty, které chceme (hodnota za šipkou urèuje sloupec(název do kterého ukládáme je ve while cyklu v horní funkci
 	 // dají se takhle ukládat inty, pro stringy je to tøeba trochu pozmìnit. Až se zjistí práce s tabulkou, tak se jen do for cyklu pøidá funkce pro nahrání do tabulky
-	 int i=0;
-	 for(i=0;i<pocet;i++){
-	LookAt=(p_data+i)->p_max;
-	LookAt;
+	
+	int i=0;
+	for(i=0;i<pocet;i++){
+		LookAt=(p_data+i)->p_max;
+		LookAt;
+		
+		
 	}
-
+	/*
+	int jedna = 0;
+	int j = 0;
+	char fug[6];
+	for(j=1;j<pocet+1;j++){
+	for(i=1;i<6;i++){
+		sprintf(fug, "%d", LookAt);
+		printf("%s\n",fug);
+		InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_NUMERIC);
+		InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_NUMERIC);
+		
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (i, j), ATTR_CTRL_VAL,LookAt1);
+		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (i, j), ATTR_NO_EDIT_TEXT, 1);
+		
+		
+	}
+	}
+	//SetTableRowAttribute();
+	*/
 	return 0;
  }
-
 
 
 
