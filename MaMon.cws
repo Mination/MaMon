@@ -1,6 +1,6 @@
 [Workspace Header]
 Version = 1302
-Pathname = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.cws"
+Pathname = "/c/Users/User/Desktop/Škola/MaMon/MaMon.cws"
 CVI Dir = "/c/program files (x86)/national instruments/cvi2013"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
 CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2013"
@@ -12,11 +12,11 @@ VXIplug&play Framework 64-bit Dir = "/C/Program Files/IVI Foundation/VISA/win64"
 Number of Projects = 1
 Active Project = 1
 Project 0001 = "MaMon.prj"
-Drag Bar Left = 160
+Drag Bar Left = 379
 Window Top = 38
 Window Left = 8
 Window Bottom = 493
-Window Right = 880
+Window Right = 780
 Maximized = True
 Maximized Children = True
 Max32 Number Of Errors = 20
@@ -30,9 +30,9 @@ Save Changes Before Compiling = "Always"
 Hide Windows = False
 Break At First Statement = False
 Sort Type = "File Name"
-Number of Opened Files = 9
+Number of Opened Files = 11
 Window Confinement Region Enabled = True
-MainColumnWidth = 143
+MainColumnWidth = 362
 FileDateColumnWidth = 70
 FileSizeColumnWidth = 70
 
@@ -52,13 +52,13 @@ Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/program files (x86)/national instruments/cvi2013/toolslib/datasock/dataskt.fp"
+Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/datasock/dataskt.fp"
 File Type = "Function Panel"
 Disk Date = 3486495600
 In Projects = "1,"
 
 [File 0003]
-Path = "/c/program files (x86)/national instruments/cvi2013/toolslib/toolbox/inifile.fp"
+Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.fp"
 File Type = "Function Panel"
 Disk Date = 3486495600
 In Projects = "1,"
@@ -68,160 +68,165 @@ Window Height = 400
 Window Width = 400
 
 [File 0004]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
+Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.c"
 File Type = "CSource"
-Disk Date = 3553527376
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
-Window Z-Order = 3
-Source Window State = "1,32,32,32,9,20,9,0,0,87,0,0,0,2,0,20,5,0,32,18,349,771,1,11,"
+Window Z-Order = 2
+Source Window State = "1,32,32,32,9,20,9,0,0,87,0,0,0,2,0,25,33,0,53,4,349,771,1,11,"
 
 [File 0005]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.c"
+Path = "/c/Users/User/Desktop/Škola/MaMon/SQL.c"
 File Type = "CSource"
-Disk Date = 3553527269
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 40
 Window Left = 11
-Window Z-Order = 4
-Source Window State = "1,70,77,77,8,34,34,0,0,80,0,14,0,0,0,20,44,0,75,86,349,715,1,13,"
+Window Z-Order = 1
+Source Window State = "1,70,77,77,8,34,34,0,0,184,0,14,0,0,0,44,90,0,118,80,349,715,1,13,"
+Breakpoint 0001 = "63,0,enabled,"
 
 [File 0006]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.c"
+Path = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.c"
 File Type = "CSource"
-Disk Date = 3553122289
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 157
 Window Left = 74
-Window Z-Order = 8
-Source Window State = "1,26,26,26,16,25,25,0,0,80,0,0,0,7,0,25,0,0,11,4,427,718,1,13,"
+Window Z-Order = 4
+Source Window State = "1,26,26,26,16,25,25,0,0,81,0,0,0,7,0,31,0,0,11,4,427,718,1,13,"
 
 [File 0007]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.h"
 File Type = "Include"
-Disk Date = 3553333696
-In Projects = "1,"
-Window Top = 38
-Window Left = 10
-Window Z-Order = 6
-Source Window State = "1,44,44,44,0,111,111,0,0,87,0,0,0,0,0,20,6,0,19,45,349,771,1,0,"
-
-[File 0008]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUI.c"
-File Type = "CSource"
-Disk Date = 3553527214
+Disk Date = 3553540057
 In Projects = "1,"
 Window Top = 38
 Window Left = 10
 Window Z-Order = 7
-Source Window State = "1,168,168,168,5,15,5,0,0,76,0,25,0,2,0,25,47,0,34,55,427,686,1,13,"
+Source Window State = "1,44,44,44,0,111,111,0,0,87,0,0,0,0,0,25,6,0,19,45,349,771,1,0,"
+
+[File 0008]
+Path = "/c/Users/User/Desktop/Škola/MaMon/GUI.c"
+File Type = "CSource"
+Disk Date = 3553538520
+In Projects = "1,"
+Window Top = 38
+Window Left = 10
+Window Z-Order = 3
+Source Window State = "1,168,168,168,5,15,5,0,0,77,0,25,0,2,0,31,47,0,34,55,427,686,1,13,"
 
 [File 0009]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/iniReader.c"
+Path = "/c/Users/User/Desktop/Škola/MaMon/iniReader.c"
 File Type = "CSource"
-Disk Date = 3553292926
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 1
-Source Window State = "1,56,56,56,4,56,56,0,0,211,0,3,0,3,0,46,27,0,45,78,427,718,1,0,"
+Window Z-Order = 8
+Source Window State = "1,56,56,56,4,56,56,0,0,81,0,3,0,3,0,31,29,0,19,28,427,718,1,0,"
 
 [File 0010]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/SQL.h"
 File Type = "Include"
-Disk Date = 3553161057
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 78
 Window Left = 31
-Window Z-Order = 9
-Source Window State = "1,2,2,2,8,23,23,0,0,80,0,0,0,0,0,20,0,0,10,11,349,715,1,0,"
+Window Z-Order = 5
+Source Window State = "1,2,2,2,8,23,23,0,0,80,0,0,0,0,0,25,0,0,10,11,349,715,1,0,"
 
 [File 0011]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
+Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
-Disk Date = 3553333696
+Disk Date = 3553540057
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
 Window Height = 349
 Window Width = 771
-Window Z-Order = 2
+Window Z-Order = 6
 
 [File 0012]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/OPC.c"
+Path = "/c/Users/User/Desktop/Škola/MaMon/OPC.c"
 File Type = "CSource"
-Disk Date = 3553526939
+Disk Date = 3553540057
 In Projects = "1,"
 Window Top = 95
 Window Left = 42
-Window Z-Order = 5
-Source Window State = "1,12,12,12,17,73,73,0,0,87,0,11,0,11,0,25,0,0,17,2,427,774,1,0,"
+Window Z-Order = 9
+Source Window State = "1,20,20,20,59,67,59,0,0,88,0,36,0,36,0,31,0,0,17,18,427,774,1,0,"
 
 [File 0013]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUI.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/GUI.h"
 File Type = "Include"
-Disk Date = 3553527099
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
 Source Window State = "1,10,10,10,4,18,4,0,0,0,0,0,0,0,0,0,0,0,19,18,427,686,1,0,"
 
 [File 0014]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/iniReader.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/iniReader.h"
 File Type = "Include"
-Disk Date = 3553161057
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 126
 Window Left = 58
-Source Window State = "1,22,22,22,8,35,35,0,0,0,0,0,0,0,0,0,0,0,22,8,427,718,1,0,"
+Window Z-Order = 11
+Source Window State = "1,22,22,22,8,35,35,0,0,81,0,0,0,0,0,31,0,0,22,8,427,718,1,0,"
 
 [File 0015]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/OPC.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/OPC.h"
 File Type = "Include"
-Disk Date = 3553507105
+Disk Date = 3553539645
 In Projects = "1,"
 Window Top = 126
 Window Left = 58
-Source Window State = "1,23,24,24,0,62,62,0,0,0,0,0,0,0,0,0,0,0,23,0,427,774,1,0,"
+Window Z-Order = 10
+Source Window State = "1,1,2,2,0,32,32,0,0,88,0,0,0,0,0,31,0,0,0,0,427,774,1,0,"
 
 [File 0016]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.h"
+Path = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.h"
 File Type = "Include"
-Disk Date = 3553161057
+Disk Date = 3553538520
 In Projects = "1,"
 Window Top = 188
 Window Left = 90
 Source Window State = "1,17,18,18,8,0,43,0,0,0,0,0,0,0,0,0,0,0,17,8,427,718,1,11,"
 
 [File 0017]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
+Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon.ini"
 File Type = "Unknown"
-Disk Date = 3553196356
+Disk Date = 3553538520
 In Projects = "1,"
 
 [File 0018]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
+Path = "/c/Users/User/Desktop/Škola/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3553527378
+Disk Date = 3553538520
 In Projects = "1,"
 
 [File 0019]
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/README.md"
+Path = "/c/Users/User/Desktop/Škola/MaMon/README.md"
 File Type = "Unknown"
-Disk Date = 3553122288
+Disk Date = 3553538520
 In Projects = "1,"
 
 [Tab Order]
-Tab 0001 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.c"
-Tab 0002 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.c"
-Tab 0003 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.h"
-Tab 0004 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUI.c"
-Tab 0005 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/OPC.c"
-Tab 0006 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.c"
-Tab 0007 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/iniReader.c"
-Tab 0008 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
-Tab 0009 = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
+Tab 0001 = "/c/Users/User/Desktop/Škola/MaMon/SQL.h"
+Tab 0002 = "/c/Users/User/Desktop/Škola/MaMon/timeFunkce.c"
+Tab 0003 = "/c/Users/User/Desktop/Škola/MaMon/GUI.c"
+Tab 0004 = "/c/Users/User/Desktop/Škola/MaMon/OPC.c"
+Tab 0005 = "/c/Users/User/Desktop/Škola/MaMon/SQL.c"
+Tab 0006 = "/c/Users/User/Desktop/Škola/MaMon/MaMon.c"
+Tab 0007 = "/c/Users/User/Desktop/Škola/MaMon/MaMon.uir"
+Tab 0008 = "/c/Users/User/Desktop/Škola/MaMon/iniReader.c"
+Tab 0009 = "/c/Users/User/Desktop/Škola/MaMon/OPC.h"
+Tab 0010 = "/c/Users/User/Desktop/Škola/MaMon/iniReader.h"
+Tab 0011 = "/c/Users/User/Desktop/Škola/MaMon/MaMon.h"
 
 [Default Build Config 0001 Debug]
 Generate Browse Info = True

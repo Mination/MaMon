@@ -21,8 +21,9 @@
 #define  GUIPanel_LED                     6       /* control type: LED, callback function: (none) */
 #define  GUIPanel_DECORATION              7       /* control type: deco, callback function: (none) */
 #define  GUIPanel_RING                    8       /* control type: ring, callback function: (none) */
-#define  GUIPanel_TEXTMSG_2               9       /* control type: textMsg, callback function: (none) */
-#define  GUIPanel_TEXTMSG                 10      /* control type: textMsg, callback function: (none) */
+#define  GUIPanel_STATUS                  9       /* control type: string, callback function: (none) */
+#define  GUIPanel_TEXTMSG_2               10      /* control type: textMsg, callback function: (none) */
+#define  GUIPanel_TEXTMSG                 11      /* control type: textMsg, callback function: (none) */
 
 #define  HelpPanel                        2       /* callback function: HelpPanelCB */
 #define  HelpPanel_TEXTBOX                2       /* control type: textMsg, callback function: (none) */
