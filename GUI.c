@@ -175,6 +175,11 @@ int TableFiller(){
 	InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, pocet, VAL_CELL_STRING);
 	InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 5, VAL_CELL_STRING);
 	
+	SetTableRowAttribute (GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1);   // povolí ti psát do labelù rowù
+	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1); // povolí ti psát do labelù columnù 
+	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, "boi");  // co chceš do rowù napsat
+	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, "shitwodup"); // co chceš do columnù napsat
+	
 	int i=0;
 	for(i=1;i<pocet+1;i++){
 
@@ -185,6 +190,7 @@ int TableFiller(){
 	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CTRL_VAL, StrHolder);
 	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_NO_EDIT_TEXT, 1);
+	
 	}
 	 /*
 	for(i=1;i<pocet+1;i++){
