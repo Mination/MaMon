@@ -18,9 +18,9 @@ Prototype="int HelpPanelCB(int panel, int event, void *callbackData, int eventDa
 Class="Function"
 Prototype="int trayIconFunkce();"
 
-[GodEnder]
+[Exit]
 Class="Function"
-Prototype="int GodEnder();"
+Prototype="int Exit();"
 
 [TableCB]
 Class="Function"

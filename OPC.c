@@ -14,10 +14,8 @@
 int dsHandle = 0;
 int DSStatus = 0;
 
-
 hr = DS_Open (adresa, DSConst_ReadAutoUpdate, DSCallback,
        	    	          NULL, &dsHandle);
-
 
 void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
 {

@@ -6,16 +6,15 @@
 #include "SQL.h"
 #include "GUITable.h"
 
-
+/* TRAY MENU CALLBACK  */
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 {
     char eventName [70];
-    
     switch (event)
         {
         case EVENT_MENU_ITEM:
         	if (eventData == 1){
-				GodEnder();
+				Exit();
 				
 			}
 			if (eventData == 4){
@@ -24,20 +23,14 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 					TableFiller();
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
-					
 				}
 			}	
-					
 			if (eventData == 3){
 				if (HelpPanelHlidac == 0){
 					HelpPanelHandle = LoadPanel (0,"MaMon.uir", HelpPanel);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 1;
-					
-					
 				}
-				
-				
 			}
 			
 			break;
@@ -45,79 +38,75 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
             DisplayPanel(GUIPanelHandle);
 			GUIPanelHlidac = 1;
 			break;
-     
-		
+     	
 		default:
             eventName[0] = 0;
         }
-    	
-
-    return 0;
+	return 0;
 }
 
+/* VYPINAC GUI */
 int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
                          int eventData1, int eventData2)
 {
-    
-	if (event == EVENT_CLOSE){
+    if (event == EVENT_CLOSE){
 		HidePanel(GUIPanelHandle);
 		GUIPanelHlidac = 0;
 		
 	}
-        
-	
-    return 0;
+    
+	return 0;
 }
 
+/* MENIC TRAY IKON, POZDEJI SMAZAT */
 int CVICALLBACK CmdIcon (int panel, int control, int event,
 						 void *callbackData, int eventData1, int eventData2)
 {
-	
-	switch (event)
-	{
+	switch (event){
 		case EVENT_COMMIT:
-
-				if(trayIconHandle != 0){
-				 	DetachTrayIconMenu (trayIconHandle);
-	    			RemoveSysTrayIcon (trayIconHandle);	
-					trayIconHandle = 0;
-				}
 			
+			if(trayIconHandle != 0){
+				DetachTrayIconMenu (trayIconHandle);
+	    		RemoveSysTrayIcon (trayIconHandle);	
+				trayIconHandle = 0;
+			}
 			
-				if(trayIconHandle == 0){
-					if(control == GUIPanel_CMD_GREY){ 
-						InstallSysTrayIcon ("StatusIcons/klid.ico", "Nic se nedeje", TaskbarIconCB, &trayIconHandle);
-						trayIconFunkce();
-					}
-					
-					if(control == GUIPanel_CMD_RED){
-						InstallSysTrayIcon ("StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
-						trayIconFunkce();
-					}
-					
-					if(control == GUIPanel_CMD_GREEN){
-						InstallSysTrayIcon ("StatusIcons/dobry.ico", "Vse bezi v poradku", TaskbarIconCB, &trayIconHandle);
-						trayIconFunkce();
+			if(trayIconHandle == 0){
 				
-					}
-					}
+				if(control == GUIPanel_CMD_GREY){ 
+					InstallSysTrayIcon ("StatusIcons/klid.ico", "Nic se nedeje", TaskbarIconCB, &trayIconHandle);
+					trayIconFunkce();
+				}
+					
+			if(control == GUIPanel_CMD_RED){
+				InstallSysTrayIcon ("StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
+				trayIconFunkce();
+				}
+					
+			if(control == GUIPanel_CMD_GREEN){
+				InstallSysTrayIcon ("StatusIcons/dobry.ico", "Vse bezi v poradku", TaskbarIconCB, &trayIconHandle);
+				trayIconFunkce();
+				
+				}
+			}
 			break;
 	}
 	return 0;
 }
 
+/* VYPINAC HELP PANELU */
 int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 							 int eventData1, int eventData2)
 {
-	{
-    if (event == EVENT_CLOSE){
+	if (event == EVENT_CLOSE){
         DiscardPanel(HelpPanelHandle);
 		HelpPanelHlidac = 0;
 	}
-    return 0;
-	}
+    
+	return 0;
 }
 
+/* VYTVORENI TRAY MENU */
 int trayIconFunkce(){
 	int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
@@ -125,19 +114,19 @@ int trayIconFunkce(){
 	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
 	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
     InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+	
 	return 0;
-	
-	
-	
-	
 }
 
-int GodEnder(){
+/* VYPINAC */
+int Exit(){
 	exit(0);
 }
 
-int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, int eventData1, int eventData2){
-	
+
+int CVICALLBACK TableCB (int panel, int control, int event,
+						 void *callbackData, int eventData1, int eventData2)
+{
 	switch (event)
 	{
 		case EVENT_COMMIT:
@@ -146,5 +135,3 @@ int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, i
 	}
 	return 0;
 }
-
-

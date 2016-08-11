@@ -7,15 +7,8 @@
 #include "GUI.h"
 #include "MaMon.h"
 
-
 PARAMETRY	*p_parametry; 
 int			parametry_pocet;
-
-// vytvorit a volat fci pro uvolneni pameti p_parametry
-
-
-	
-	
 
 int SeznamParametru()
 {
@@ -77,34 +70,24 @@ int SeznamParametru()
 	
 }
 
-
-
 int GetParametry(PARAMETRY **p_data, int *p_pocet){
-	 //tahle funkce umožòuje pøenos hodnot mezi .c soubory. Pošle nahrané parametry a poèet vstupù
-	 *p_data = p_parametry;
-	 *p_pocet = parametry_pocet;
+	*p_data = p_parametry;
+	*p_pocet = parametry_pocet;
 	
 	return 0;
 }
 
-
-
-
- int LookThroughParameters(){
+int LookThroughParameters(){
 	int LookAt=0;
 	PARAMETRY *p_data = NULL; 
 	int pocet;
 	 
 	GetParametry(&p_data, &pocet);
-	 // tímhle for cyklem se pohybujeme v pointeru a dostáváme hodnoty, které chceme (hodnota za šipkou urèuje sloupec(název do kterého ukládáme je ve while cyklu v horní funkci
-	 // dají se takhle ukládat inty, pro stringy je to tøeba trochu pozmìnit. Až se zjistí práce s tabulkou, tak se jen do for cyklu pøidá funkce pro nahrání do tabulky
 	
 	int i=0;
 	for(i=0;i<pocet;i++){
 		LookAt=(p_data+i)->p_max;
 		LookAt;
-		
-		
 	}
 	/*
 	int jedna = 0;

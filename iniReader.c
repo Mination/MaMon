@@ -5,10 +5,10 @@
 #include "GUI.h"
 #include "iniReader.h"
 
+/*  NACTE PROMENNE Z .INI FILE  */
 int iniFileReader(){
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	
 	
 	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
@@ -32,8 +32,6 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
-	
-
 	int rozdelovac = 0;
 	char *p = casStart;
 	while (*p){
@@ -51,9 +49,8 @@ int iniFileReader(){
         	p++;
     	}
 	}
-
 	
-	//TOHLE POZDÌJI SMAZAT
+	//TOHLE POZDEJI SMAZAT
 	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 	
 	DelayWithEventProcessing(2);
@@ -61,12 +58,5 @@ int iniFileReader(){
 	DetachTrayIconMenu (trayIconHandle);
 	RemoveSysTrayIcon (trayIconHandle);
 	
-	
-	
-	
 	return 0;
-	
-	
-	
-	
 }

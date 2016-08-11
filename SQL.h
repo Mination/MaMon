@@ -1,4 +1,3 @@
-
 typedef struct {
 	int cislo_parametru;
 	char *p_jednotky;
@@ -6,7 +5,6 @@ typedef struct {
 	double p_min;
 	double p_max;
 } PARAMETRY;
-
 
 int InitDB;
 int SeznamParametru();

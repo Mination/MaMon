@@ -5,6 +5,7 @@
 #include "timeFunkce.h"
 #include "iniReader.h"
 
+/* CEKA PO DOBU URCENOU V .INI SOUBORU */
 
 int Cekac(){
 	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probiha sber dat", TaskbarIconCB, &trayIconHandle);
@@ -17,14 +18,14 @@ int Cekac(){
 	return 0;
 }
 
-
+/*  POROVNAVA CAS PC S CASEM Z .INI SOUBORU  */
  
 int HlidacCas(){
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
 	
 	if(hodinaStart == tm.tm_hour && minutaStart == tm.tm_min){
-		//printf("Data se sbírají");	
+			
 		
 	}else{
 		DelayWithEventProcessing(5); 
@@ -35,5 +36,4 @@ int HlidacCas(){
 	DetachTrayIconMenu (trayIconHandle);
 	RemoveSysTrayIcon (trayIconHandle);
 	return 0;
-  		
-}
+ }

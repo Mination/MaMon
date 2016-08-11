@@ -5,6 +5,7 @@
 #include "iniReader.h"
 #include "SQL.h"
 
+/*  VYTVORI BUNKY V TABLU A VLOZI DO NICH DATA  */
 int TableFiller(){
 	int ParHolder=0;
 	double DblHolder=0;
@@ -26,7 +27,6 @@ int TableFiller(){
 	
 	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1); 
 	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, ""); 
-	
 	
 	int i=0;
 	for(i=1;i<pocet+1;i++){
@@ -95,5 +95,4 @@ int TableFiller(){
 	SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, 5);
 
 	return 0;
-
 }

@@ -22,34 +22,22 @@
 #include "OPC.h"
 #include "GUITable.h"
 
-																   
-
-
+/*  MAIN FUNKCE  */
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
-	/*   DULEZITE  */
+	
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
-	/*  NEMAZAT	   */
+	
 	iniFileReader();
 	SeznamParametru();
 	LookThroughParameters();
 	TableFiller();
 	
-	
-	
 	//HlidacCas();
 	//Cekac();
-	
 	
 	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probiha cteni dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 	
-	
-	
-	
-	
-	
-	
-
 	RunUserInterface();
 	return 0;
 }
