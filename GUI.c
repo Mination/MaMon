@@ -4,6 +4,7 @@
 #include "MaMon.h"
 #include "iniReader.h"
 #include "SQL.h"
+#include "GUITable.h"
 
 
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
@@ -20,6 +21,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			if (eventData == 4){
 				
 				if (GUIPanelHlidac == 0){
+					TableFiller();
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
 					
@@ -53,7 +55,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
     return 0;
 }
 
-
 int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
                          int eventData1, int eventData2)
 {
@@ -67,7 +68,6 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
 	
     return 0;
 }
-
 
 int CVICALLBACK CmdIcon (int panel, int control, int event,
 						 void *callbackData, int eventData1, int eventData2)
@@ -118,9 +118,6 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 	}
 }
 
-
-
-
 int trayIconFunkce(){
 	int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
@@ -137,19 +134,6 @@ int trayIconFunkce(){
 
 int GodEnder(){
 	exit(0);
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, int eventData1, int eventData2){
@@ -163,70 +147,4 @@ int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, i
 	return 0;
 }
 
-int TableFiller(){
-	int ParHolder=0;
-	double DblHolder=0;
-	PARAMETRY *p_data = NULL; 
-	int pocet;
-	char StrHolder[512];
-	
-	GetParametry(&p_data, &pocet);
-	
-	InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, pocet, VAL_CELL_STRING);
-	InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 5, VAL_CELL_STRING);
-	
-	SetTableRowAttribute (GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1);   // povolí ti psát do labelù rowù
-	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1); // povolí ti psát do labelù columnù 
-	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, "boi");  // co chceš do rowù napsat
-	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, "shitwodup"); // co chceš do columnù napsat
-	
-	int i=0;
-	for(i=1;i<pocet+1;i++){
 
-	ParHolder = (p_data+(i-1))->cislo_parametru;
-	
-	sprintf(StrHolder, "%d", ParHolder);
-	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CTRL_VAL, StrHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_NO_EDIT_TEXT, 1);
-	
-	}
-	 /*
-	for(i=1;i<pocet+1;i++){
-
-	
-	(p_data+i)->p_jednotky=StrDup(StrHolder);
-	
-	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CTRL_VAL, StrHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_NO_EDIT_TEXT, 1);
-	}
-	*/
-	
-	for(i=1;i<pocet+1;i++){
-
-	DblHolder = (p_data+(i-1))->p_min;
-	
-	sprintf(StrHolder, "%.2f", DblHolder);
-	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CTRL_VAL, StrHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_NO_EDIT_TEXT, 1);
-	}
-	
-	for(i=1;i<pocet+1;i++){
-
-	DblHolder = (p_data+(i-1))->p_max;
-	
-	sprintf(StrHolder, "%.2f", DblHolder);
-	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CTRL_VAL, StrHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_NO_EDIT_TEXT, 1);
-	}
-	
-	return 0;
-
-}

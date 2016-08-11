@@ -2,7 +2,7 @@
 Class="Function"
 Prototype="int Cekac();"
 
-[SystemCas]
+[HlidacCas]
 Class="Function"
-Prototype="int SystemCas();"
+Prototype="int HlidacCas();"
 

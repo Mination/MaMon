@@ -19,16 +19,16 @@ int Cekac(){
 
 
  
-int SystemCas(){
+int HlidacCas(){
 	time_t t = time(NULL);
 	struct tm tm = *localtime(&t);
 	
 	if(hodinaStart == tm.tm_hour && minutaStart == tm.tm_min){
-		printf("Data se sbírají");	
+		//printf("Data se sbírají");	
 		
 	}else{
 		DelayWithEventProcessing(5); 
-		SystemCas();	
+		HlidacCas();	
 		
 	}
 	

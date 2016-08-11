@@ -26,7 +26,3 @@ Prototype="int GodEnder();"
 Class="Function"
 Prototype="int TableCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
-[TableFiller]
-Class="Function"
-Prototype="int TableFiller();"
-

@@ -17,7 +17,6 @@ int CVICALLBACK CmdIcon(int panel, int control, int event, void *callbackData, i
 int CVICALLBACK HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int CVICALLBACK PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int CVICALLBACK TableCB (int panel, int control, int event,void *callbackData, int eventData1, int eventData2);
-int TableFiller();
 #ifdef __cplusplus
     }
 #endif

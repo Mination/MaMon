@@ -1,4 +1,5 @@
 GUI.obj
+GUITable.obj
 iniReader.obj
 MaMon.obj
 OPC.obj

@@ -20,6 +20,7 @@
 #include "timeFunkce.h"
 #include "SQL.h"
 #include "OPC.h"
+#include "GUITable.h"
 
 																   
 
@@ -30,14 +31,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	/*  NEMAZAT	   */
 	iniFileReader();
 	SeznamParametru();
-	TableFiller();
 	LookThroughParameters();
+	TableFiller();
 	
 	
 	
-	
-	//SystemCas();
-	
+	//HlidacCas();
 	//Cekac();
 	
 	

@@ -8,7 +8,7 @@
 
 #include "cvidef.h"
 
-int SystemCas();
+int HlidacCas();
 int Cekac();
 
 #ifdef __cplusplus
