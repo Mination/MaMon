@@ -1,6 +1,6 @@
-[InitSQL]
+[SeznamParametru]
 Class="Function"
-Prototype="int InitSQL();"
+Prototype="int SeznamParametru();"
 
 [GetParametry]
 Class="Function"

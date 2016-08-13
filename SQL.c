@@ -3,6 +3,7 @@
 #include <utility.h>
 #include <ansi_c.h>
 #include <userint.h>
+
 #include "SQL.h"
 #include "GUI.h"
 #include "MaMon.h"
@@ -10,7 +11,7 @@
 PARAMETRY	*p_parametry; 
 int			parametry_pocet;
 
-int SeznamParametru()
+int InitSQL()
 {
     int hdbc = 0;   
 	int hstmt;    
@@ -20,6 +21,8 @@ int SeznamParametru()
 	int pn;
 	char jednotky[512] = {'\0'};
 	char nazev[512] = {'\0'}; 
+	char name[512] = {'\0'};
+	char popis[512] = {'\0'};  
 	
 	#ifdef WIN64
 	DisableBreakOnLibraryErrors();
@@ -42,7 +45,6 @@ int SeznamParametru()
 	
 	int j=0;
 	
-	//tenhle while cyklus naète data z SQL do pointeru p_parametry, kterej je vlastnì matice(dvojrozmìrné pole) tìch dat, možná by se dalo použít pro nahrání do tabulky
 	while ((resCode = DBFetchNext (hstmt)) == DB_SUCCESS) {	
 		
 		DBGetColInt (hstmt, 2, &pn);
@@ -54,6 +56,12 @@ int SeznamParametru()
 		
 		DBGetColCharBuffer (hstmt, 4, nazev, 500, "");
 		(p_parametry+j)->p_nazev = StrDup(nazev);
+		
+		DBGetColCharBuffer (hstmt, 5, name, 500, "");
+		(p_parametry+j)->p_name = StrDup(name);
+		
+		DBGetColCharBuffer (hstmt, 5, popis, 500, "");
+		(p_parametry+j)->p_popis = StrDup(popis);
 		
 		DBGetColDouble (hstmt, 9, &min);
 		(p_parametry+j)->p_min = min; 
@@ -89,25 +97,6 @@ int LookThroughParameters(){
 		LookAt=(p_data+i)->p_max;
 		LookAt;
 	}
-	/*
-	int jedna = 0;
-	int j = 0;
-	char fug[6];
-	for(j=1;j<pocet+1;j++){
-	for(i=1;i<6;i++){
-		sprintf(fug, "%d", LookAt);
-		printf("%s\n",fug);
-		InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_NUMERIC);
-		InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_NUMERIC);
-		
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (i, j), ATTR_CTRL_VAL,LookAt1);
-		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (i, j), ATTR_NO_EDIT_TEXT, 1);
-		
-		
-	}
-	}
-	//SetTableRowAttribute();
-	*/
 	return 0;
  }
 

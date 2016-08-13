@@ -1,6 +1,14 @@
+GUI.obj
+GUITable.obj
+iniReader.obj
 MaMon.obj
+OPC.obj
+SQL.obj
+timeFunkce.obj
 cvistart.lib
 cvi.lib
+cvi_db.lib
+dataskt.lib
 inifile.obj
 toolbox.obj
 advapi32.lib

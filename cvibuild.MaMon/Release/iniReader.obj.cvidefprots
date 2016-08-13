@@ -1,0 +1,4 @@
+[iniFileReader]
+Class="Function"
+Prototype="int iniFileReader();"
+

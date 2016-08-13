@@ -1,6 +1,7 @@
 #include "toolbox.h"
 #include "inifile.h"
 #include <ansi_c.h>
+
 #include "MaMon.h"
 #include "GUI.h"
 #include "iniReader.h"
@@ -8,7 +9,6 @@
 /*  NACTE PROMENNE Z .INI FILE  */
 int iniFileReader(){
 	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
-	trayIconFunkce();
 	
 	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");

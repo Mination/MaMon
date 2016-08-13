@@ -2,31 +2,3 @@
 Class="Function"
 Prototype="int WinMain(struct HINSTANCE__ *hInstance, struct HINSTANCE__ *hPrevInstance, char *lpszCmdLine, int nCmdShow);"
 
-[TaskbarIconCB]
-Class="Function"
-Prototype="int TaskbarIconCB(int iconHandle, int event, int eventData);"
-
-[PanelCB]
-Class="Function"
-Prototype="int PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-
-[CmdIcon]
-Class="Function"
-Prototype="int CmdIcon(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-
-[HelpPanelCB]
-Class="Function"
-Prototype="int HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
-
-[trayIconFunkce]
-Class="Function"
-Prototype="int trayIconFunkce();"
-
-[iniFileReader]
-Class="Function"
-Prototype="int iniFileReader();"
-
-[Cekac]
-Class="Function"
-Prototype="int Cekac();"
-

@@ -1,9 +1,10 @@
 #include <userint.h>
 #include "toolbox.h"
-#include "GUI.h"
+
 #include "MaMon.h"
 #include "timeFunkce.h"
 #include "iniReader.h"
+#include "GUI.h"
 
 /* CEKA PO DOBU URCENOU V .INI SOUBORU */
 

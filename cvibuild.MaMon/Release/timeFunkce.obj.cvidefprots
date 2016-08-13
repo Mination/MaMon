@@ -1,0 +1,8 @@
+[Cekac]
+Class="Function"
+Prototype="int Cekac();"
+
+[HlidacCas]
+Class="Function"
+Prototype="int HlidacCas();"
+

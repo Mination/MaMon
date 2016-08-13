@@ -6,6 +6,7 @@
 #include "SQL.h"
 #include "GUITable.h"
 
+
 /* TRAY MENU CALLBACK  */
 int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 {
@@ -124,13 +125,51 @@ int Exit(){
 }
 
 
-int CVICALLBACK TableCB (int panel, int control, int event,
-						 void *callbackData, int eventData1, int eventData2)
+
+
+int CVICALLBACK InfPanelCB (int panel, int event, void *callbackData,
+							int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_CLOSE:
+			DiscardPanel(InfPanelHandle);
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK InfOkBtnCB (int panel, int control, int event,
+							void *callbackData, int eventData1, int eventData2)
 {
 	switch (event)
 	{
 		case EVENT_COMMIT:
+			DiscardPanel(InfPanelHandle); 
+			break;
+	}
+	return 0;
+}
 
+int CVICALLBACK QuitCB (int panel, int control, int event,
+						void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			Exit();
+			break;
+	}
+	return 0;
+}
+
+int CVICALLBACK HideBtnCB (int panel, int control, int event,
+						   void *callbackData, int eventData1, int eventData2)
+{
+	switch (event)
+	{
+		case EVENT_COMMIT:
+			DiscardPanel(GUIPanelHandle);
 			break;
 	}
 	return 0;
