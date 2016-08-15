@@ -31,7 +31,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			if (eventData == 3){
 				if (HelpPanelHlidac == 0){
 					HelpPanelHandle = LoadPanel (0,"MaMon.uir", HelpPanel);
-					IconChanger("Assets/Icon/helpIcon.ico",HelpPanelHandle);
+					IconChanger("Assets/Icon/HelpIcon v1.ico",HelpPanelHandle);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 1;
 				}

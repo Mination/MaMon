@@ -49,15 +49,26 @@ int iniFileReader(){
     	}
 	}
 	
-	//TOHLE POZDEJI SMAZAT
+	init();
+	
+	
+	
+	
+	
+	
+	
+	return 0;
+}
+
+int init(){
 	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
 	trayIconFunkce();
 	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
+	IconChanger("Assets/Icon/GUIPanelIcon.ico",InfPanelHandle);
 	DisplayPanel(InfPanelHandle);
-	
+
 	DelayWithEventProcessing(2);
-	
 	DetachTrayIconMenu (trayIconHandle);
 	RemoveSysTrayIcon (trayIconHandle);
 	
