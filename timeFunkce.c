@@ -29,7 +29,7 @@ int HlidacCas(){
 			
 		
 	}else{
-		DelayWithEventProcessing(5); 
+		DelayWithEventProcessing(60); 
 		HlidacCas();	
 		
 	}

@@ -22,7 +22,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			if (eventData == 4){
 				
 				if (GUIPanelHlidac == 0){
-					TableFiller();
 					IconChanger("Assets/Icon/GUIPanelIcon.ico",GUIPanelHandle);
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
@@ -39,7 +38,6 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			
 			break;
 		case EVENT_LEFT_DOUBLE_CLICK:
-            //TableFiller();
 			IconChanger("Assets/Icon/GUIPanelIcon.ico",GUIPanelHandle);
 			DisplayPanel(GUIPanelHandle);
 			GUIPanelHlidac = 1;

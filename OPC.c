@@ -19,27 +19,34 @@ HODNOTY	*p_hodnoty;
 int InitOPC(){
 	int hr;
 	int dsHandle = 0;
+	char StrHolder[512] = {'\0'};
+	double DblHolder;
 	
 	p_hodnoty = (HODNOTY*)malloc(pocetVzorku*sizeof(HODNOTY));
 	
 	hr = DS_Open (adresa, DSConst_ReadAutoUpdate, DSCallback,NULL, &dsHandle);
 	
-	double theDouble;
+	double Value;
 	
 	
 	int i = 0;
 	for(i=0; i<pocetVzorku;i++){
-		hr = DS_GetDataValue (dsHandle, CAVT_LONG, &theDouble, 1, NULL, NULL);
-		(p_hodnoty+i)->p_OPCValue=theDouble;
+		hr = DS_GetDataValue (dsHandle, CAVT_LONG, &Value, 1, NULL, NULL);
+		(p_hodnoty+i)->p_OPCValue=Value;
 	}
-	
-	/*double LookAt=0;
-	for(i=0;i<pocetVzorku;i++){
-		LookAt=(p_hodnoty+i)->p_OPCValue;
-		LookAt;
+	/*
+	int NmbRows;
+	i = 0;
+	for(i=1;i<pocetVzorku+1;i++){
+		GetNumTableRows (GUIPanelHandle, GUIPanel_TABLE, &NmbRows);
+		InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_STRING);
+		DblHolder = (p_hodnoty+(i-1))->p_OPCValue;  
+		sprintf(StrHolder, "%.2f", DblHolder); 
+		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+	 	
 		
-		
-	}*/
+	} 
+	*/
 	
 return 0;
 }
@@ -61,4 +68,10 @@ void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
     }
 }
 
+/*
+int GetHodnoty(HODNOTY **p_OPChodnoty){
+	*p_OPChodnoty = p_hodnoty;
 
+	return 0;
+}
+ */
