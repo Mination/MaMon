@@ -1,3 +1,4 @@
+#include <windows.h> 
 #include <userint.h>
 #include "toolbox.h"
 #include "GUI.h"
@@ -22,6 +23,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 				
 				if (GUIPanelHlidac == 0){
 					TableFiller();
+					IconChanger("Assets/Icon/GUIPanelIcon.ico",GUIPanelHandle);
 					DisplayPanel(GUIPanelHandle);
 					GUIPanelHlidac = 1;
 				}
@@ -29,6 +31,7 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			if (eventData == 3){
 				if (HelpPanelHlidac == 0){
 					HelpPanelHandle = LoadPanel (0,"MaMon.uir", HelpPanel);
+					IconChanger("Assets/Icon/helpIcon.ico",HelpPanelHandle);
 					DisplayPanel(HelpPanelHandle);
 					HelpPanelHlidac = 1;
 				}
@@ -36,7 +39,9 @@ int CVICALLBACK TaskbarIconCB (int iconHandle, int event, int eventData)
 			
 			break;
 		case EVENT_LEFT_DOUBLE_CLICK:
-            DisplayPanel(GUIPanelHandle);
+            //TableFiller();
+			IconChanger("Assets/Icon/GUIPanelIcon.ico",GUIPanelHandle);
+			DisplayPanel(GUIPanelHandle);
 			GUIPanelHlidac = 1;
 			break;
      	
@@ -75,17 +80,17 @@ int CVICALLBACK CmdIcon (int panel, int control, int event,
 			if(trayIconHandle == 0){
 				
 				if(control == GUIPanel_CMD_GREY){ 
-					InstallSysTrayIcon ("StatusIcons/klid.ico", "Nic se nedeje", TaskbarIconCB, &trayIconHandle);
+					InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Nic se nedeje", TaskbarIconCB, &trayIconHandle);
 					trayIconFunkce();
 				}
 					
 			if(control == GUIPanel_CMD_RED){
-				InstallSysTrayIcon ("StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
+				InstallSysTrayIcon ("Assets/StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
 				trayIconFunkce();
 				}
 					
 			if(control == GUIPanel_CMD_GREEN){
-				InstallSysTrayIcon ("StatusIcons/dobry.ico", "Vse bezi v poradku", TaskbarIconCB, &trayIconHandle);
+				InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Vse bezi v poradku", TaskbarIconCB, &trayIconHandle);
 				trayIconFunkce();
 				
 				}
@@ -169,8 +174,18 @@ int CVICALLBACK HideBtnCB (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			DiscardPanel(GUIPanelHandle);
+			HidePanel(GUIPanelHandle);
 			break;
 	}
 	return 0;
+}
+
+/*  Meni ikonu panelu  */
+void IconChanger(char* icon_path,int panel_handle)
+{
+	int window;
+	HANDLE handle_icon;
+	handle_icon = LoadImage(0, icon_path, IMAGE_ICON, 0, 0, LR_LOADFROMFILE);
+	GetPanelAttribute (panel_handle, ATTR_SYSTEM_WINDOW_HANDLE, &window);
+	SendMessage((HWND)window, WM_SETICON, ICON_SMALL, (LPARAM)handle_icon);
 }

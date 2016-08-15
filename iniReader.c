@@ -1,14 +1,13 @@
 #include "toolbox.h"
 #include "inifile.h"
 #include <ansi_c.h>
-
 #include "MaMon.h"
 #include "GUI.h"
 #include "iniReader.h"
 
 /*  NACTE PROMENNE Z .INI FILE  */
 int iniFileReader(){
-	InstallSysTrayIcon ("StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
 	
 	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
@@ -52,6 +51,10 @@ int iniFileReader(){
 	
 	//TOHLE POZDEJI SMAZAT
 	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
+	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
+	trayIconFunkce();
+	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
+	DisplayPanel(InfPanelHandle);
 	
 	DelayWithEventProcessing(2);
 	

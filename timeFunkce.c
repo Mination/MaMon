@@ -9,7 +9,7 @@
 /* CEKA PO DOBU URCENOU V .INI SOUBORU */
 
 int Cekac(){
-	InstallSysTrayIcon ("StatusIcons/klid.ico", "Probiha sber dat", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Probiha sber dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 	DelayWithEventProcessing(intervalSecDouble);
 	

@@ -7,29 +7,24 @@
 #include <time.h>
 #include <stdlib.h>
 #include <formatio.h>
-
 #include "iniReader.h"
 #include "MaMon.h"
 #include "GUI.h"
 #include "timeFunkce.h"
 #include "SQL.h"
 #include "OPC.h"
+#include "GUITable.h"
 
 /*  MAIN FUNKCE  */
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
-	
-	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
-	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
-	DisplayPanel(InfPanelHandle);
 	iniFileReader();
 	InitSQL();
-	
+	TableFiller();
 	//LookThroughParameters();
-	
 	//HlidacCas();
 	//Cekac();
 	
-	InstallSysTrayIcon ("StatusIcons/dobry.ico", "Probiha cteni dat", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Probiha cteni dat", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
 
 		InitOPC(); 

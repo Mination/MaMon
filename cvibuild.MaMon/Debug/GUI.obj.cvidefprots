@@ -38,3 +38,7 @@ Prototype="int QuitCB(int panel, int control, int event, void *callbackData, int
 Class="Function"
 Prototype="int HideBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
 
+[IconChanger]
+Class="Function"
+Prototype="void IconChanger(char *icon_path, int panel_handle);"
+

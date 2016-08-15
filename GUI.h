@@ -19,7 +19,7 @@ int CVICALLBACK HelpPanelCB(int panel, int event, void *callbackData, int eventD
 int CVICALLBACK PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int CVICALLBACK InfPanelCB (int panel, int event, void *callbackData,int eventData1, int eventData2);
 int CVICALLBACK InfOkBtnCB (int panel, int control, int event,void *callbackData, int eventData1, int eventData2);
-
+void IconChanger(char* icon_path,int panel_handle);
 #ifdef __cplusplus
     }
 #endif

@@ -37,7 +37,7 @@ void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
 			
 			cnt++;
 			
-			SetCtrlAttribute (GUIPanelHandle, GUIPanel_CNT_OPC, ATTR_CTRL_VAL, cnt);
+			//SetCtrlAttribute (GUIPanelHandle, GUIPanel_CNT_OPC, ATTR_CTRL_VAL, cnt);
 			
             break;
         case DS_EVENT_STATUSUPDATED:
