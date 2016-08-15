@@ -58,8 +58,7 @@ int TableFiller(){
 		ParHolder = (p_data+(i-1))->cislo_parametru;
 	
 		sprintf(StrHolder, "%d", ParHolder);
-	
-		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
+		
 		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i), ATTR_CTRL_VAL, StrHolder);
 	
 	
@@ -69,7 +68,6 @@ int TableFiller(){
 	/*  VLOZI JEDNOTKY  */ 
 	for(i=1;i<pocet+1;i++){
 
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (3, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (3, i), ATTR_CTRL_VAL, (p_data+(i-1))->p_jednotky);
 	
 	}
@@ -79,7 +77,6 @@ int TableFiller(){
 	/*  VLOZI NAZEV  */
 	for(i=1;i<pocet+1;i++){
 
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i), ATTR_CTRL_VAL, (p_data+(i-1))->p_nazev);
 	
 	}
@@ -87,15 +84,13 @@ int TableFiller(){
 	/*  VLOZI NAME  */
 	for(i=1;i<pocet+1;i++){
 
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i), ATTR_CTRL_VAL, (p_data+(i-1))->p_name);
 	
 	}
 	
-	/*  VLOZI NAME  */
+	/*  VLOZI POPIS */
 	for(i=1;i<pocet+1;i++){
 
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, i), ATTR_CTRL_VAL, (p_data+(i-1))->p_popis);
 	
 	}
@@ -108,7 +103,6 @@ int TableFiller(){
 	
 		sprintf(StrHolder, "%.2f", DblHolder);
 	
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, i), ATTR_CTRL_VAL, StrHolder);
 	
 	}
@@ -121,7 +115,6 @@ int TableFiller(){
 	
 		sprintf(StrHolder, "%.2f", DblHolder);
 	
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, i), ATTR_CTRL_VAL, StrHolder);
 	
 	}
@@ -133,9 +126,7 @@ int TableFiller(){
 	
 	sprintf(StrHolder, "%.2f", DblHolder);
 	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CELL_TYPE, VAL_CELL_STRING);
 	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_CTRL_VAL, StrHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, i), ATTR_NO_EDIT_TEXT, 1);
 	} */
 	
 	/*  NASTAVI SIRKU TABULKY */

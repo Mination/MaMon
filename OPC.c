@@ -13,16 +13,33 @@
 
 int dsHandle = 0;
 int DSStatus = 0;
-
-int cnt;
+HODNOTY	*p_hodnoty;
 
 
 int InitOPC(){
 	int hr;
 	int dsHandle = 0;
+	
+	p_hodnoty = (HODNOTY*)malloc(pocetVzorku*sizeof(HODNOTY));
+	
 	hr = DS_Open (adresa, DSConst_ReadAutoUpdate, DSCallback,NULL, &dsHandle);
 	
-	cnt = 0;
+	double theDouble;
+	
+	
+	int i = 0;
+	for(i=0; i<pocetVzorku;i++){
+		hr = DS_GetDataValue (dsHandle, CAVT_LONG, &theDouble, 1, NULL, NULL);
+		(p_hodnoty+i)->p_OPCValue=theDouble;
+	}
+	
+	/*double LookAt=0;
+	for(i=0;i<pocetVzorku;i++){
+		LookAt=(p_hodnoty+i)->p_OPCValue;
+		LookAt;
+		
+		
+	}*/
 	
 return 0;
 }
@@ -34,11 +51,6 @@ void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
 
     switch (event) {
         case DS_EVENT_DATAUPDATED:
-			
-			cnt++;
-			
-			//SetCtrlAttribute (GUIPanelHandle, GUIPanel_CNT_OPC, ATTR_CTRL_VAL, cnt);
-			
             break;
         case DS_EVENT_STATUSUPDATED:
 			DS_GetStatus (localDSHandle, &DSStatus);
@@ -48,4 +60,5 @@ void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
             break;
     }
 }
+
 

@@ -60,7 +60,7 @@ int InitSQL()
 		DBGetColCharBuffer (hstmt, 5, name, 500, "");
 		(p_parametry+j)->p_name = StrDup(name);
 		
-		DBGetColCharBuffer (hstmt, 5, popis, 500, "");
+		DBGetColCharBuffer (hstmt, 6, popis, 500, "");
 		(p_parametry+j)->p_popis = StrDup(popis);
 		
 		DBGetColDouble (hstmt, 9, &min);
@@ -84,21 +84,6 @@ int GetParametry(PARAMETRY **p_data, int *p_pocet){
 	
 	return 0;
 }
-
-int LookThroughParameters(){
-	int LookAt=0;
-	PARAMETRY *p_data = NULL; 
-	int pocet;
-	 
-	GetParametry(&p_data, &pocet);
-	
-	int i=0;
-	for(i=0;i<pocet;i++){
-		LookAt=(p_data+i)->p_max;
-		LookAt;
-	}
-	return 0;
- }
 
 
 
