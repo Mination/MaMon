@@ -1,8 +1,8 @@
-[Cekac]
-Class="Function"
-Prototype="int Cekac();"
-
 [HlidacCas]
 Class="Function"
 Prototype="int HlidacCas();"
+
+[StrToAbs]
+Class="Function"
+Prototype="int StrToAbs(char *p_StartCas, union CVIAbsoluteTime *p_date);"
 

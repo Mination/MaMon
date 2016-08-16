@@ -31,23 +31,7 @@ int iniFileReader(){
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
 	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
-	int rozdelovac = 0;
-	char *p = casStart;
-	while (*p){
-    	if (isdigit(*p)){ 
-        	long val = strtol(p, &p, 10); 
-        	if (rozdelovac == 0){
-				hodinaStart = val;
-				rozdelovac = rozdelovac + 1;
-			}else if (rozdelovac == 1){
-				minutaStart = val;	
-			}
-		} 
 	
-     	else{ 
-        	p++;
-    	}
-	}
 	
 	init();
 	

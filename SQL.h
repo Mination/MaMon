@@ -6,6 +6,7 @@ typedef struct {
 	char *p_popis;
 	double p_min;
 	double p_max;
+	char *p_spojeni;
 } PARAMETRY;
 
 int InitDB;

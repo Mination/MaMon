@@ -1,18 +1,5 @@
-#ifndef __timeFunkce_H__
-#define __timeFunkce_H__
-
-#ifdef __cplusplus
-    extern "C" {
-#endif
-
-
-#include "cvidef.h"
-
 int HlidacCas();
 int Cekac();
+int CVItoStr(CVIAbsoluteTime *p_date, char *p_us_format, char *p_eu_format, char oddelovac);
+int StrToAbs(char *p_eu_format, CVIAbsoluteTime *p_date); 
 
-#ifdef __cplusplus
-    }
-#endif
-
-#endif  

@@ -5,73 +5,89 @@
 #include "dataskt.h"
 #include <utility.h>
 #include "dataskt.h" 
+#include "toolbox.h"
 
 #include "MaMon.h"
 #include "GUI.h"
 #include "iniReader.h"
 #include "OPC.h"
+#include "SQL.h"
 
-int dsHandle = 0;
-int DSStatus = 0;
-HODNOTY	*p_hodnoty;
-
+DSHandle dsHandle;
+int cnt = 0;
 
 int InitOPC(){
-	int hr;
-	int dsHandle = 0;
-	char StrHolder[512] = {'\0'};
-	double DblHolder;
+	HRESULT hr;
+	int pocet;
 	
-	p_hodnoty = (HODNOTY*)malloc(pocetVzorku*sizeof(HODNOTY));
+	PARAMETRY *p_data = NULL;
 	
-	hr = DS_Open (adresa, DSConst_ReadAutoUpdate, DSCallback,NULL, &dsHandle);
+	GetParametry(&p_data, &pocet);
 	
-	double Value;
-	
-	
-	int i = 0;
-	for(i=0; i<pocetVzorku;i++){
-		hr = DS_GetDataValue (dsHandle, CAVT_LONG, &Value, 1, NULL, NULL);
-		(p_hodnoty+i)->p_OPCValue=Value;
-	}
-	/*
-	int NmbRows;
-	i = 0;
-	for(i=1;i<pocetVzorku+1;i++){
-		GetNumTableRows (GUIPanelHandle, GUIPanel_TABLE, &NmbRows);
-		InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_STRING);
-		DblHolder = (p_hodnoty+(i-1))->p_OPCValue;  
-		sprintf(StrHolder, "%.2f", DblHolder); 
-		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+	/* TADY BY SE OTEVÍRALO PRO KAŽDÝ PARAMETR ZVLÁŠ*/
+	DS_OpenEx ((p_data+0)->p_spojeni, DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
+					    DSConst_EventModel, DSConst_Asynchronous, &dsHandle);
 	 	
-		
-	} 
-	*/
+	
+	
 	
 return 0;
 }
 
-void DSCallback (DSHandle localDSHandle, int event, void *p_OPCData)
+void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 {
-    HRESULT hr = S_OK;
-    char message[1000];
-
-    switch (event) {
-        case DS_EVENT_DATAUPDATED:
-            break;
-        case DS_EVENT_STATUSUPDATED:
-			DS_GetStatus (localDSHandle, &DSStatus);
-            hr = DS_GetLastMessage (localDSHandle, message, 1000);
-            if (SUCCEEDED(hr)) 
-				SetCtrlVal (GUIPanelHandle, GUIPanel_STATUS, message);
-            break;
-    }
+	double value;
+	char StrHolder[512];
+	int NmbRows;
+	int ParHolder=0;
+	double DblHolder=0;
+	int pocet;
+	PARAMETRY *p_data = NULL;
+	int i=0;
+	
+	GetParametry(&p_data, &pocet);
+	
+switch (event) {
+	case DS_EVENT_DATAUPDATED:
+			
+		
+			DS_GetDataValue (dsHandle, CAVT_DOUBLE, &value, sizeof(double), NULL, NULL);
+			sprintf(StrHolder, "%.2f", value);
+			GetNumTableRows (GUIPanelHandle, GUIPanel_TABLE, &NmbRows);  
+			InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_STRING);
+			
+			SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+			
+			ParHolder = (p_data+0)->cislo_parametru;
+			sprintf(StrHolder, "%d", ParHolder);
+			SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+		
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (3, (NmbRows+1)), ATTR_CTRL_VAL, (p_data+0)->p_jednotky);
+	
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, (NmbRows+1)), ATTR_CTRL_VAL, (p_data+0)->p_nazev);
+	
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, (NmbRows+1)), ATTR_CTRL_VAL, (p_data+0)->p_name);
+	
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, (NmbRows+1)), ATTR_CTRL_VAL, (p_data+0)->p_popis);
+	
+			DblHolder = (p_data+0)->p_min;
+			sprintf(StrHolder, "%.2f", DblHolder);
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+	
+			DblHolder = (p_data+0)->p_max;
+			sprintf(StrHolder, "%.2f", DblHolder);
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
+			
+			for(i=1;i<9;i++){
+				SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, i);
+			}
+			
+			
+	
+	
+		break;
+	}
 }
 
-/*
-int GetHodnoty(HODNOTY **p_OPChodnoty){
-	*p_OPChodnoty = p_hodnoty;
 
-	return 0;
-}
- */
+

@@ -22,7 +22,8 @@ int InitSQL()
 	char jednotky[512] = {'\0'};
 	char nazev[512] = {'\0'}; 
 	char name[512] = {'\0'};
-	char popis[512] = {'\0'};  
+	char popis[512] = {'\0'}; 
+	char spojeni[512] = {'\0'};
 	
 	#ifdef WIN64
 	DisableBreakOnLibraryErrors();
@@ -67,13 +68,14 @@ int InitSQL()
 		(p_parametry+j)->p_min = min; 
 		
 		DBGetColDouble (hstmt, 10, &max);
-		(p_parametry+j)->p_max = max; 
+		(p_parametry+j)->p_max = max;
+		
+		DBGetColCharBuffer (hstmt, 8, spojeni, 500, "");
+		(p_parametry+j)->p_spojeni = StrDup(spojeni);
 		
 		
 		j++;
 	}
-	//resCode = DBDeactivate (hstmt);
-	//resCode = DBDisconnect (hdbc);
 	return 0;
 	
 }
