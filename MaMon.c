@@ -21,8 +21,6 @@ int StartMaMon();
 
 /*  MAIN FUNKCE  */
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmdLine, int nCmdShow){
-	
-	
 	iniFileReader();
 	InitSQL();
 	TableMaker();
