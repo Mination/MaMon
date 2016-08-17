@@ -14,9 +14,10 @@
 
 DSHandle dsHandle;
 int cnt = 0;
+HRESULT hr;
 
 int InitOPC(){
-	HRESULT hr;
+	
 	int pocet;
 	
 	PARAMETRY *p_data = NULL;
@@ -43,13 +44,15 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 	int pocet;
 	PARAMETRY *p_data = NULL;
 	int i=0;
- 	
+	char message[1000];
+ 	DSEnum_Status status = DSConst_Unconnected; 
 	
 	GetParametry(&p_data, &pocet);
 	
 	switch (event) {
 		case DS_EVENT_DATAUPDATED:
 			if(cnt<pocetVzorku){
+				
 				DS_GetDataValue (dsHandle, CAVT_DOUBLE, &value, sizeof(double), NULL, NULL);
 				sprintf(StrHolder, "%.2f", value);
 				GetNumTableRows (GUIPanelHandle, GUIPanel_TABLE, &NmbRows);  
@@ -80,15 +83,21 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				for(i=1;i<9;i++){
 					SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, i);
 				}
-				
+				/*mìlo by vyøešit problém s kontrolou, zda se zapsala nová hodnota*/
+				//DS_SetDataValue (dsHandle, CAVT_DOUBLE, -1, sizeof(double), NULL, NULL); 
 				cnt++;
 			
-					
+		case DS_EVENT_STATUSUPDATED:
+			DS_GetStatus (dsHandle, &status);
+            hr = DS_GetLastMessage (dsHandle, message, 1000);
+            if (SUCCEEDED(hr)) 
+				SetCtrlVal (GUIPanelHandle, GUIPanel_STATUS, message);
+            break;			
 			}
 		
 	
 	
-		//break;
+		
 	}
 }
 

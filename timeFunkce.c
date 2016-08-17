@@ -26,19 +26,20 @@ int HlidacCas(){
 		CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);
 		
 		if(res==1){
-		
-			//InitOPC();
+			
 			
 			/* BLIKÁ DIODOU*/
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 1); 
 			DelayWithEventProcessing(2);
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 0); 
-		
+			
+			InitOPC();
 		
 			/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
-			/*while(plan_cas<akt_cas){
+			do{
+			CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	
 			AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas);
-			} */
+			}while(res!=-1); 
 		
 		}
 	

@@ -26,12 +26,7 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	TableMaker();
 	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Není èas na ètení dat.", TaskbarIconCB, &trayIconHandle);
 	trayIconFunkce();
-	
-	InitOPC();
-	
-	//HlidacCas();
-	
-	
+	HlidacCas();
 	RunUserInterface();
 	return 0;
 }
