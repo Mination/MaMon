@@ -37,8 +37,8 @@ int HlidacCas(){
 		
 			/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
 			do{
+			AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas); 	
 			CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	
-			AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas);
 			}while(res!=-1); 
 		
 		}
