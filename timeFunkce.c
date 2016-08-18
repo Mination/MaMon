@@ -14,20 +14,23 @@ int HlidacCas(){
 	CVITimeInterval interval;
 	int res = 0;
 	int run = 1;
-	
+	unsigned int hour,minute;
+	 
 	GetCurrentCVIAbsoluteTime (&akt_cas); 
 	StrToAbs(casStart, &plan_cas); 
 	CVITimeIntervalFromSeconds (intervalSecDouble, &interval);
 	
 	while(run){
 		GetCurrentCVIAbsoluteTime (&akt_cas);
-		  
+		char casString[512];  
 											   
 		CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);
 		
 		if(res==1){
-			
-			
+			/* MENI CAS DALSIHO MERENI V GUI  */
+			CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
+			sprintf(casString, "%d:%.2d", hour,minute);
+			SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
 			/* BLIKÁ DIODOU*/
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 1); 
 			DelayWithEventProcessing(2);

@@ -45,7 +45,10 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 	PARAMETRY *p_data = NULL;
 	int i=0;
 	char message[1000];
- 	DSEnum_Status status = DSConst_Unconnected; 
+ 	static double mean;
+	double deviation;
+	double valueArray[pocetVzorku];
+	DSEnum_Status status = DSConst_Unconnected; 
 	
 	GetParametry(&p_data, &pocet);
 	
@@ -59,7 +62,9 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, 1, VAL_CELL_STRING);
 			
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);
-			
+				
+				valueArray[cnt] = value;
+				//StdDev (valueArray, pocetVzorku, &mean, &deviation);
 				ParHolder = (p_data+0)->cislo_parametru;
 				sprintf(StrHolder, "%d", ParHolder);
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, (NmbRows+1)), ATTR_CTRL_VAL, StrHolder);

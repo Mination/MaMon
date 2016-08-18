@@ -25,7 +25,7 @@
 #define  GUIPanel_CNT_OPC                 10      /* control type: numeric, callback function: (none) */
 #define  GUIPanel_Quit                    11      /* control type: command, callback function: QuitCB */
 #define  GUIPanel_HideBtnCB               12      /* control type: command, callback function: HideBtnCB */
-#define  GUIPanel_STRING                  13      /* control type: string, callback function: (none) */
+#define  GUIPanel_MERENITIME              13      /* control type: string, callback function: (none) */
 #define  GUIPanel_STRIPCHART              14      /* control type: strip, callback function: (none) */
 
 #define  HelpPanel                        2       /* callback function: HelpPanelCB */
