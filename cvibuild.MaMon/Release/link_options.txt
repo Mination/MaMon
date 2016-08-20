@@ -1,24 +1,24 @@
 -nologo
--out:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\MaMon.exe
+-out:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\MaMon.exe
 -arch:x86
 -timestamp
 -loadextmod
--res:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\resources.res
+-res:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\resources.res
 -entry:_CVIWinMainStartupCode@0
 -base:0x400000
--linked:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\linkersummary.txt
--dlldeps:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\dlldependencies.txt
--licensing:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\linkerlicensing.txt
--browsedeps:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\moduledependencies.txt
+-linked:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\linkersummary.txt
+-dlldeps:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\dlldependencies.txt
+-licensing:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\linkerlicensing.txt
+-browsedeps:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\moduledependencies.txt
 -stackreserve:1048576
 -stackcommit:4096
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\GUI.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\GUITable.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\iniReader.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\MaMon.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\OPC.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\SQL.obj
--in:c:\Users\User\Desktop\Škola\MaMon\cvibuild.MaMon\Release\timeFunkce.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\GUI.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\GUITable.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\iniReader.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\MaMon.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\OPC.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\SQL.obj
+-in:c:\Users\User\Desktop\Práce-Vishay\MaMon-master\cvibuild.MaMon\Release\timeFunkce.obj
 -more:c:\program files (x86)\national instruments\cvi2013\bin\msvc\cvistart.lib
 -more:c:\program files (x86)\national instruments\cvi2013\bin\msvc\cvi.lib
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\advapi32.lib
@@ -36,6 +36,7 @@
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\gdi32.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\bin\msvc\gpib.lib
 -more:c:\Program Files (x86)\National Instruments\CVI2013\toolslib\toolbox\msvc\inifile.obj
+-more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\ivi.lib
 -more:c:\program files (x86)\national instruments\cvi2013\sdk\lib\msvc\kernel32.lib
 -more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\NIDAQmx.lib
 -more:c:\Program Files (x86)\National Instruments\Shared\CVI\Bin\msvc\nisyscfg.lib

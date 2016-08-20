@@ -1,3 +1,4 @@
+#include "dataskt.h"
 #include <userint.h>
 #include "toolbox.h"
 
@@ -31,13 +32,23 @@ int HlidacCas(){
 			CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
 			sprintf(casString, "%d:%.2d", hour,minute);
 			SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
+			
 			/* BLIKÁ DIODOU*/
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 1); 
-			DelayWithEventProcessing(2);
+			DelayWithEventProcessing(1);
+			TrayIconGreen();
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 0); 
+			
 			
 			InitOPC();
 		
+			if(cnt==pocetVzorku){
+				cnt=0;
+				
+				//DS_DiscardObjHandle (dsHandle);
+				TrayIconGray(); 	
+				}
+			
 			/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
 			do{
 			AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas); 	
@@ -45,7 +56,8 @@ int HlidacCas(){
 			}while(res!=-1); 
 		
 		}
-	
+		
+		
 		DelayWithEventProcessing (1); 
 	}
 	

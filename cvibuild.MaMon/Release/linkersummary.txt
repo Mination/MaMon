@@ -11,10 +11,10 @@ cvi_db.lib
 dataskt.lib
 inifile.obj
 toolbox.obj
+user32.lib
 advapi32.lib
 cviauto.lib
 gdi32.lib
 kernel32.lib
-user32.lib
 EXE Symbol Module
 Resource Module

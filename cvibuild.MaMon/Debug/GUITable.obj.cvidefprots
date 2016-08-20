@@ -2,3 +2,7 @@
 Class="Function"
 Prototype="int TableMaker();"
 
+[TableFiller]
+Class="Function"
+Prototype="int TableFiller();"
+

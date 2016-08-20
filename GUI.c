@@ -62,41 +62,6 @@ int CVICALLBACK PanelCB (int panel, int event, void *callbackData,
 	return 0;
 }
 
-/* MENIC TRAY IKON, POZDEJI SMAZAT */
-int CVICALLBACK CmdIcon (int panel, int control, int event,
-						 void *callbackData, int eventData1, int eventData2)
-{
-	switch (event){
-		case EVENT_COMMIT:
-			
-			if(trayIconHandle != 0){
-				DetachTrayIconMenu (trayIconHandle);
-	    		RemoveSysTrayIcon (trayIconHandle);	
-				trayIconHandle = 0;
-			}
-			
-			if(trayIconHandle == 0){
-				
-				if(control == GUIPanel_CMD_GREY){ 
-					InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Nic se nedeje", TaskbarIconCB, &trayIconHandle);
-					trayIconFunkce();
-				}
-					
-			if(control == GUIPanel_CMD_RED){
-				InstallSysTrayIcon ("Assets/StatusIcons/spatny.ico", "CHYBA", TaskbarIconCB, &trayIconHandle);
-				trayIconFunkce();
-				}
-					
-			if(control == GUIPanel_CMD_GREEN){
-				InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Vse bezi v poradku", TaskbarIconCB, &trayIconHandle);
-				trayIconFunkce();
-				
-				}
-			}
-			break;
-	}
-	return 0;
-}
 
 /* VYPINAC HELP PANELU */
 int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
@@ -110,8 +75,30 @@ int CVICALLBACK HelpPanelCB (int panel, int event, void *callbackData,
 	return 0;
 }
 
-/* VYTVORENI TRAY MENU */
-int trayIconFunkce(){
+
+/* VYPINAC */
+int Exit(){
+	exit(0);
+}
+
+int TrayIconRed(){
+	RemoveSysTrayIcon (trayIconHandle);
+	DetachTrayIconMenu (trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/spatny.ico", "CHYBA!", TaskbarIconCB, &trayIconHandle); 
+	int menuItemIndex;	
+	AttachTrayIconMenu (trayIconHandle);
+    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+	
+	return 0;
+}	
+
+int TrayIconBlue(){
+	//RemoveSysTrayIcon (trayIconHandle);
+	//DetachTrayIconMenu (trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle); 
 	int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
@@ -122,13 +109,33 @@ int trayIconFunkce(){
 	return 0;
 }
 
-/* VYPINAC */
-int Exit(){
-	exit(0);
+int TrayIconGray(){
+	RemoveSysTrayIcon (trayIconHandle);
+	DetachTrayIconMenu (trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Není èas na mìøení dat", TaskbarIconCB, &trayIconHandle);
+	int menuItemIndex;	
+	AttachTrayIconMenu (trayIconHandle);
+    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+	
+	return 0;
 }
 
-
-
+int TrayIconGreen(){
+	RemoveSysTrayIcon (trayIconHandle);
+	DetachTrayIconMenu (trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Probíhá naèítání dat a mìøení", TaskbarIconCB, &trayIconHandle);
+	int menuItemIndex;	
+	AttachTrayIconMenu (trayIconHandle);
+    InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
+	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
+	InsertTrayIconMenuItem (trayIconHandle, "Help", &menuItemIndex); //3
+    InsertTrayIconMenuItem (trayIconHandle,"Open GUI", &menuItemIndex); //4
+	
+	return 0;
+}
 
 int CVICALLBACK InfPanelCB (int panel, int event, void *callbackData,
 							int eventData1, int eventData2)

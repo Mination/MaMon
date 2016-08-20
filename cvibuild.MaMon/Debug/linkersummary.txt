@@ -6,6 +6,7 @@ OPC.obj
 SQL.obj
 timeFunkce.obj
 cvi.lib
+analysis.lib
 cvi_db.lib
 dataskt.lib
 cvistart.lib

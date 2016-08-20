@@ -7,7 +7,7 @@
 
 /*  NACTE PROMENNE Z .INI FILE  */
 int iniFileReader(){
-	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);
+	TrayIconBlue();
 	
 	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
@@ -47,14 +47,12 @@ int iniFileReader(){
 int init(){
 	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
-	trayIconFunkce();
 	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
 	IconChanger("Assets/Icon/GUIPanelIcon.ico",InfPanelHandle);
 	DisplayPanel(InfPanelHandle);
 
-	DelayWithEventProcessing(2);
-	DetachTrayIconMenu (trayIconHandle);
-	RemoveSysTrayIcon (trayIconHandle);
+	DelayWithEventProcessing(5);
+	DiscardPanel(InfPanelHandle);
 	
 	return 0;
 }

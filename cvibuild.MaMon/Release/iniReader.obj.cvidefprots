@@ -2,3 +2,7 @@
 Class="Function"
 Prototype="int iniFileReader();"
 
+[init]
+Class="Function"
+Prototype="int init();"
+

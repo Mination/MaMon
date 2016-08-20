@@ -2,7 +2,6 @@ typedef struct {
 	int cislo_parametru;
 	char *p_jednotky;
 	char *p_nazev;
-	char *p_name;
 	char *p_popis;
 	double p_min;
 	double p_max;
@@ -12,4 +11,3 @@ typedef struct {
 int InitDB;
 int InitSQL();
 int GetParametry(PARAMETRY **p_data, int *p_pocet);
-int LookThroughParameters();

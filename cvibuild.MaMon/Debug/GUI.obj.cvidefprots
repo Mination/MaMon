@@ -6,21 +6,29 @@ Prototype="int TaskbarIconCB(int iconHandle, int event, int eventData);"
 Class="Function"
 Prototype="int PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
 
-[CmdIcon]
-Class="Function"
-Prototype="int CmdIcon(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
-
 [HelpPanelCB]
 Class="Function"
 Prototype="int HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
 
-[trayIconFunkce]
-Class="Function"
-Prototype="int trayIconFunkce();"
-
 [Exit]
 Class="Function"
 Prototype="int Exit();"
+
+[TrayIconRed]
+Class="Function"
+Prototype="int TrayIconRed();"
+
+[TrayIconBlue]
+Class="Function"
+Prototype="int TrayIconBlue();"
+
+[TrayIconGray]
+Class="Function"
+Prototype="int TrayIconGray();"
+
+[TrayIconGreen]
+Class="Function"
+Prototype="int TrayIconGreen();"
 
 [InfPanelCB]
 Class="Function"

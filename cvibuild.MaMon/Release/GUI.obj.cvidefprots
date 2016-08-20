@@ -22,7 +22,23 @@ Prototype="int trayIconFunkce();"
 Class="Function"
 Prototype="int Exit();"
 
-[TableCB]
+[InfPanelCB]
 Class="Function"
-Prototype="int TableCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+Prototype="int InfPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);"
+
+[InfOkBtnCB]
+Class="Function"
+Prototype="int InfOkBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[QuitCB]
+Class="Function"
+Prototype="int QuitCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[HideBtnCB]
+Class="Function"
+Prototype="int HideBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);"
+
+[IconChanger]
+Class="Function"
+Prototype="void IconChanger(char *icon_path, int panel_handle);"
 

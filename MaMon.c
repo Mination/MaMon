@@ -15,7 +15,7 @@
 #include "OPC.h"
 #include "GUITable.h"
 
-int StartMaMon();
+
  
 	
 
@@ -24,11 +24,12 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 	iniFileReader();
 	InitSQL();
 	TableMaker();
-	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Není èas na ètení dat.", TaskbarIconCB, &trayIconHandle);
-	trayIconFunkce();
+	TableFiller();
 	HlidacCas();
 	RunUserInterface();
 	return 0;
 }
 
 
+ /*  pøevést do 2012, kontrola limitù (èervenit, když je to v píèi), tlaèítko start mìøení, dìlat graf z hodnot, vybrat parametr bud
+ kliknutim na parametr v tabulce, nebo vybranim z vyskakovaci sipka veci, otevirat OPC pro vsechny prametry zvlast, dostat money*/

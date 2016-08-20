@@ -1,4 +1,4 @@
-[TableFiller]
+[TableMaker]
 Class="Function"
-Prototype="int TableFiller();"
+Prototype="int TableMaker();"
 

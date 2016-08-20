@@ -1,1 +1,2 @@
-int TableMaker();   
+int TableMaker();  
+int TableFiller();

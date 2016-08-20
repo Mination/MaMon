@@ -21,7 +21,6 @@ int InitSQL()
 	int pn;
 	char jednotky[512] = {'\0'};
 	char nazev[512] = {'\0'}; 
-	char name[512] = {'\0'};
 	char popis[512] = {'\0'}; 
 	char spojeni[512] = {'\0'};
 	
@@ -40,8 +39,6 @@ int InitSQL()
 	hstmt = DBActivateSQL (hdbc, sql_txt);
 	parametry_pocet = DBNumberOfRecords (hstmt);
 	
-	// testovat jestli jsou
-	
 	p_parametry = (PARAMETRY*)malloc(parametry_pocet*sizeof(PARAMETRY)); 
 	
 	int j=0;
@@ -57,9 +54,6 @@ int InitSQL()
 		
 		DBGetColCharBuffer (hstmt, 4, nazev, 500, "");
 		(p_parametry+j)->p_nazev = StrDup(nazev);
-		
-		DBGetColCharBuffer (hstmt, 5, name, 500, "");
-		(p_parametry+j)->p_name = StrDup(name);
 		
 		DBGetColCharBuffer (hstmt, 6, popis, 500, "");
 		(p_parametry+j)->p_popis = StrDup(popis);

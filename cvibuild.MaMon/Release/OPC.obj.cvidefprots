@@ -2,7 +2,7 @@
 Class="Function"
 Prototype="int InitOPC();"
 
-[DSCallback]
+[DataSocketEvent]
 Class="Function"
-Prototype="void DSCallback(int localDSHandle, int event, void *p_OPCData);"
+Prototype="void DataSocketEvent(int dsHandle, int event, void *callbackData);"
 
