@@ -52,7 +52,7 @@ int init(){
 	DisplayPanel(InfPanelHandle);
 
 	DelayWithEventProcessing(5);
-	DiscardPanel(InfPanelHandle);
+	//DiscardPanel(InfPanelHandle);
 	
 	return 0;
 }

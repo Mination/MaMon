@@ -30,7 +30,7 @@ int InitOPC(){
 	mean=0;
 	deviation=0;
 	/* TADY BY SE OTEVÍRALO PRO KAŽDÝ PARAMETR ZVLÁŠ*/
-	DS_OpenEx ((p_data+0)->p_spojeni, DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
+	DS_OpenEx ("opc:/National Instruments.OPCDemo/sine", DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
 					    DSConst_EventModel, DSConst_Asynchronous, &dsHandle);
 	
 	
@@ -66,10 +66,10 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				
 				StdDev (Vzorky, pocetVzorku, &mean, &deviation);
 				
-				sprintf(StrHolder, "%.4f", deviation);
+				sprintf(StrHolder, "%.3f", deviation);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
 			
-				sprintf(StrHolder, "%.4f", mean);
+				sprintf(StrHolder, "%.3f", mean);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
 				/*mìlo by vyøešit problém s kontrolou, zda se zapsala nová hodnota*/
 				//DS_SetDataValue (dsHandle, CAVT_DOUBLE, -1, sizeof(double), NULL, NULL); 
