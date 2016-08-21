@@ -1,5 +1,6 @@
 /**************************************************************************/
 /* LabWindows/CVI User Interface Resource (UIR) Include File              */
+/* Copyright (c) National Instruments 2016. All Rights Reserved.          */
 /*                                                                        */
 /* WARNING: Do not add to, delete from, or otherwise modify the contents  */
 /*          of this include file.                                         */
@@ -21,14 +22,14 @@
 #define  GUIPanel_Quit                    6       /* control type: command, callback function: QuitCB */
 #define  GUIPanel_HideBtnCB               7       /* control type: command, callback function: HideBtnCB */
 #define  GUIPanel_MERENITIME              8       /* control type: string, callback function: (none) */
-#define  GUIPanel_STRIPCHART              9       /* control type: strip, callback function: (none) */
+#define  GUIPanel_MERENIBUTTON            9       /* control type: command, callback function: mereniButtonCB */
+#define  GUIPanel_STRIPCHART              10      /* control type: strip, callback function: (none) */
 
 #define  HelpPanel                        2       /* callback function: HelpPanelCB */
 #define  HelpPanel_TEXTBOX                2       /* control type: textMsg, callback function: (none) */
 
-#define  InfPanel                         3       /* callback function: InfPanelCB */
-#define  InfPanel_InfOkBtn                2       /* control type: command, callback function: InfOkBtnCB */
-#define  InfPanel_TEXTMSG                 3       /* control type: textMsg, callback function: (none) */
+#define  InfPanel                         3
+#define  InfPanel_PICTURE                 2       /* control type: picture, callback function: (none) */
 
 
      /* Control Arrays: */
@@ -45,8 +46,7 @@
 
 int  CVICALLBACK HelpPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK HideBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK InfOkBtnCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
-int  CVICALLBACK InfPanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
+int  CVICALLBACK mereniButtonCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK PanelCB(int panel, int event, void *callbackData, int eventData1, int eventData2);
 int  CVICALLBACK QuitCB(int panel, int control, int event, void *callbackData, int eventData1, int eventData2);
 

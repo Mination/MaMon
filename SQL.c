@@ -3,7 +3,6 @@
 #include <utility.h>
 #include <ansi_c.h>
 #include <userint.h>
-
 #include "SQL.h"
 #include "GUI.h"
 #include "MaMon.h"
@@ -13,7 +12,8 @@ int			parametry_pocet;
 
 int InitSQL()
 {
-    int hdbc = 0;   
+    int j = 0; 
+	int hdbc = 0;   
 	int hstmt;    
 	char sql_txt[1024] = {'\0'};
 	int resCode;
@@ -41,7 +41,7 @@ int InitSQL()
 	
 	p_parametry = (PARAMETRY*)malloc(parametry_pocet*sizeof(PARAMETRY)); 
 	
-	int j=0;
+	
 	
 	while ((resCode = DBFetchNext (hstmt)) == DB_SUCCESS) {	
 		
@@ -70,11 +70,13 @@ int InitSQL()
 		
 		j++;
 	}
+	
 	return 0;
 	
 }
 
 int GetParametry(PARAMETRY **p_data, int *p_pocet){
+	
 	*p_data = p_parametry;
 	*p_pocet = parametry_pocet;
 	

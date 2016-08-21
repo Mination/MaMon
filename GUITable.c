@@ -7,9 +7,10 @@
 
 /*  VYTVORI BUNKY V TABLU A VLOZI DO NICH DATA  */
 int TableMaker(){
+	
 	PARAMETRY *p_data = NULL; 
 	int pocet;
-	
+	int i=0;
 	GetParametry(&p_data, &pocet);
 	
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_TABLE, ATTR_HORIZONTAL_GRID_VISIBLE, 1);
@@ -42,7 +43,7 @@ int TableMaker(){
 	
 	InsertTableRows (GUIPanelHandle, GUIPanel_TABLE, -1, pocet, VAL_CELL_STRING); 
 	
-	int i=0;
+
 	for(i=1;i<11;i++){
 	SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, i);
 	}
@@ -52,6 +53,7 @@ int TableMaker(){
 }
 
 int TableFiller(){
+	
 	int ParHolder=0;
 	double DblHolder=0;
 	PARAMETRY *p_data = NULL; 

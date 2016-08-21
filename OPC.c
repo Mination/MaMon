@@ -13,6 +13,7 @@
 #include "OPC.h"
 #include "SQL.h"
 
+
 DSHandle dsHandle;
 int cnt = 0;
 HRESULT hr;
@@ -30,16 +31,18 @@ int InitOPC(){
 	mean=0;
 	deviation=0;
 	/* TADY BY SE OTEVÕRALO PRO KAéD› PARAMETR ZVL¡äç*/
+	
 	DS_OpenEx ("opc:/National Instruments.OPCDemo/sine", DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
 					    DSConst_EventModel, DSConst_Asynchronous, &dsHandle);
 	
 	
 				
-return 0;
+	return 0;
 }
 
 void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 {
+	
 	double value;
 	char StrHolder[512];
  	CVIAbsoluteTime akt_cas;
@@ -73,9 +76,15 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
 				/*mÏlo by vy¯eöit problÈm s kontrolou, zda se zapsala nov· hodnota*/
 				//DS_SetDataValue (dsHandle, CAVT_DOUBLE, -1, sizeof(double), NULL, NULL); 
+				
 				cnt++;
-			}
+				
+			
+		}
+	
 	}
+	
+	
 }
 
 

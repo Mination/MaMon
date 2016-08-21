@@ -11,6 +11,7 @@
 /*  POROVNAVA CAS PC S CASEM Z .INI SOUBORU  */
  
 int HlidacCas(){
+	
 	CVIAbsoluteTime akt_cas, plan_cas;
 	CVITimeInterval interval;
 	int res = 0;
@@ -22,25 +23,22 @@ int HlidacCas(){
 	CVITimeIntervalFromSeconds (intervalSecDouble, &interval);
 	
 	while(run){
+		char casString[512];
 		GetCurrentCVIAbsoluteTime (&akt_cas);
-		char casString[512];  
-											   
 		CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);
-		
+		/* MENI CAS DALSIHO MERENI V GUI  */
+		CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
+		sprintf(casString, "%d:%.2d", hour,minute);
+		SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
 		if(res==1){
-			/* MENI CAS DALSIHO MERENI V GUI  */
-			CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
-			sprintf(casString, "%d:%.2d", hour,minute);
-			SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
-			
 			/* BLIKÁ DIODOU*/
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 1); 
 			DelayWithEventProcessing(1);
 			TrayIconGreen();
 			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 0); 
 			
-			
 			InitOPC();
+			
 		
 			if(cnt==pocetVzorku){
 				cnt=0;
@@ -55,23 +53,21 @@ int HlidacCas(){
 			CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	
 			}while(res!=-1); 
 		
-		}
 		
+		}
 		
 		DelayWithEventProcessing (1); 
 	}
 	
 	
-	
-	
-	return 0;
+		return 0;
  }
 
 
 /* VEZME ÈAS Z .INI A PØEVEDE HO NA CVI TIME*/
 
 int StrToAbs(char *p_StartCas, CVIAbsoluteTime *p_date){
-
+	
 	unsigned int		rok, mes, den, hod, min, sec;
 	CVIAbsoluteTime		date;	
 	char				*p_temp = NULL;

@@ -1,9 +1,9 @@
 [Project Header]
-Version = 1302
+Version = 1201
 Pathname = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.prj"
-CVI Dir = "/c/program files (x86)/national instruments/cvi2013"
+CVI Dir = "/c/program files (x86)/national instruments/cvi2012"
 CVI Shared Dir = "/C/Program Files (x86)/National Instruments/Shared/CVI"
-CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2013"
+CVI Pub Local Dir = "/C/ProgramData/National Instruments/CVI2012"
 CVI Pub Global Dir = "/C/ProgramData/National Instruments/CVI"
 IVI Standard Root Dir = "/C/Program Files (x86)/IVI Foundation/IVI"
 VXIplug&play Framework Dir = "/C/Program Files (x86)/IVI Foundation/VISA/winnt"
@@ -17,17 +17,6 @@ Copied from VXIPNP Directory = False
 Locked InstrDrv Name = ""
 Don't Display Deploy InstrDrv Dialog = False
 
-[Folders]
-Library Files Folder Not Added Yet = True
-Folder 0 = "Instrument Files"
-FolderEx 0 = "Instrument Files"
-Folder 1 = "Source Files"
-FolderEx 1 = "Source Files"
-Folder 2 = "Include Files"
-FolderEx 2 = "Include Files"
-Folder 3 = "User Interface Files"
-FolderEx 3 = "User Interface Files"
-
 [File 0001]
 File Type = "Function Panel"
 Res Id = 1
@@ -35,41 +24,14 @@ Path Is Rel = True
 Path Rel To = "CVI"
 Path Rel To Override = "CVI"
 Path Rel Path = "toolslib/datasock/dataskt.fp"
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/datasock/dataskt.fp"
+Path = "/c/program files (x86)/national instruments/cvi2012/toolslib/datasock/dataskt.fp"
 Exclude = False
 Project Flags = 0
 Folder = "Instrument Files"
-Folder Id = 0
 
 [File 0002]
-File Type = "Function Panel"
-Res Id = 2
-Path Is Rel = True
-Path Rel To = "CVI"
-Path Rel To Override = "CVI"
-Path Rel Path = "toolslib/toolbox/inifile.fp"
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/inifile.fp"
-Exclude = False
-Project Flags = 0
-Folder = "Instrument Files"
-Folder Id = 0
-
-[File 0003]
-File Type = "Function Panel"
-Res Id = 3
-Path Is Rel = True
-Path Rel To = "CVI"
-Path Rel To Override = "CVI"
-Path Rel Path = "toolslib/toolbox/toolbox.fp"
-Path = "/c/Program Files (x86)/National Instruments/CVI2013/toolslib/toolbox/toolbox.fp"
-Exclude = False
-Project Flags = 0
-Folder = "Instrument Files"
-Folder Id = 0
-
-[File 0004]
 File Type = "CSource"
-Res Id = 4
+Res Id = 2
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "GUI.c"
@@ -78,11 +40,21 @@ Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
-Folder Id = 1
 
-[File 0005]
+[File 0003]
+File Type = "Include"
+Res Id = 3
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "GUI.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUI.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0004]
 File Type = "CSource"
-Res Id = 5
+Res Id = 4
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "GUITable.c"
@@ -91,11 +63,33 @@ Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
-Folder Id = 1
+
+[File 0005]
+File Type = "Include"
+Res Id = 5
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "GUITable.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUITable.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
 
 [File 0006]
-File Type = "CSource"
+File Type = "Function Panel"
 Res Id = 6
+Path Is Rel = True
+Path Rel To = "CVI"
+Path Rel To Override = "CVI"
+Path Rel Path = "toolslib/toolbox/inifile.fp"
+Path = "/c/program files (x86)/national instruments/cvi2012/toolslib/toolbox/inifile.fp"
+Exclude = False
+Project Flags = 0
+Folder = "Instrument Files"
+
+[File 0007]
+File Type = "CSource"
+Res Id = 7
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "iniReader.c"
@@ -104,11 +98,21 @@ Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
-Folder Id = 1
 
-[File 0007]
+[File 0008]
+File Type = "Include"
+Res Id = 8
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "iniReader.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/iniReader.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0009]
 File Type = "CSource"
-Res Id = 7
+Res Id = 9
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "MaMon.c"
@@ -117,11 +121,54 @@ Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
-Folder Id = 1
 
-[File 0008]
+[File 0010]
+File Type = "Include"
+Res Id = 10
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MaMon.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0011]
+File Type = "Unknown"
+Res Id = 11
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MaMon.ini"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
+Exclude = False
+Project Flags = 0
+Folder = "Not In A Folder"
+
+[File 0012]
+File Type = "User Interface Resource"
+Res Id = 12
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MaMon.uir"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
+Exclude = False
+Project Flags = 0
+Folder = "User Interface Files"
+
+[File 0013]
+File Type = "Unknown"
+Res Id = 13
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "MaMon_dbg.exe"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
+Exclude = False
+Project Flags = 0
+Folder = "Not In A Folder"
+
+[File 0014]
 File Type = "CSource"
-Res Id = 8
+Res Id = 14
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "OPC.c"
@@ -130,81 +177,6 @@ Exclude = False
 Compile Into Object File = False
 Project Flags = 0
 Folder = "Source Files"
-Folder Id = 1
-
-[File 0009]
-File Type = "CSource"
-Res Id = 9
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "SQL.c"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.c"
-Exclude = False
-Compile Into Object File = False
-Project Flags = 0
-Folder = "Source Files"
-Folder Id = 1
-
-[File 0010]
-File Type = "CSource"
-Res Id = 10
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "timeFunkce.c"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.c"
-Exclude = False
-Compile Into Object File = False
-Project Flags = 0
-Folder = "Source Files"
-Folder Id = 1
-
-[File 0011]
-File Type = "Include"
-Res Id = 11
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "GUI.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUI.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
-[File 0012]
-File Type = "Include"
-Res Id = 12
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "GUITable.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/GUITable.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
-[File 0013]
-File Type = "Include"
-Res Id = 13
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "iniReader.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/iniReader.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
-[File 0014]
-File Type = "Include"
-Res Id = 14
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MaMon.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
 
 [File 0015]
 File Type = "Include"
@@ -216,69 +188,10 @@ Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/OPC.h"
 Exclude = False
 Project Flags = 0
 Folder = "Include Files"
-Folder Id = 2
 
 [File 0016]
-File Type = "Include"
+File Type = "Unknown"
 Res Id = 16
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "SQL.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
-[File 0017]
-File Type = "Include"
-Res Id = 17
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "timeFunkce.h"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.h"
-Exclude = False
-Project Flags = 0
-Folder = "Include Files"
-Folder Id = 2
-
-[File 0018]
-File Type = "User Interface Resource"
-Res Id = 18
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MaMon.uir"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.uir"
-Exclude = False
-Project Flags = 0
-Folder = "User Interface Files"
-Folder Id = 3
-
-[File 0019]
-File Type = "Unknown"
-Res Id = 19
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MaMon.ini"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon.ini"
-Exclude = False
-Project Flags = 0
-Folder = "Not In A Folder"
-
-[File 0020]
-File Type = "Unknown"
-Res Id = 20
-Path Is Rel = True
-Path Rel To = "Project"
-Path Rel Path = "MaMon_dbg.exe"
-Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/MaMon_dbg.exe"
-Exclude = False
-Project Flags = 0
-Folder = "Not In A Folder"
-
-[File 0021]
-File Type = "Unknown"
-Res Id = 21
 Path Is Rel = True
 Path Rel To = "Project"
 Path Rel Path = "README.md"
@@ -286,6 +199,71 @@ Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/README.md"
 Exclude = False
 Project Flags = 0
 Folder = "Not In A Folder"
+
+[File 0017]
+File Type = "CSource"
+Res Id = 17
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "SQL.c"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files"
+
+[File 0018]
+File Type = "Include"
+Res Id = 18
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "SQL.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/SQL.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0019]
+File Type = "CSource"
+Res Id = 19
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "timeFunkce.c"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.c"
+Exclude = False
+Compile Into Object File = False
+Project Flags = 0
+Folder = "Source Files"
+
+[File 0020]
+File Type = "Include"
+Res Id = 20
+Path Is Rel = True
+Path Rel To = "Project"
+Path Rel Path = "timeFunkce.h"
+Path = "/c/Users/Mination/Desktop/ParentFolder/Codes/C/MaMon/timeFunkce.h"
+Exclude = False
+Project Flags = 0
+Folder = "Include Files"
+
+[File 0021]
+File Type = "Function Panel"
+Res Id = 21
+Path Is Rel = True
+Path Rel To = "CVI"
+Path Rel To Override = "CVI"
+Path Rel Path = "toolslib/toolbox/toolbox.fp"
+Path = "/c/Program Files (x86)/National Instruments/CVI2012/toolslib/toolbox/toolbox.fp"
+Exclude = False
+Project Flags = 0
+Folder = "Instrument Files"
+
+[Folders]
+Library Files Folder Not Added Yet = True
+Folder 0 = "Instrument Files"
+Folder 1 = "Source Files"
+Folder 2 = "Include Files"
+Folder 3 = "User Interface Files"
 
 [Custom Build Configs]
 Num Custom Build Configs = 0
@@ -295,26 +273,15 @@ Config Name = "Debug"
 Is 64-Bit = False
 Is Release = False
 Default Calling Convention = "cdecl"
-Optimization Level = "No optimizations"
-Require Prototypes = True
-Show Warning IDs in Build Output = False
-Selected Warning Level = "Common"
-Warning List None = ""
-Warning List Common = ""
-Warning List Extended = ""
-Warning List All = ""
-Warning Mode = 0
-Enable Unreferenced Identifiers Warning = True
+Uninitialized Locals Compile Warning = "Aggressive"
+Require Prototypes = False
+Require Return Values = True
 Enable Pointer Mismatch Warning = True
 Enable Unreachable Code Warning = True
+Enable Unreferenced Identifiers Warning = True
 Enable Assignment In Conditional Warning = True
-Uninitialized Locals Compile Warning = "Aggressive"
-Require Return Values = True
 Enable C99 Extensions = False
-Enable OpenMP Extensions = False
 Stack Size = 250000
-Stack Reserve = 1048576
-Stack Commit = 4096
 Image Base Address = 4194304
 Image Base Address x64 = 4194304
 Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
@@ -327,6 +294,7 @@ Manifest Embed = False
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
+DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
 Use Dflt Import Lib Base Name = True
@@ -338,7 +306,6 @@ Runtime Support = "Full Runtime Support"
 Runtime Binding = "Shared"
 Embed Project .UIRs = False
 Generate Map File = False
-Embed Timestamp = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -349,7 +316,7 @@ Comments = ""
 Comments Ex = ""
 Company Name = ""
 Company Name Ex = "%company"
-File Description = "MaMon_dbg (Debug x86)"
+File Description = "MaMon (Debug x86)"
 File Description Ex = "%application (%rel_dbg %arch)"
 File Version = "1.0"
 File Version Ex = "%f1.%f2"
@@ -363,7 +330,7 @@ Original Filename = "MaMon_dbg.exe"
 Original Filename Ex = "%filename"
 Private Build = ""
 Private Build Ex = ""
-Product Name = " MaMon_dbg"
+Product Name = " MaMon"
 Product Name Ex = "%company %application"
 Product Version = "1.0"
 Product Version Ex = "%p1.%p2"
@@ -380,26 +347,15 @@ Config Name = "Release"
 Is 64-Bit = False
 Is Release = True
 Default Calling Convention = "cdecl"
-Optimization Level = "No optimizations"
+Uninitialized Locals Compile Warning = "Aggressive"
 Require Prototypes = True
-Show Warning IDs in Build Output = False
-Selected Warning Level = "Common"
-Warning List None = ""
-Warning List Common = ""
-Warning List Extended = ""
-Warning List All = ""
-Warning Mode = 0
-Enable Unreferenced Identifiers Warning = True
+Require Return Values = True
 Enable Pointer Mismatch Warning = True
 Enable Unreachable Code Warning = True
+Enable Unreferenced Identifiers Warning = True
 Enable Assignment In Conditional Warning = True
-Uninitialized Locals Compile Warning = "Aggressive"
-Require Return Values = True
 Enable C99 Extensions = False
-Enable OpenMP Extensions = False
 Stack Size = 250000
-Stack Reserve = 1048576
-Stack Commit = 4096
 Image Base Address = 4194304
 Image Base Address x64 = 4194304
 Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
@@ -412,6 +368,7 @@ Manifest Embed = False
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
+DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
 Use Dflt Import Lib Base Name = True
@@ -423,7 +380,6 @@ Runtime Support = "Full Runtime Support"
 Runtime Binding = "Shared"
 Embed Project .UIRs = False
 Generate Map File = False
-Embed Timestamp = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -439,26 +395,15 @@ Config Name = "Debug64"
 Is 64-Bit = True
 Is Release = False
 Default Calling Convention = "cdecl"
-Optimization Level = "No optimizations"
+Uninitialized Locals Compile Warning = "Aggressive"
 Require Prototypes = True
-Show Warning IDs in Build Output = False
-Selected Warning Level = "Common"
-Warning List None = ""
-Warning List Common = ""
-Warning List Extended = ""
-Warning List All = ""
-Warning Mode = 0
-Enable Unreferenced Identifiers Warning = True
+Require Return Values = True
 Enable Pointer Mismatch Warning = True
 Enable Unreachable Code Warning = True
+Enable Unreferenced Identifiers Warning = True
 Enable Assignment In Conditional Warning = True
-Uninitialized Locals Compile Warning = "Aggressive"
-Require Return Values = True
 Enable C99 Extensions = False
-Enable OpenMP Extensions = False
 Stack Size = 250000
-Stack Reserve = 1048576
-Stack Commit = 4096
 Image Base Address = 4194304
 Image Base Address x64 = 4194304
 Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
@@ -471,6 +416,7 @@ Manifest Embed = False
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
+DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
 Use Dflt Import Lib Base Name = True
@@ -482,7 +428,6 @@ Runtime Support = "Full Runtime Support"
 Runtime Binding = "Shared"
 Embed Project .UIRs = False
 Generate Map File = False
-Embed Timestamp = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -498,26 +443,15 @@ Config Name = "Release64"
 Is 64-Bit = True
 Is Release = True
 Default Calling Convention = "cdecl"
-Optimization Level = "No optimizations"
+Uninitialized Locals Compile Warning = "Aggressive"
 Require Prototypes = True
-Show Warning IDs in Build Output = False
-Selected Warning Level = "Common"
-Warning List None = ""
-Warning List Common = ""
-Warning List Extended = ""
-Warning List All = ""
-Warning Mode = 0
-Enable Unreferenced Identifiers Warning = True
+Require Return Values = True
 Enable Pointer Mismatch Warning = True
 Enable Unreachable Code Warning = True
+Enable Unreferenced Identifiers Warning = True
 Enable Assignment In Conditional Warning = True
-Uninitialized Locals Compile Warning = "Aggressive"
-Require Return Values = True
 Enable C99 Extensions = False
-Enable OpenMP Extensions = False
 Stack Size = 250000
-Stack Reserve = 1048576
-Stack Commit = 4096
 Image Base Address = 4194304
 Image Base Address x64 = 4194304
 Compiler Defines = "/DWIN32_LEAN_AND_MEAN"
@@ -530,6 +464,7 @@ Manifest Embed = False
 Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
+DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
 Use Dflt Import Lib Base Name = True
@@ -541,7 +476,6 @@ Runtime Support = "Full Runtime Support"
 Runtime Binding = "Shared"
 Embed Project .UIRs = False
 Generate Map File = False
-Embed Timestamp = True
 Create Console Application = False
 Using LoadExternalModule = True
 DLL Exports = "Include File Symbols"
@@ -568,7 +502,6 @@ Prefix Header File = ""
 
 [Run Options]
 Stack Size = 250000
-Stack Commit = 4096
 Image Base Address = 4194304
 Image Base Address x64 = 4194304
 
@@ -596,6 +529,7 @@ Icon File Is Rel = False
 Icon File = ""
 Application Title = ""
 DLL Exports = "Include File Symbols"
+DLL Import Library Choice = "Gen Lib For Current Mode"
 Use IVI Subdirectories for Import Libraries = False
 Use VXIPNP Subdirectories for Import Libraries = False
 Use Dflt Import Lib Base Name = True

@@ -5,18 +5,19 @@
 #include "GUI.h"
 #include "iniReader.h"
 
-/*  NACTE PROMENNE Z .INI FILE  */
+/*  NACTE PROMENNE Z .INI FILE */
+
 int iniFileReader(){
-	TrayIconBlue();
+	IniText iniLoadUp = Ini_New(0); 
+	init(); 
 	
-	IniText iniLoadUp = Ini_New(0);
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
 	
 	/* STRINGY  */
 	
 	Ini_GetStringCopy (iniLoadUp, "SQL", "DSN", &DSN);
-	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Typ", &typ);
-	Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Adresa", &adresa);
+	//Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Typ", &typ);
+	//Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Adresa", &adresa);
 	Ini_GetStringCopy (iniLoadUp, "SberDat", "CasStart", &casStart);
 	
 	/*    INTY   */
@@ -28,12 +29,10 @@ int iniFileReader(){
 	
 	/*    BOOLEANY   */
 	
-	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
-	Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
+	//Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
+	//Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
 	
 	
-	
-	init();
 	
 	
 	
@@ -50,9 +49,8 @@ int init(){
 	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
 	IconChanger("Assets/Icon/GUIPanelIcon.ico",InfPanelHandle);
 	DisplayPanel(InfPanelHandle);
-
-	DelayWithEventProcessing(5);
-	//DiscardPanel(InfPanelHandle);
+	TryIconBluePreIni();
+	DiscardPanel(InfPanelHandle);
 	
 	return 0;
 }
