@@ -17,7 +17,7 @@
 DSHandle dsHandle;
 int cnt = 0;
 HRESULT hr;
-double Vzorky[20];
+
 static double mean;
 double deviation;
 
@@ -34,7 +34,7 @@ int InitOPC(){
 	
 	DS_OpenEx ("opc:/National Instruments.OPCDemo/sine", DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
 					    DSConst_EventModel, DSConst_Asynchronous, &dsHandle);
-	
+		
 	
 				
 	return 0;
@@ -42,7 +42,6 @@ int InitOPC(){
 
 void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 {
-	
 	double value;
 	char StrHolder[512];
  	CVIAbsoluteTime akt_cas;
@@ -67,13 +66,16 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				sprintf(StrHolder, "%.2f", value);							 
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_CTRL_VAL, StrHolder);
 				
+				/*
 				StdDev (Vzorky, pocetVzorku, &mean, &deviation);
 				
 				sprintf(StrHolder, "%.3f", deviation);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
-			
+				*/
+				/*
 				sprintf(StrHolder, "%.3f", mean);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
+				*/
 				/*mìlo by vyøešit problém s kontrolou, zda se zapsala nová hodnota*/
 				//DS_SetDataValue (dsHandle, CAVT_DOUBLE, -1, sizeof(double), NULL, NULL); 
 				
@@ -81,11 +83,58 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				
 			
 		}
-	
+		chartFiller();
+		StdDev (Vzorky, pocetVzorku, &mean, &deviation);
+		sprintf(StrHolder, "%.3f", deviation);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
+		sprintf(StrHolder, "%.3f", mean);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
+		//mainHlidac();
 	}
 	
 	
 }
+/*  ZMENI TRAYICON NA ZELENOU // ZAVOLA FUNKCI InitOPC // ZKONTROLUJE JESTLI SE cnt ROVNA pocetVzorku POKUD ANO, cnt SE SETNE NA 0 A TRAYICON SE ZMENI NA SEDOU */ 
 
+int measureFun(){
+	TrayIconGreen();
+	InitOPC();
+	if(cnt==pocetVzorku){
+		cnt=0;
+				
+		//DS_DiscardObjHandle (dsHandle);
+		TrayIconGray(); 	
+	}
+	
+	return 0;	
+}
+
+void mainHlidac(){
+	int i = 0;
+	int pocetBadVzorku = 0;
+	int procentaVar,min,max;
+	PARAMETRY *p_data = NULL;
+	int pocet;
+	
+	GetParametry(&p_data,&pocet);
+	
+	min = (p_data+0)->p_min;
+	max = (p_data+0)->p_max;
+	
+	for (i=0;i < pocetVzorku;i++){
+		if (Vzorky[i] < min || Vzorky[i] > max){
+			pocetBadVzorku++;
+			
+		}
+		
+		
+	}
+	procentaVar = (pocetBadVzorku / pocetVzorku) * 100; 
+	if (procentaVar > alarmLimitProc){
+		printf("Je tu problém šéfe");	
+		
+	}
+					 
+}
 
 

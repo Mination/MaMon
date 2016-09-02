@@ -17,13 +17,12 @@
 #define  GUIPanel                         1       /* callback function: PanelCB */
 #define  GUIPanel_TABLE                   2       /* control type: table, callback function: (none) */
 #define  GUIPanel_LED                     3       /* control type: LED, callback function: (none) */
-#define  GUIPanel_DECORATION              4       /* control type: deco, callback function: (none) */
-#define  GUIPanel_RING                    5       /* control type: ring, callback function: (none) */
-#define  GUIPanel_Quit                    6       /* control type: command, callback function: QuitCB */
-#define  GUIPanel_HideBtnCB               7       /* control type: command, callback function: HideBtnCB */
-#define  GUIPanel_MERENITIME              8       /* control type: string, callback function: (none) */
-#define  GUIPanel_MERENIBUTTON            9       /* control type: command, callback function: mereniButtonCB */
-#define  GUIPanel_STRIPCHART              10      /* control type: strip, callback function: (none) */
+#define  GUIPanel_RING                    4       /* control type: ring, callback function: (none) */
+#define  GUIPanel_Quit                    5       /* control type: command, callback function: QuitCB */
+#define  GUIPanel_HideBtnCB               6       /* control type: command, callback function: HideBtnCB */
+#define  GUIPanel_MERENITIME              7       /* control type: string, callback function: (none) */
+#define  GUIPanel_MERENIBUTTON            8       /* control type: command, callback function: mereniButtonCB */
+#define  GUIPanel_CHART                   9       /* control type: strip, callback function: (none) */
 
 #define  HelpPanel                        2       /* callback function: HelpPanelCB */
 #define  HelpPanel_TEXTBOX                2       /* control type: textMsg, callback function: (none) */

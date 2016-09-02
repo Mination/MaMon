@@ -31,5 +31,11 @@ int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,LPSTR lpszCmd
 }
 
 
- /*  kontrola limitù (èervenit, když je to v píèi), tlaèítko start mìøení, dìlat graf z hodnot, vybrat parametr bud
- kliknutim na parametr v tabulce, nebo vybranim z vyskakovaci sipka veci, otevirat OPC pro vsechny prametry zvlast, dostat money*/
+ /*
+ 1)kontrola limitù (èervenit, když je to v píèi)    ÈÁSTEÈNÌ DONE 
+ 2)tlaèítko start mìøení  ÈÁSTEÈNÌ DONE
+ 3)dìlat graf z hodnot ÈÁSTEÈNÌ DONE
+ 4)vybrat parametr bud kliknutim na parametr v tabulce nebo vybranim z vyskakovaci sipka veci
+ 5)otevirat OPC pro vsechny prametry zvlast 
+ 6)dostat money
+ */

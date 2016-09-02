@@ -45,7 +45,7 @@ int TableMaker(){
 	
 
 	for(i=1;i<11;i++){
-	SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, i);
+		SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, i);
 	}
 
 	 
@@ -64,23 +64,23 @@ int TableFiller(){
 	
 	for(i=0;i<pocet;i++){
 	
-	ParHolder = (p_data+i)->cislo_parametru;
-	sprintf(StrHolder, "%d", ParHolder);
-	SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i+1), ATTR_CTRL_VAL, StrHolder);
+		ParHolder = (p_data+i)->cislo_parametru;
+		sprintf(StrHolder, "%d", ParHolder);
+		SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (1, i+1), ATTR_CTRL_VAL, StrHolder);
 				
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (3, i+1), ATTR_CTRL_VAL, (p_data+0)->p_jednotky);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (3, i+1), ATTR_CTRL_VAL, (p_data+0)->p_jednotky);
 	
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i+1), ATTR_CTRL_VAL, (p_data+0)->p_nazev);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (4, i+1), ATTR_CTRL_VAL, (p_data+0)->p_nazev);
 																													
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i+1), ATTR_CTRL_VAL, (p_data+0)->p_popis);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i+1), ATTR_CTRL_VAL, (p_data+0)->p_popis);
 	
-	DblHolder = (p_data+0)->p_min;
-	sprintf(StrHolder, "%.2f", DblHolder);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, i+1), ATTR_CTRL_VAL, StrHolder);
+		DblHolder = (p_data+0)->p_min;
+		sprintf(StrHolder, "%.2f", DblHolder);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, i+1), ATTR_CTRL_VAL, StrHolder);
 																						 
-	DblHolder = (p_data+0)->p_max;
-	sprintf(StrHolder, "%.2f", DblHolder);
-	SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, i+1), ATTR_CTRL_VAL, StrHolder);
+		DblHolder = (p_data+0)->p_max;
+		sprintf(StrHolder, "%.2f", DblHolder);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, i+1), ATTR_CTRL_VAL, StrHolder);
 	}
 
 	for(i=1;i<8;i++){

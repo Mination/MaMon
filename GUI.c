@@ -6,7 +6,8 @@
 #include "iniReader.h"
 #include "SQL.h"
 #include "GUITable.h"
-
+#include "OPC.h"
+		  
 int menuItemIndex;
 int iniWatcher = 0;
 /* TRAY MENU CALLBACK  */
@@ -96,7 +97,8 @@ int Exit(){
 }
 
 int TrayIconRed(){
-	
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_RED);
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_RED);
 	RemoveSysTrayIcon (trayIconHandle);
 	DetachTrayIconMenu (trayIconHandle);
 	InstallSysTrayIcon ("Assets/StatusIcons/spatny.ico", "CHYBA!", TaskbarIconCB, &trayIconHandle); 
@@ -111,7 +113,8 @@ int TrayIconRed(){
 }	
 
 int TrayIconBlue(){
-	
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_BLUE);
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_BLUE);
 	//RemoveSysTrayIcon (trayIconHandle);
 	//DetachTrayIconMenu (trayIconHandle);
 	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle); 
@@ -126,8 +129,10 @@ int TrayIconBlue(){
 }
 
 int TryIconBluePreIni(){
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_BLUE);
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_BLUE);
 	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle);	
-	DelayWithEventProcessing(6);
+	DelayWithEventProcessing(2);
 	AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
 	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
@@ -138,11 +143,12 @@ int TryIconBluePreIni(){
 	return 0;
 }
 int TrayIconGray(){
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_GRAY);
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_GRAY);
 	
 	RemoveSysTrayIcon (trayIconHandle);
 	DetachTrayIconMenu (trayIconHandle);
-	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Není èas na mìøení dat", TaskbarIconCB, &trayIconHandle);
-	//int menuItemIndex;	
+	InstallSysTrayIcon ("Assets/StatusIcons/klid.ico", "Neni cas na mereni dat", TaskbarIconCB, &trayIconHandle);
 	AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
 	InsertTrayIconMenuItem (trayIconHandle, 0, &menuItemIndex);  //2
@@ -153,10 +159,11 @@ int TrayIconGray(){
 }
 
 int TrayIconGreen(){
-	
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_GREEN);
+	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_GREEN);
 	RemoveSysTrayIcon (trayIconHandle);
 	DetachTrayIconMenu (trayIconHandle);
-	InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Probíhá naèítání dat a mìøení", TaskbarIconCB, &trayIconHandle);
+	InstallSysTrayIcon ("Assets/StatusIcons/dobry.ico", "Probiha nacitani dat a mereni", TaskbarIconCB, &trayIconHandle);
 	//int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
     InsertTrayIconMenuItem (trayIconHandle, "Quit", &menuItemIndex);  //1
@@ -216,8 +223,15 @@ int CVICALLBACK mereniButtonCB (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
-			InitOPC();
+			measureFun();
 			break;
 	}
 	return 0;
+}
+
+void chartFiller(){
+	
+	//SetCtrlAttribute (GUIPanelHandle, GUIPanel_CHART, ATTR_NUM_TRACES,1);
+	PlotStripChart (GUIPanelHandle, GUIPanel_CHART, Vzorky, 1, 0, 0, VAL_DOUBLE);
+		
 }

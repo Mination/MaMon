@@ -1,7 +1,6 @@
 #include "dataskt.h"
 #include <userint.h>
 #include "toolbox.h"
-
 #include "MaMon.h"
 #include "timeFunkce.h"
 #include "iniReader.h"
@@ -30,29 +29,16 @@ int HlidacCas(){
 		CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
 		sprintf(casString, "%d:%.2d", hour,minute);
 		SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
+		
 		if(res==1){
-			/* BLIKÁ DIODOU*/
-			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 1); 
-			DelayWithEventProcessing(1);
-			TrayIconGreen();
-			SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_CTRL_VAL, 0); 
 			
-			InitOPC();
-			
-		
-			if(cnt==pocetVzorku){
-				cnt=0;
-				
-				//DS_DiscardObjHandle (dsHandle);
-				TrayIconGray(); 	
-				}
-			
-			/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
+			measureFun();
+					/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
 			do{
-			AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas); 	
-			CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	
+				AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas); 	
+				CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	
 			}while(res!=-1); 
-		
+			
 		
 		}
 		
