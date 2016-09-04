@@ -32,7 +32,7 @@ int InitOPC(){
 	deviation=0;
 	/* TADY BY SE OTEVÕRALO PRO KAéD› PARAMETR ZVL¡äç*/
 	
-	DS_OpenEx ("opc:/National Instruments.OPCDemo/sine", DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
+	DS_OpenEx ("opc:/National Instruments.OPCDemo/SINE:0.0..8.0:2.0", DSConst_ReadAutoUpdate, DataSocketEvent, NULL,
 					    DSConst_EventModel, DSConst_Asynchronous, &dsHandle);
 		
 	
@@ -53,10 +53,10 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 		case DS_EVENT_DATAUPDATED:
 			if(cnt<pocetVzorku){
 				
-
+				
 				DS_GetDataValue (dsHandle, CAVT_DOUBLE, &value, sizeof(double), NULL, NULL);
 				Vzorky[cnt]=value;
-				
+				cnt++; 
 				GetCurrentCVIAbsoluteTime (&akt_cas);
 				CVIAbsoluteTimeToLocalCalendar (akt_cas, NULL, NULL, NULL, &hour, &minute, &second, &milisecond, NULL);
 				sprintf(casString, "%d:%.2d:%.2d:%.0f", hour,minute, second, milisecond);
@@ -66,30 +66,24 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 				sprintf(StrHolder, "%.2f", value);							 
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_CTRL_VAL, StrHolder);
 				
-				/*
-				StdDev (Vzorky, pocetVzorku, &mean, &deviation);
+				PlotStripChartPoint (GUIPanelHandle, GUIPanel_CHART, value); 
+				StdDev (Vzorky, cnt, &mean, &deviation);
 				
 				sprintf(StrHolder, "%.3f", deviation);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
-				*/
-				/*
+			
 				sprintf(StrHolder, "%.3f", mean);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
-				*/
+							   
 				/*mÏlo by vy¯eöit problÈm s kontrolou, zda se zapsala nov· hodnota*/
 				//DS_SetDataValue (dsHandle, CAVT_DOUBLE, -1, sizeof(double), NULL, NULL); 
+				DelayWithEventProcessing (1);
 				
-				cnt++;
-				
+				 
 			
 		}
-		chartFiller();
-		StdDev (Vzorky, pocetVzorku, &mean, &deviation);
-		sprintf(StrHolder, "%.3f", deviation);
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
-		sprintf(StrHolder, "%.3f", mean);
-		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
-		//mainHlidac();
+		
+		
 	}
 	
 	
@@ -98,12 +92,15 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 
 int measureFun(){
 	TrayIconGreen();
+	
 	InitOPC();
 	if(cnt==pocetVzorku){
+		
+		TrayIconGray();
 		cnt=0;
 				
 		//DS_DiscardObjHandle (dsHandle);
-		TrayIconGray(); 	
+		 	
 	}
 	
 	return 0;	
@@ -112,7 +109,8 @@ int measureFun(){
 void mainHlidac(){
 	int i = 0;
 	int pocetBadVzorku = 0;
-	int procentaVar,min,max;
+	float procentaVar = 0;
+	double min,max;
 	PARAMETRY *p_data = NULL;
 	int pocet;
 	
@@ -129,10 +127,10 @@ void mainHlidac(){
 		
 		
 	}
-	procentaVar = (pocetBadVzorku / pocetVzorku) * 100; 
+	procentaVar = ((float)pocetBadVzorku / (float)pocetVzorku)*100;
 	if (procentaVar > alarmLimitProc){
-		printf("Je tu problÈm öÈfe");	
-		
+		DelayWithEventProcessing (2);
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_RED);
 	}
 					 
 }

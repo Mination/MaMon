@@ -74,11 +74,11 @@ int TableFiller(){
 																													
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (5, i+1), ATTR_CTRL_VAL, (p_data+0)->p_popis);
 	
-		DblHolder = (p_data+0)->p_min;
+		DblHolder = (p_data+i)->p_min;
 		sprintf(StrHolder, "%.2f", DblHolder);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (6, i+1), ATTR_CTRL_VAL, StrHolder);
 																						 
-		DblHolder = (p_data+0)->p_max;
+		DblHolder = (p_data+i)->p_max;
 		sprintf(StrHolder, "%.2f", DblHolder);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (7, i+1), ATTR_CTRL_VAL, StrHolder);
 	}

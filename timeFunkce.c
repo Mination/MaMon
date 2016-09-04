@@ -31,9 +31,11 @@ int HlidacCas(){
 		SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
 		
 		if(res==1){
-			
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_WHITE);
 			measureFun();
-					/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
+			mainHlidac();
+			
+			/* PØIÈÍTÁ INTERVAL (1 HODINA) DOKUD NENÍ PLÁNOVANÝ ÈAS VÌTŠÍ NEŽ AKTUÁLNÍ*/
 			do{
 				AddToCVIAbsoluteTime (plan_cas, interval, &plan_cas); 	
 				CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);	

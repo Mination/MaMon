@@ -115,8 +115,6 @@ int TrayIconRed(){
 int TrayIconBlue(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_BLUE);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_BLUE);
-	//RemoveSysTrayIcon (trayIconHandle);
-	//DetachTrayIconMenu (trayIconHandle);
 	InstallSysTrayIcon ("Assets/StatusIcons/init.ico", "Inicializuji...",TaskbarIconCB, &trayIconHandle); 
 	//int menuItemIndex;	
 	AttachTrayIconMenu (trayIconHandle);
@@ -229,9 +227,4 @@ int CVICALLBACK mereniButtonCB (int panel, int control, int event,
 	return 0;
 }
 
-void chartFiller(){
-	
-	//SetCtrlAttribute (GUIPanelHandle, GUIPanel_CHART, ATTR_NUM_TRACES,1);
-	PlotStripChart (GUIPanelHandle, GUIPanel_CHART, Vzorky, 1, 0, 0, VAL_DOUBLE);
-		
-}
+
