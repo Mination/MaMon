@@ -53,25 +53,28 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 		case DS_EVENT_DATAUPDATED:
 			if(cnt<pocetVzorku){
 				
-				
+				/* ziskame data z OPC */
 				DS_GetDataValue (dsHandle, CAVT_DOUBLE, &value, sizeof(double), NULL, NULL);
+				/* ulozime do arraye */
 				Vzorky[cnt]=value;
 				cnt++; 
+				/* vytvorime casovou znamku a vlozime ji do tabulky */
 				GetCurrentCVIAbsoluteTime (&akt_cas);
 				CVIAbsoluteTimeToLocalCalendar (akt_cas, NULL, NULL, NULL, &hour, &minute, &second, &milisecond, NULL);
 				sprintf(casString, "%d:%.2d:%.2d:%.0f", hour,minute, second, milisecond);
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (10, 1), ATTR_CTRL_VAL, casString);
 				SetColumnWidthToWidestCellContents (GUIPanelHandle,GUIPanel_TABLE, 10);
-				
+				/* vlozime do tabulky hodnotu */
 				sprintf(StrHolder, "%.2f", value);							 
 				SetTableCellAttribute(GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_CTRL_VAL, StrHolder);
-				
+				/* vlozime hodnotu do grafu */
 				PlotStripChartPoint (GUIPanelHandle, GUIPanel_CHART, value); 
+				/* ziskame odchylku a prumer */
 				StdDev (Vzorky, cnt, &mean, &deviation);
-				
+				/* vlozime do tabulky odchylku */
 				sprintf(StrHolder, "%.3f", deviation);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (9, 1), ATTR_CTRL_VAL, StrHolder);
-			
+				/* vlozime do tabulky prumer */
 				sprintf(StrHolder, "%.3f", mean);
 				SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (8, 1), ATTR_CTRL_VAL, StrHolder);
 							   
@@ -118,7 +121,7 @@ void mainHlidac(){
 	
 	min = (p_data+0)->p_min;
 	max = (p_data+0)->p_max;
-	
+	/* ziskame pocet spatnych vzorku */
 	for (i=0;i < pocetVzorku;i++){
 		if (Vzorky[i] < min || Vzorky[i] > max){
 			pocetBadVzorku++;
@@ -127,7 +130,9 @@ void mainHlidac(){
 		
 		
 	}
+	/* ziskame procento spatnych vzorku */
 	procentaVar = ((float)pocetBadVzorku / (float)pocetVzorku)*100;
+	/* jestli je procento spatnych vzorku vetsi nez hodnota ulozena v alarmLimitProc, tak u dane hodnoty zmenime barvu pozadi v tabulce na cervenou */
 	if (procentaVar > alarmLimitProc){
 		DelayWithEventProcessing (2);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_RED);

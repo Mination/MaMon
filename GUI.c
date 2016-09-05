@@ -96,6 +96,7 @@ int Exit(){
 	return 0;
 }
 
+/* Cervena trayikona */
 int TrayIconRed(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_RED);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_RED);
@@ -111,7 +112,7 @@ int TrayIconRed(){
 	
 	return 0;
 }	
-
+/* Modra trayikona */
 int TrayIconBlue(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_BLUE);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_BLUE);
@@ -126,6 +127,7 @@ int TrayIconBlue(){
 	return 0;
 }
 
+/* Modra trayikona pred nactenim */
 int TryIconBluePreIni(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_BLUE);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_BLUE);
@@ -140,6 +142,7 @@ int TryIconBluePreIni(){
 	iniWatcher = 1;
 	return 0;
 }
+/* Seda trayikona */
 int TrayIconGray(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_GRAY);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_GRAY);
@@ -155,7 +158,7 @@ int TrayIconGray(){
 	
 	return 0;
 }
-
+/* Zelena trayikona */
 int TrayIconGreen(){
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_ON_COLOR, VAL_DK_GREEN);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_LED, ATTR_OFF_COLOR, VAL_DK_GREEN);
@@ -174,7 +177,7 @@ int TrayIconGreen(){
 
 
 
-
+/* Vypne MaMon */
 int CVICALLBACK QuitCB (int panel, int control, int event,
 						void *callbackData, int eventData1, int eventData2)
 {   
@@ -188,6 +191,7 @@ int CVICALLBACK QuitCB (int panel, int control, int event,
 	return 0;
 }
 
+/* Schova GUIPanel */
 int CVICALLBACK HideBtnCB (int panel, int control, int event,
 						   void *callbackData, int eventData1, int eventData2)
 {
@@ -215,6 +219,7 @@ void IconChanger(char* icon_path,int panel_handle)
 	
 }
 
+/* Callback pro merici button */
 int CVICALLBACK mereniButtonCB (int panel, int control, int event,
 		void *callbackData, int eventData1, int eventData2)
 {
@@ -222,6 +227,9 @@ int CVICALLBACK mereniButtonCB (int panel, int control, int event,
 	{
 		case EVENT_COMMIT:
 			measureFun();
+			SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 1);
+			 
+			
 			break;
 	}
 	return 0;

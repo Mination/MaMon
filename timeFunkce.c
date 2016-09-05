@@ -13,6 +13,7 @@ int HlidacCas(){
 	
 	CVIAbsoluteTime akt_cas, plan_cas;
 	CVITimeInterval interval;
+	int measureWatcher = 0;
 	int res = 0;
 	int run = 1;
 	unsigned int hour,minute;
@@ -23,15 +24,26 @@ int HlidacCas(){
 	
 	while(run){
 		char casString[512];
+		/* Ziskame CVIAbsoluteTime */
 		GetCurrentCVIAbsoluteTime (&akt_cas);
+		/* Porovname aktualni cas s planovanym casem */
 		CompareCVIAbsoluteTimes (akt_cas, plan_cas, &res);
 		/* MENI CAS DALSIHO MERENI V GUI  */
 		CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
 		sprintf(casString, "%d:%.2d", hour,minute);
 		SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
+		measureWatcher = measureWatcher + 1;
+		
+		if (measureWatcher == 3){
+			SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 0);
+			measureWatcher = 0;	
+			
+		}
 		
 		if(res==1){
+			/* zmenime barvu bunky na bilou */
 			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_WHITE);
+			/* zmerime a porovname s min max */
 			measureFun();
 			mainHlidac();
 			

@@ -27,7 +27,8 @@ int InitSQL()
 	#ifdef WIN64
 	DisableBreakOnLibraryErrors();
 	#endif 
-	 
+	
+	/* Pripojime se k databazi */
 	hdbc = DBConnect ("DSN=MaMon_DB"); 
 	DBAllowFetchAnyDirection (hdbc, TRUE);
 	
@@ -35,14 +36,15 @@ int InitSQL()
 						"inner join ( SELECT [Pn] as PnPn, max([TS_P]) as posledni FROM [dbo].[T_Parameter] where [PT_P]=%s group by [Pn] ) "
 						"as j on ([T_Parameter].[Pn] = j.[PnPn] and [T_Parameter].[TS_P] = j.posledni) "
 						"where [Min] is not null or [Max] is not null", "16084");
-																																						  
+	/* Provedeme prikaz na databazi */ 																																					  
 	hstmt = DBActivateSQL (hdbc, sql_txt);
+	/* Nacteme pocet parametru */
 	parametry_pocet = DBNumberOfRecords (hstmt);
-	
+	/* Vytvorime promennou pro parametry */
 	p_parametry = (PARAMETRY*)malloc(parametry_pocet*sizeof(PARAMETRY)); 
 	
 	
-	
+	/* Nacteme parametry */
 	while ((resCode = DBFetchNext (hstmt)) == DB_SUCCESS) {	
 		
 		DBGetColInt (hstmt, 2, &pn);
@@ -75,6 +77,7 @@ int InitSQL()
 	
 }
 
+/* Prenasi parametry a pocet parametru */
 int GetParametry(PARAMETRY **p_data, int *p_pocet){
 	
 	*p_data = p_parametry;

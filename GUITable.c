@@ -13,16 +13,20 @@ int TableMaker(){
 	int i=0;
 	GetParametry(&p_data, &pocet);
 	
+	/* Zobrazime vertikalni a horizontalni grid */
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_TABLE, ATTR_HORIZONTAL_GRID_VISIBLE, 1);
 	SetCtrlAttribute (GUIPanelHandle, GUIPanel_TABLE, ATTR_VERTICAL_GRID_VISIBLE, 1);
-															 
+	/* Prida sloupce do tabulky */														 
 	InsertTableColumns (GUIPanelHandle, GUIPanel_TABLE, -1, 10, VAL_CELL_STRING);
-	 
+	/* Vypne meneni velikosti radku */
 	SetCtrlAttribute(GUIPanelHandle, GUIPanel_TABLE,ATTR_ENABLE_ROW_SIZING,0);
+	/* Vypne meneni velikosti sloupce */
 	SetCtrlAttribute(GUIPanelHandle, GUIPanel_TABLE,ATTR_ENABLE_COLUMN_SIZING,0);
+	/* Vypne vyskakovaci menu */
 	SetCtrlAttribute(GUIPanelHandle, GUIPanel_TABLE,ATTR_ENABLE_POPUP_MENU,0);
+	/* Vypne upravu textu */
 	SetCtrlAttribute(GUIPanelHandle, GUIPanel_TABLE,ATTR_NO_EDIT_TEXT,0);
-		
+	/* Vlozime sloupce */	
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1); 
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,1, ATTR_LABEL_TEXT, "Pn");
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,2, ATTR_LABEL_TEXT, "Namerena hodnota");
@@ -34,7 +38,7 @@ int TableMaker(){
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,8, ATTR_LABEL_TEXT, "Prumer");
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,9, ATTR_LABEL_TEXT, "Odchylka");
 	SetTableColumnAttribute(GUIPanelHandle, GUIPanel_TABLE,10, ATTR_LABEL_TEXT, "TimeStamp");
-	
+	/* Povoli pouzivani popisku */
 	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_USE_LABEL_TEXT, 1); 
 	SetTableRowAttribute(GUIPanelHandle, GUIPanel_TABLE,-1, ATTR_LABEL_TEXT, "");
 		  
@@ -61,7 +65,7 @@ int TableFiller(){
 	char StrHolder[512];
 	
 	GetParametry(&p_data, &pocet);
-	
+	/* Vlozime hodnoty z SQL do tabulky */
 	for(i=0;i<pocet;i++){
 	
 		ParHolder = (p_data+i)->cislo_parametru;

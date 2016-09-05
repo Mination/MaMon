@@ -9,7 +9,10 @@
 /*  NACTE PROMENNE Z .INI FILE */
 
 int iniFileReader(){
+	
 	IniText iniLoadUp = Ini_New(0); 
+	
+	/* ZAVOLAME init */
 	init(); 
 	
 	Ini_ReadFromFile (iniLoadUp,"MaMon.ini");
@@ -17,8 +20,7 @@ int iniFileReader(){
 	/* STRINGY  */
 	
 	Ini_GetStringCopy (iniLoadUp, "SQL", "DSN", &DSN);
-	//Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Typ", &typ);
-	//Ini_GetStringCopy (iniLoadUp, "ZpetnaVazba", "Adresa", &adresa);
+	
 	Ini_GetStringCopy (iniLoadUp, "SberDat", "CasStart", &casStart);
 	
 	/*    INTY   */
@@ -27,14 +29,6 @@ int iniFileReader(){
 	Ini_GetInt(iniLoadUp,"Stroj","AlarmLimitProc",&alarmLimitProc);
 	Ini_GetDouble(iniLoadUp,"SberDat","IntervalSec",&intervalSecDouble);
 	Ini_GetInt(iniLoadUp,"SberDat","PocetVzorku",&pocetVzorku);
-	
-	/*    BOOLEANY   */
-	
-	//Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavOK", &OK);
-	//Ini_GetInt (iniLoadUp, "ZpetnaVazba", "StavNOK", &NOK);
-	
-	
-	
 	
 	
 	
@@ -45,12 +39,17 @@ int iniFileReader(){
 }
 
 int init(){
+	/* Nacteme GUIPanel */
 	GUIPanelHandle = LoadPanel (0,"MaMon.uir", GUIPanel);
 	SetSystemAttribute (ATTR_TASKBAR_BUTTON_VISIBLE, 0);
+	/* Nacteme InfPanel */
 	InfPanelHandle = LoadPanel (0,"MaMon.uir", InfPanel);
 	IconChanger("Assets/Icon/GUIPanelIcon.ico",InfPanelHandle);
+	/* Zobrazime InfPanel */
 	DisplayPanel(InfPanelHandle);
+	/* Nacteme modrou trayikonu */
 	TryIconBluePreIni();
+	/* Discartneme InfPanel */
 	DiscardPanel(InfPanelHandle);
 	
 	return 0;
