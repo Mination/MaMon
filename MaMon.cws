@@ -54,13 +54,13 @@ Disk Date = 3440480400
 In Projects = "1,"
 
 [File 0002]
-Path = "/c/Program Files (x86)/National Instruments/CVI2012/toolslib/datasock/dataskt.fp"
+Path = "/c/program files (x86)/national instruments/cvi2012/toolslib/datasock/dataskt.fp"
 File Type = "Function Panel"
 Disk Date = 3440480400
 In Projects = "1,"
 
 [File 0003]
-Path = "/c/Program Files (x86)/National Instruments/CVI2012/toolslib/toolbox/inifile.fp"
+Path = "/c/program files (x86)/national instruments/cvi2012/toolslib/toolbox/inifile.fp"
 File Type = "Function Panel"
 Disk Date = 3440480400
 In Projects = "1,"
@@ -142,7 +142,7 @@ Source Window State = "1,0,8,8,0,12,12,0,0,84,0,0,0,0,0,20,0,0,2,11,349,715,1,0,
 [File 0011]
 Path = "/c/Users/User/Desktop/Práce-Vishay/MaMon/MaMon.uir"
 File Type = "User Interface Resource"
-Disk Date = 3555999853
+Disk Date = 3556002081
 In Projects = "1,"
 Window Top = 64
 Window Left = 26
@@ -229,7 +229,7 @@ In Projects = "1,"
 [File 0020]
 Path = "/c/Users/User/Desktop/Práce-Vishay/MaMon/MaMon_dbg.exe"
 File Type = "Unknown"
-Disk Date = 3555952615
+Disk Date = 3555999857
 In Projects = "1,"
 
 [File 0021]
