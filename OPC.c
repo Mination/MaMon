@@ -52,10 +52,14 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 	switch (event) {
 		case DS_EVENT_DATAUPDATED:
 			if(cnt<pocetVzorku){
+				if(cnt==0){
+				TrayIconGreen();
+				SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 1); 
+				}
 				
 				/* ziskame data z OPC */
 				DS_GetDataValue (dsHandle, CAVT_DOUBLE, &value, sizeof(double), NULL, NULL);
-				/* ulozime do arraye */
+				/* ulozime do arraye */   
 				Vzorky[cnt]=value;
 				cnt++; 
 				/* vytvorime casovou znamku a vlozime ji do tabulky */
@@ -93,15 +97,10 @@ void DataSocketEvent (DSHandle dsHandle, int event, void *callbackData)
 }
 /*  ZMENI TRAYICON NA ZELENOU // ZAVOLA FUNKCI InitOPC // ZKONTROLUJE JESTLI SE cnt ROVNA pocetVzorku POKUD ANO, cnt SE SETNE NA 0 A TRAYICON SE ZMENI NA SEDOU */ 
 
-int measureFun(){
-	TrayIconGreen();
-	
+int measureFun(){	 
 	InitOPC();
 	if(cnt==pocetVzorku){
-		
-		TrayIconGray();
-		cnt=0;
-				
+		cnt=0;																	  		
 		//DS_DiscardObjHandle (dsHandle);
 		 	
 	}
@@ -133,9 +132,13 @@ void mainHlidac(){
 	/* ziskame procento spatnych vzorku */
 	procentaVar = ((float)pocetBadVzorku / (float)pocetVzorku)*100;
 	/* jestli je procento spatnych vzorku vetsi nez hodnota ulozena v alarmLimitProc, tak u dane hodnoty zmenime barvu pozadi v tabulce na cervenou */
-	if (procentaVar > alarmLimitProc){
-		DelayWithEventProcessing (2);
+	if (procentaVar >= alarmLimitProc){
+		DelayWithEventProcessing (1);
 		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_RED);
+	}
+	if (procentaVar < alarmLimitProc){
+		DelayWithEventProcessing (1); 
+		SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_GREEN);
 	}
 					 
 }

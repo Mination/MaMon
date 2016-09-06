@@ -13,7 +13,6 @@ int HlidacCas(){
 	
 	CVIAbsoluteTime akt_cas, plan_cas;
 	CVITimeInterval interval;
-	int measureWatcher = 0;
 	int res = 0;
 	int run = 1;
 	unsigned int hour,minute;
@@ -32,13 +31,9 @@ int HlidacCas(){
 		CVIAbsoluteTimeToLocalCalendar (plan_cas, NULL, NULL, NULL, &hour, &minute, NULL, NULL, NULL);
 		sprintf(casString, "%d:%.2d", hour,minute);
 		SetCtrlVal (GUIPanelHandle, GUIPanel_MERENITIME, casString);
-		measureWatcher = measureWatcher + 1;
 		
-		if (measureWatcher == 3){
-			SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 0);
-			measureWatcher = 0;	
-			
-		}
+		TrayIconGray();
+		SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 0); 
 		
 		if(res==1){
 			/* zmenime barvu bunky na bilou */

@@ -226,9 +226,13 @@ int CVICALLBACK mereniButtonCB (int panel, int control, int event,
 	switch (event)
 	{
 		case EVENT_COMMIT:
+			/* zmenime barvu bunky na bilou */
+			SetTableCellAttribute (GUIPanelHandle, GUIPanel_TABLE, MakePoint (2, 1), ATTR_TEXT_BGCOLOR, VAL_WHITE);
+			/* zmerime a porovname s min max */
 			measureFun();
-			SetCtrlAttribute (GUIPanelHandle, GUIPanel_MERENIBUTTON, ATTR_DIMMED, 1);
-			 
+			mainHlidac();
+			
+		
 			
 			break;
 	}
