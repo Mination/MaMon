@@ -30,6 +30,9 @@
 #define  InfPanel                         3
 #define  InfPanel_PICTURE                 2       /* control type: picture, callback function: (none) */
 
+#define  SQLERROR                         4
+#define  SQLERROR_SQLERRORMESSAGE         2       /* control type: textMsg, callback function: (none) */
+
 
      /* Control Arrays: */
 
